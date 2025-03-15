@@ -4,7 +4,8 @@ title: Kubernetes Ingress with Contour
 categories: [Blog]
 tags: [kubernetes]
 ---
-
+test
+<!-- 
 There are many challenges when working with Kubernetes, and one of the most common scenarios is getting user traffic to your applications. And on top of that, user traffice from *external* the Kubernetes cluster can be even more difficult. This is where we can start to plan for ingress. One of my favorites is [Contour](https://projectcontour.io/). Contour is a high performance ingress controller based on [Envoy](https://www.envoyproxy.io/), a layer 7 proxy. Both Contour and Envoy are [CNCF](https://www.cncf.io/) projects.
 
 Before we start diving into Contour specifically, let's talk through ingress a little bit. Before we go into ingress, though, let's take a step back and look at what it is like *without* ingress.
@@ -324,4 +325,4 @@ Great! Everything is working as expected.
 
 ## Summary
 
-As your Kubernetes cluster starts to have requirements of taking external traffic in, a typical approach is to introduce an ingress controller to handle this. It gives you a lot of benefits (cost, security, etc.). Contour is a really great example of a modern ingress controller with great performance and an intuitive API. I highly recommend it, and hopefully this blog post has helped introduce you to Contour!
+As your Kubernetes cluster starts to have requirements of taking external traffic in, a typical approach is to introduce an ingress controller to handle this. It gives you a lot of benefits (cost, security, etc.). Contour is a really great example of a modern ingress controller with great performance and an intuitive API. I highly recommend it, and hopefully this blog post has helped introduce you to Contour! -->
