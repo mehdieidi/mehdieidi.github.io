@@ -16,6 +16,6 @@ This blog is where I share my thoughts on software engineering, research insight
 
 The best way to reach me is via Email.
 
-<img src="../assets/email_icon.png" width="15" height="15"> email: mehdiadq[at]gmail[dot]com <br>
-<img src="../assets/linkedin_icon.png" width="15" height="15"> [linkedin](https://www.linkedin.com/in/mehdieidi) <br>
-<img src="../assets/github_icon.png" width="15" height="15"> [github](https://github.com/mehdieidi)
+<img src="../assets/email_icon.png" width="15" height="15" alt="email"> email: mehdiadq[at]gmail[dot]com <br>
+<img src="../assets/linkedin_icon.png" width="15" height="15" alt="linkedin"> [linkedin](https://www.linkedin.com/in/mehdieidi) <br>
+<img src="../assets/github_icon.png" width="15" height="15" alt="github"> [github](https://github.com/mehdieidi)
