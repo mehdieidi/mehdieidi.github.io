@@ -14,6 +14,7 @@ Alongside my academic work, I have hands-on experience in designing, building, a
 
 This blog is where I share my thoughts on software engineering, research insights, and my journey.
 
-Email: mehdiadq[at]gmail[dot]com (The best way to reach me) <br>
+> Email: mehdiadq[at]gmail[dot]com (The best way to reach me) <br>
 [LinkedIn](https://www.linkedin.com/in/mehdieidi) <br>
 [GitHub](https://github.com/mehdieidi)
+{: .prompt-info}
