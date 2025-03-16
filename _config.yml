@@ -28,8 +28,8 @@ url: "https://mehdieidi.github.io"
 github:
   username: mehdieidi # change to your GitHub username
 
-twitter:
-  username:  # change to your Twitter username
+#twitter:
+ # username:  # change to your Twitter username
 
 social:
   # Change to your full name.
@@ -150,7 +150,7 @@ pwa:
 paginate: 10
 
 # The base URL of your site
-baseurl: ""
+baseurl: "https://mehdieidi.github.io"
 
 # ------------ The following options are not recommended to be modified ------------------
 
