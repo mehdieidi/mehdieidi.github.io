@@ -12,7 +12,7 @@ I’m currently a member of the _Methodology Engineering Lab_ at SUT, working un
 
 Beyond research, I have hands-on experience designing, building, and maintaining software systems. I enjoy both the theoretical side and the real-world challenges of developing software systems.
 
-This blog is where I share my thoughts on software engineering, research insights, and the things I learn along the way.
+This blog is where I share my thoughts, research insights, and the things I learn along the way.
 
 > Email: mehdiadq[at]gmail[dot]com (best way to reach me) <br>
 [LinkedIn](https://www.linkedin.com/in/mehdieidi) <br>
