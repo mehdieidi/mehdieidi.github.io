@@ -16,7 +16,7 @@ timezone:
 
 title: Dangling Pointer # the main title
 
-tagline: Somewhere, something incredible is waiting to be known. --Carl Sagan # it will display as the subtitle
+tagline: Thoughts in transit. Not yet freed. Not yet null. # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   A blog about software engineering.
