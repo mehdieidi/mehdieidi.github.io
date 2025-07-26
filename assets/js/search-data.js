@@ -43,18 +43,11 @@ ninja.data = [{
           window.open("mailto:%6D%65%68%64%69%61%64%71@%67%6D%61%69%6C.%63%6F%6D", "_blank");
         },
       },{
-        id: 'social-github',
-        title: 'GitHub',
+        id: 'social-telegram',
+        title: 'telegram',
         section: 'Socials',
         handler: () => {
-          window.open("https://github.com/mehdieidi", "_blank");
-        },
-      },{
-        id: 'social-instagram',
-        title: 'Instagram',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://instagram.com/mhdeidi", "_blank");
+          window.open("https://telegram.me/mehdieidi", "_blank");
         },
       },{
         id: 'social-linkedin',
@@ -64,6 +57,13 @@ ninja.data = [{
           window.open("https://www.linkedin.com/in/mehdieidi", "_blank");
         },
       },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/mehdieidi", "_blank");
+        },
+      },{
         id: 'social-medium',
         title: 'Medium',
         section: 'Socials',
@@ -71,18 +71,11 @@ ninja.data = [{
           window.open("https://medium.com/@mehdieidi", "_blank");
         },
       },{
-        id: 'social-rss',
-        title: 'RSS Feed',
+        id: 'social-instagram',
+        title: 'Instagram',
         section: 'Socials',
         handler: () => {
-          window.open("/feed.xml", "_blank");
-        },
-      },{
-        id: 'social-telegram',
-        title: 'telegram',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://telegram.me/mehdieidi", "_blank");
+          window.open("https://instagram.com/mhdeidi", "_blank");
         },
       },{
       id: 'light-theme',
