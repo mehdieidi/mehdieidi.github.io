@@ -10,8 +10,8 @@ profile:
   image_circular: false # crops the image to make it circular
   more_info: >
     <p style="font-size: 0.6rem;">Department of Computer Science and Engineering</P><br>
-    <p style="font-size: 0.6rem;">Sharif University of Technology</P>
-    <p style="font-size: 0.6rem;">Azadi Avenue</P>
+    <p style="font-size: 0.6rem;">Sharif University of Technology</P><br>
+    <p style="font-size: 0.6rem;">Azadi Avenue</P><br>
     <p style="font-size: 0.6rem;">Tehran, Iran</P>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
