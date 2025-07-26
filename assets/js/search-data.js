@@ -107,11 +107,32 @@ ninja.data = [{
           window.open("mailto:%6D%65%68%64%69%61%64%71@%67%6D%61%69%6C.%63%6F%6D", "_blank");
         },
       },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/mehdieidi", "_blank");
+        },
+      },{
+        id: 'social-instagram',
+        title: 'Instagram',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://instagram.com/mhdeidi", "_blank");
+        },
+      },{
         id: 'social-linkedin',
         title: 'LinkedIn',
         section: 'Socials',
         handler: () => {
-          window.open("https://www.linkedin.com/in/@mehdieidi", "_blank");
+          window.open("https://www.linkedin.com/in/mehdieidi", "_blank");
+        },
+      },{
+        id: 'social-medium',
+        title: 'Medium',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://medium.com/@mehdieidi", "_blank");
         },
       },{
         id: 'social-rss',
@@ -125,7 +146,7 @@ ninja.data = [{
         title: 'telegram',
         section: 'Socials',
         handler: () => {
-          window.open("https://telegram.me/@mehdieidi", "_blank");
+          window.open("https://telegram.me/mehdieidi", "_blank");
         },
       },{
       id: 'light-theme',
