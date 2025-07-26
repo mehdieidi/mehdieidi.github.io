@@ -8,9 +8,12 @@
 # dblp_url: # your DBLP profile url
 # discord_id: # your discord id (18-digit unique numerical identifier)
 email: mehdiadq@gmail.com # your email address
+telegram_username: "mehdieidi"
+linkedin_username: "mehdieidi"
 # facebook_id: # your facebook id
 # flickr_id: # your flickr id
 github_username: "mehdieidi"
+medium_username: "mehdieidi"
 # gitlab_username: # your GitLab user name
 # hal_id: # your HAL id (https://hal.science/)
 # ieee_id: # your ieeexplore.ieee.org/author/id
@@ -21,23 +24,23 @@ instagram_id: "mhdeidi"
 # lastfm_id: # your lastfm id
 # lattes_id: # your ID on Lattes (Brazilian Lattes CV)
 # leetcode_id: # your LeetCode id
-linkedin_username: "mehdieidi"
+
 # mastodon_username: # your mastodon instance+username in the format instance.tld/@username
-medium_username: "mehdieidi"
+
 # orcid_id: # your ORCID ID
 # osf_id: # your OSF ID
 # pinterest_id: # your pinterest id
 # publons_id: # your ID on Publons
 # quora_username: # your Quora username
 # research_gate_profile: # your profile on ResearchGate
-rss_icon: false # comment this line to hide the RSS icon
+#rss_icon: false # comment this line to hide the RSS icon
 #scholar_userid: qc6CJjYAAAAJ # your Google Scholar ID
 # scopus_id: # your profile on Scopus
 # semanticscholar_id: # your Semantic Scholar ID
 # spotify_id: # your spotify id
 # stackoverflow_id: # your stackoverflow id
 # strava_userid: # your strava user id
-telegram_username: "mehdieidi"
+
 # unsplash_id: # your unsplash id
 # wechat_qr: # filename of your wechat qr-code saved as an image (e.g., wechat-qr.png if saved to assets/img/wechat-qr.png)
 # whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
