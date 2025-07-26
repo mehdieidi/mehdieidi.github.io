@@ -10,6 +10,7 @@ profile:
   image_circular: false # crops the image to make it circular
   more_info: >
     <p style="font-size: 0.6rem;">Department of Computer Science and Engineering</P><br>
+    <p style="font-size: 0.6rem;">Methodology Engineering Lab</P><br>
     <p style="font-size: 0.6rem;">Sharif University of Technology</P><br>
     <p style="font-size: 0.6rem;">Azadi Avenue</P><br>
     <p style="font-size: 0.6rem;">Tehran, Iran</P>
