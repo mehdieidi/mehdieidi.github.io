@@ -6,13 +6,13 @@ subtitle: Software Engineer
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: 40.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    Department of Computer Science and Engineering
-    Sharif University of Technology
-    Azadi Avenue
-    Tehran, Iran
+    <p>Department of Computer Science and Engineering</P>
+    <p>Sharif University of Technology</P>
+    <p>Azadi Avenue</P>
+    <p>Tehran, Iran</P>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
