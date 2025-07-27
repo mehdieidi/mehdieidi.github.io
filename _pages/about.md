@@ -9,11 +9,11 @@ profile:
   image: 40.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
-    <p style="font-size: 0.6rem; color: #165b70">Methodology Engineering Lab</P><br>
-    <p style="font-size: 0.6rem; color: #165b70">Department of Computer Science and Engineering</P><br>
-    <p style="font-size: 0.6rem; color: #165b70">Sharif University of Technology</P><br>
-    <p style="font-size: 0.6rem; color: #165b70">Azadi Avenue</P><br>
-    <p style="font-size: 0.6rem; color: #165b70">Tehran, Iran</P>
+    <p style="font-size: 0.6rem; color: #3495b2">Methodology Engineering Lab</P><br>
+    <p style="font-size: 0.6rem; color: #3495b2">Department of Computer Science and Engineering</P><br>
+    <p style="font-size: 0.6rem; color: #3495b2">Sharif University of Technology</P><br>
+    <p style="font-size: 0.6rem; color: #3495b2">Azadi Avenue</P><br>
+    <p style="font-size: 0.6rem; color: #3495b2">Tehran, Iran</P>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
