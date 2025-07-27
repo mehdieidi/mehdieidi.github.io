@@ -7,7 +7,7 @@ subtitle: Software Engineer | Researcher
 profile:
   align: right
   image: 40.jpg
-  image_circular: true # crops the image to make it circular
+  image_circular: false # crops the image to make it circular
   more_info: >
     <p style="font-size: 0.6rem; color: #3495b2">Methodology Engineering Lab</P><br>
     <p style="font-size: 0.6rem; color: #3495b2">Department of Computer Science and Engineering</P><br>
