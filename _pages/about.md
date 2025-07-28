@@ -29,7 +29,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a Master’s student in Software Engineering at <p style="color: #b04fab">Sharif University of Technology</p>, with broad academic interests across the spectrum of software engineering—from high-level development methodologies to the fine details of how software is built and maintained. My work is grounded in a strong emphasis on engineering rigor and software quality, both of which I view as essential pillars of responsible software development.
+I am a Master’s student in Software Engineering at [Sharif University of Technology](https://sharif.edu), with broad academic interests across the spectrum of software engineering—from high-level development methodologies to the fine details of how software is built and maintained. My work is grounded in a strong emphasis on engineering rigor and software quality, both of which I view as essential pillars of responsible software development.
 
 I am currently conducting my thesis under the supervision of Dr. Raman Ramsin, focusing on the design of a methodology for engineering serverless software systems. This research adopts a situational method engineering approach, aiming to systematically tailor development processes to the specific characteristics and challenges of serverless architectures. The work builds upon concepts from model-driven engineering, software architecture, and serverless computing.
 
