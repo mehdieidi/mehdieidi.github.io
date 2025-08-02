@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Mehdi Eidi",
-    "label": "Software Engineering & Researcher",
+    "label": "Software Engineering | Researcher",
     "image": "",
     "email": "mehdiadq@gmail.com",
     "phone": "",
@@ -78,6 +78,9 @@
       ]
     }
   ],
+  "teaching": [
+    {"Teaching Assistant": "Agile"}
+  ],
   "volunteer": [
     {
       "organization": "Urmia University",
@@ -86,7 +89,7 @@
       "url": "",
       "startDate": "2021-08-01",
       "endDate": "2021-11-01",
-      "summary": "Managed and instructed a Go workshop to introduce University students to Go programming language.",
+      "summary": "Managed and instructed a workshop to introduce University students to Go programming language.",
       "highlights": [""]
     }
   ],
