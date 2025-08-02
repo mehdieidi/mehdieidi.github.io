@@ -33,4 +33,4 @@ I am a Master’s student in Software Engineering at [Sharif University of Techn
 
 As a member of the [Methodology Engineering Lab](https://www.sharif.ir/en/web/me_ce), I am currently conducting my thesis under the supervision of [Dr. Raman Ramsin](https://sharif.edu/~ramsin/). My research focuses on the engineering of a methodology for developing serverless software systems, addressing the specific challenges posed by the serverless paradigm. This research integrates concepts from Model-Driven Engineering, Software Architecture, DevOps, and Situational Method Engineering.
 
-Alongside my academic work, I have also acquired practical experience in the software industry, where I have been involved in the design and implementation of real-world software systems. 
+Alongside my academic work, I have also acquired practical experience in the software industry, where I have been involved in the design and implementation of real-world software systems.
