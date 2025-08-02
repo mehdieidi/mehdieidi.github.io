@@ -29,10 +29,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a Master’s student in Software Engineering at [Sharif University of Technology](https://sharif.edu), with broad academic interests across the spectrum of software engineering—from high-level development methodologies to the fine details of how software is built and maintained. My work is grounded in a strong emphasis on engineering rigor and software quality, both of which I view as essential pillars of responsible software development.
+I am a Master’s student in Software Engineering at [Sharif University of Technology](https://sharif.edu), with academic interests that span Serverless Computing, Model-Driven Engineering, DevOps, and Situational Method Engineering.
 
-I am currently conducting my thesis under the supervision of [Dr. Raman Ramsin](https://sharif.edu/~ramsin/), focusing on the engineering of a methodology for developing serverless software systems addressing specific challenges of serverless paradigm. The work builds upon concepts from model-driven engineering, software architecture, method engineering, and serverless computing.
+As a member of the [Methodology Engineering Lab](https://www.sharif.ir/en/web/me_ce), I am currently conducting my thesis under the supervision of [Dr. Raman Ramsin](https://sharif.edu/~ramsin/). My research focuses on the engineering of a methodology for developing serverless software systems addressing specific challenges posed by serverless paradigm by integrating concepts from Model-Driven Engineering, Software Architecture, DevOps, and Situational Method Engineering.
 
-As a member of the [Methodology Engineering Lab](https://www.sharif.ir/en/web/me_ce) at SUT, I contribute to ongoing research in areas such as situational method engineering (SME), model-driven development, and serverless computing. My research interests also include low-code development and AI4SE.
-
-In addition to my academic pursuits, I have gained practical experience in industry, designing and developing real-world software systems. This dual exposure has shaped my research perspective, enabling me to approach academic challenges with a balanced understanding of both theoretical principles and practical constraints.
+Alongside my academic work, I have also acquired practical experience in the software industry, where I have been involved in the design and implementation of real-world software systems. 
