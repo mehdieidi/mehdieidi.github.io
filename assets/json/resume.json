@@ -95,6 +95,39 @@
   ],
   "skills": [
     {
+      "name": "Programming",
+      "level": "Master",
+      "icon": "fa-solid fa-hashtag",
+      "keywords": [
+        "Go (Golang)",
+        "Java",
+        "Python",
+        "Bash Scripting"
+      ]
+    },
+    {
+      "name": "DevOps, CI/CD & Infrastructure",
+      "level": "Master",
+      "icon": "fa-solid fa-hashtag",
+      "keywords": [
+        "Version Control: Git",
+        "Containerization & Orchestration: Docker, Kubernetes",
+        "CI/CD: GitHub Actions, Jenkins",
+        "Infrastructure as Code (IaC): Terraform, Ansible",
+        "Linux (LPIC)"
+      ]
+    },
+    {
+      "name": "Software Design & Architecture",
+      "level": "Master",
+      "icon": "fa-solid fa-hashtag",
+      "keywords": [
+        "Object-Oriented Design",
+        "Domain-Driven Design (DDD)",
+        "Modeling Languages:  UML, BPMN, SysML"
+      ]
+    },
+    {
       "name": "Patterns",
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
@@ -102,7 +135,11 @@
         "Design Patterns",
         "Architectural Patterns",
         "Refactoring Patterns",
-        "Reengineering Patterns"
+        "Reengineering Patterns",
+        "Anti-patterns",
+        "Serverless Patterns",
+        "Workflow Patterns",
+        "Microservices Patterns"
       ]
     },
     {
@@ -110,33 +147,41 @@
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "UP",
-        "DAD",
-        "Scrum",
-        "FDD",
-        "DSDM"
+        "Agile Requirements Engineering",
+        "Agile Software Development: Principles & Practices",
+        "Agile Methodologies: Scrum, DAD, DSDM, FDD, Kanban",
+        "Third Generation Methodologies: UP (Unified Process)"
       ]
     },
     {
-      "name": "Programming Languages",
-      "level": "Master",
-      "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Go",
-        "Java",
-        "C#"
-      ]
-    },
-    {
-      "name": "Data Stores",
+      "name": "Data Management",
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
         "Relational Database Design",
-        "Caching Techniques",
-        "Postgres",
-        "Redis",
-        "MongoDB"
+        "Caching Techniques & Strategies",
+        "Relational Databases: Postgres",
+        "NoSQL Databases: MongoDB, Cassandra, Redis",
+        "Big Data Frameworks: Apache Spark, Apache Hadoop"
+      ]
+    },
+    {
+      "name": "Software Quality",
+      "level": "Master",
+      "icon": "fa-solid fa-hashtag",
+      "keywords": [
+        "Software Testing Techniques",
+        "Development Practices: Test-Driven Development (TDD), Behavior-Driven Development (BDD)"
+      ]
+    },
+    {
+      "name": "Computer Science",
+      "level": "Master",
+      "icon": "fa-solid fa-hashtag",
+      "keywords": [
+        "Data Structures",
+        "Algorithm Design",
+        "Graph Algorithms"
       ]
     }
   ],
@@ -185,6 +230,18 @@
       "issuer": "Iran Language Institute",
       "url": "https://www.ili.ir/",
       "icon": "fa-solid fa-location-dot"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Ranked 3rd among all undergraduate students in the B.Sc. program.",
+      "date": "2023-09-01",
+      "awarder": "Urmia University" 
+    },
+    {
+      "title": "Ranked 63rd among 20,000 participants in the national M.Sc. entrance exam.",
+      "date": "2024-09-01",
+      "awarder": "National Organization of Educational Testing" 
     }
   ],
   "interests": [
