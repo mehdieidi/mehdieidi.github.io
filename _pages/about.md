@@ -29,7 +29,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a Master’s student in Software Engineering at [Sharif University of Technology](https://sharif.edu), with academic interests that span Serverless Computing, Model-Driven Engineering, DevOps, and Situational Method Engineering.
+I am a Master’s student in Software Engineering at [Sharif University of Technology](https://en.sharif.ir/), with academic interests that span Serverless Computing, Model-Driven Engineering, DevOps, and Situational Method Engineering.
 
 As a member of the [Methodology Engineering Lab](https://www.sharif.ir/en/web/me_ce), I am currently conducting my thesis under the supervision of [Dr. Raman Ramsin](https://sharif.edu/~ramsin/). My research focuses on the engineering of a methodology for developing serverless software systems, addressing the specific challenges posed by the serverless paradigm. This research integrates concepts from Model-Driven Engineering, Software Architecture, DevOps, and Situational Method Engineering.
 
