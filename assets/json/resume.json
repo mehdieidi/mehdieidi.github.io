@@ -106,11 +106,11 @@
       ]
     },
     {
-      "name": "DevOps, CI/CD & Infrastructure",
+      "name": "DevOps",
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Version Control: Git",
+        "Version Control: Git, Branching Strategies",
         "Containerization & Orchestration: Docker, Kubernetes",
         "CI/CD: GitHub Actions, Jenkins",
         "Infrastructure as Code (IaC): Terraform, Ansible",
@@ -128,12 +128,12 @@
       ]
     },
     {
-      "name": "Patterns",
+      "name": "Patterns in Software Engineering",
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
         "Design Patterns",
-        "Architectural Patterns",
+        "Architectural Patterns & Styles",
         "Refactoring Patterns",
         "Reengineering Patterns",
         "Anti-patterns",
@@ -175,7 +175,7 @@
       ]
     },
     {
-      "name": "Computer Science",
+      "name": "Core Computer Science",
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
