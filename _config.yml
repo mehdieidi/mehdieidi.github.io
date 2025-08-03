@@ -622,7 +622,7 @@ jekyll_get_json:
 jsonresume:
   - basics
   - education
-  - Work Experience
+  - "Work Experience"
   - volunteer
   - skills
   - languages
