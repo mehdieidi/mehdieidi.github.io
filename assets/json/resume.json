@@ -46,7 +46,7 @@
       "courses": []
     }
   ],
-   "work": [
+   "work experience": [
     {
       "name": "Imenaria",
       "position": "Software Engineer",
@@ -249,12 +249,12 @@
       "name": "",
       "icon": "fa-solid fa-tag",
       "keywords":  [
-        "Empirical Software Engineering",
         "Model-Driven Engineering (MDE)",
         "Low-Code / No-Code Development",
         "Software Architecture",
         "Serverless Computing",
         "DevOps",
+        "Empirical Software Engineering",
         "Situational Method Engineering",
         "AI for Software Engineering (AI4SE)"
       ]
