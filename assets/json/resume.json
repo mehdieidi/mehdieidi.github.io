@@ -246,14 +246,17 @@
   ],
   "interests": [
     {
-      "name": "Computer Science",
+      "name": "",
       "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Method Engineering",
-        "Model-Driven Engineering",
+      "keywords":  [
+        "Empirical Software Engineering",
+        "Model-Driven Engineering (MDE): Model Transformation, Meta-modeling, Code Generation, Domain-Specific Languages, Model Validation & Verification",
+        "Low-Code / No-Code Development",
+        "Software Architecture",
         "Serverless Computing",
-        "Safety-Critical Systems",
-        "Distributed Systems"
+        "DevOps",
+        "Situational Method Engineering",
+        "AI for Software Engineering (AI4SE)"
       ]
     }
   ]
