@@ -234,7 +234,7 @@
   ],
   "awards": [
     {
-      "title": "Ranked 3rd among all undergraduate students in the B.Sc. program.",
+      "title": "Ranked 3rd among all undergraduate students.",
       "date": "2023-09-01",
       "awarder": "Urmia University" 
     },
@@ -246,7 +246,7 @@
   ],
   "interests": [
     {
-      "name": "",
+      "name": "Research Interests",
       "icon": "fa-solid fa-tag",
       "keywords":  [
         "Model-Driven Engineering (MDE)",
