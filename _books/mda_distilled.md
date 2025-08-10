@@ -1,7 +1,7 @@
 ---
 layout: book-review
-title: MDA Distilled: Principles of Model-Driven Architecture
-author: Stephen J. Mellor
+title: "MDA Distilled: Principles of Model-Driven Architecture"
+author: "Stephen J. Mellor"
 cover: assets/img/book_covers/mda_distilled.jpg
 olid:  # use Open Library ID to fetch cover (if no `cover` is provided)
 isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
@@ -12,7 +12,7 @@ started: 2025-08-20
 finished: 
 released: 2004
 stars: 4.6
-goodreads_review: 434828.MDA_Distilled_Priniciples_of_model_driven_Architecture
+goodreads_review: "434828.MDA_Distilled_Priniciples_of_model_driven_Architecture"
 status: Reading  #'abandoned,finished,interested,paused,queued,reading,reread'
 ---
 
