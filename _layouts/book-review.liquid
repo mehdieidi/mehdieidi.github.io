@@ -12,269 +12,223 @@ layout: default
   </style>
 {% endif %}
 
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    {% if page.author or page.released %}
-      <p class="post-meta">
-        {% if page.author %}
-          {{ page.author }}
-        {% endif %}
-        {% if page.author and page.released %} &nbsp;&middot;&nbsp; {% endif %}
-        {% if page.released %}
-          {{ page.released }}
-        {% endif %}
-      </p>
-    {% endif %}
+<!-- This wrapper re-centers your page content -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="post">
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+      {% if page.author or page.released %}
+        <p class="post-meta">
+          {% if page.author %}
+            {{ page.author }}
+          {% endif %}
+          {% if page.author and page.released %} &nbsp;&middot;&nbsp; {% endif %}
+          {% if page.released %}
+            {{ page.released }}
+          {% endif %}
+        </p>
+      {% endif %}
 
-    {% if page.started or page.finished or page.stars %}
-      <p class="post-meta">
-        {% if page.started %}
-          <i class="fa-solid fa-play fa-sm" style="color: var(--global-tip-block) !important"></i> <em>{{ page.started }}</em>
-        {% endif %}
-        {% if page.finished %}
+      {% if page.started or page.finished or page.stars %}
+        <p class="post-meta">
           {% if page.started %}
-            &nbsp;&middot;&nbsp;
+            <i class="fa-solid fa-play fa-sm" style="color: var(--global-tip-block) !important"></i> <em>{{ page.started }}</em>
           {% endif %}
-          <i class="fa-solid fa-stop fa-sm" style="color: #e56565 !important"></i> <em>{{ page.finished }}</em>
-        {% endif %}
-        {% if page.stars %}
-          {% if page.started or page.finished %}
-            &nbsp;&middot;&nbsp;
+          {% if page.finished %}
+            {% if page.started %}
+              &nbsp;&middot;&nbsp;
+            {% endif %}
+            <i class="fa-solid fa-stop fa-sm" style="color: #e56565 !important"></i> <em>{{ page.finished }}</em>
           {% endif %}
-          {% if page.goodreads_review %}
-            <a target="_blank" href="https://www.goodreads.com/review/show/{{ page.goodreads_review }}"><i class="fa-brands fa-goodreads-g"></i>
+          {% if page.stars %}
+            {% if page.started or page.finished %}
+              &nbsp;&middot;&nbsp;
+            {% endif %}
+            {% if page.goodreads_review %}
+              <a target="_blank" href="https://www.goodreads.com/review/show/{{ page.goodreads_review }}"><i class="fa-brands fa-goodreads-g"></i>
+            {% endif %}
+            {% assign full_stars = page.stars | floor %}
+            {% assign half_star = page.stars | minus: full_stars %}
+            {% assign empty_stars = 5 | minus: full_stars %}
+            {% if half_star > 0 %}
+              {% assign empty_stars = empty_stars | minus: 1 %}
+            {% endif %}
+            {% for i in (1..full_stars) -%}
+              <i class="fa-solid fa-star fa-sm"></i>
+            {%- endfor -%}
+            {%- if half_star > 0 %}<i class="fa-solid fa-star-half-stroke fa-sm"></i>{% endif -%}
+            {%- for i in (1..empty_stars) -%}
+              <i class="fa-regular fa-star fa-sm"></i>
+            {%- endfor -%}
+            {% if page.goodreads_review %}
+              </a>
+            {% endif %}
           {% endif %}
-          {% assign full_stars = page.stars | floor %}
-          {% assign half_star = page.stars | minus: full_stars %}
-          {% assign empty_stars = 5 | minus: full_stars %}
-          {% if half_star > 0 %}
-            {% assign empty_stars = empty_stars | minus: 1 %}
-          {% endif %}
-          {% for i in (1..full_stars) -%}
-            <i class="fa-solid fa-star fa-sm"></i>
-          {%- endfor -%}
-          {%- if half_star > 0 %}<i class="fa-solid fa-star-half-stroke fa-sm"></i>{% endif -%}
-          {%- for i in (1..empty_stars) -%}
-            <i class="fa-regular fa-star fa-sm"></i>
-          {%- endfor -%}
-          {% if page.goodreads_review %}
+          {% if page.buy_link %}
+            {% if page.started or page.finished or page.stars %}
+              &nbsp;&middot;&nbsp;
+            {% endif %}
+            <a target="_blank" href="{{ page.buy_link }}"
+              ><i class="fa-solid fa-cart-shopping"></i>
+              {% assign is_amazon_link = page.buy_link | slice: 0, 19 %}
+              {% if is_amazon_link == 'https://www.amazon.' %}
+                <i class="fa-brands fa-amazon"></i>
+              {% endif %}
             </a>
           {% endif %}
+        </p>
+      {% endif %}
+      <p class="post-tags">
+        <a href="{{ year | prepend: '/books/' | relative_url }}"> <i class="fa-solid fa-calendar fa-sm"></i> {{ year }}</a>
+        {% if tags != '' %}
+          &nbsp;&middot;&nbsp;
+          {% for tag in page.tags %}
+            <a href="{{ tag | slugify | prepend: '/books/tag/' | relative_url }}"> <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
+            {% unless forloop.last %}
+              &nbsp;
+            {% endunless %}
+          {% endfor %}
         {% endif %}
-        {% if page.buy_link %}
-          {% if page.started or page.finished or page.stars %}
-            &nbsp;&middot;&nbsp;
-          {% endif %}
-          <a target="_blank" href="{{ page.buy_link }}"
-            ><i class="fa-solid fa-cart-shopping"></i>
-            {% assign is_amazon_link = page.buy_link | slice: 0, 19 %}
-            {% if is_amazon_link == 'https://www.amazon.' %}
-              <i class="fa-brands fa-amazon"></i>
-            {% endif %}
-          </a>
+
+        {% if categories != '' %}
+          &nbsp;&middot;&nbsp;
+          {% for category in page.categories %}
+            <a href="{{ category | slugify | prepend: '/books/category/' | relative_url }}"> <i class="fa-solid fa-tag fa-sm"></i> {{ category }}</a>
+            {% unless forloop.last %}
+              &nbsp;
+            {% endunless %}
+          {% endfor %}
         {% endif %}
       </p>
-    {% endif %}
-    <p class="post-tags">
-      <a href="{{ year | prepend: '/books/' | relative_url }}"> <i class="fa-solid fa-calendar fa-sm"></i> {{ year }}</a>
-      {% if tags != '' %}
-        &nbsp;&middot;&nbsp;
-        {% for tag in page.tags %}
-          <a href="{{ tag | slugify | prepend: '/books/tag/' | relative_url }}"> <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
-          {% unless forloop.last %}
-            &nbsp;
-          {% endunless %}
-        {% endfor %}
+      <hr>
+    </header>
+
+    <article>
+      {% if content == '' %}
+        <figure class="empty-review">
+          {% if page.cover %}
+            <img class="empty-review-cover" alt="{{ page.title }} cover" src="{{ site.baseurl }}/{{ page.cover }}">
+            <figcaption class="empty-review-caption">
+              Cover of <em>{{ page.title }}</em>
+            </figcaption>
+          {% elsif page.olid %}
+            <img class="empty-review-cover" alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg?default=false">
+            <figcaption class="empty-review-caption">
+              Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/olid/{{ page.olid }}">Open Library</a>.
+            </figcaption>
+          {% elsif page.isbn %}
+            <img class="empty-review-cover" alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg?default=false">
+            <figcaption class="empty-review-caption">
+              Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/isbn/{{ page.isbn }}">Open Library</a>.
+            </figcaption>
+          {% endif %}
+        </figure>
+        {% assign status = page.status | upcase %}
+        <div class="clearfix">
+          <h4>{{ status }}</h4>
+        </div>
+      {% else %}
+        <figure>
+          {% if page.cover %}
+            <img alt="{{ page.title }} cover" src="{{ site.baseurl }}/{{ page.cover }}">
+            <figcaption>
+              Cover of <em>{{ page.title }}</em>
+            </figcaption>
+          {% elsif page.olid %}
+            <img alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg?default=false">
+            <figcaption>
+              Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/olid/{{ page.olid }}">Open Library</a>.
+            </figcaption>
+          {% elsif page.isbn %}
+            <img alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg?default=false">
+            <figcaption>
+              Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/isbn/{{ page.isbn }}">Open Library</a>.
+            </figcaption>
+          {% endif %}
+        </figure>
+        <br class="mobile-break" clear="right">
+        <h4>
+          {% if page.start %} Start Date: {{ page.start | date: '%-d %B %Y' }}. {% endif %}
+          {% if page.end %} End Date: {{ page.end | date: '%-d %B %Y' }}. {% endif %}
+        </h4>
+        {{ content }}
       {% endif %}
+    </article>
 
-      {% if categories != '' %}
-        &nbsp;&middot;&nbsp;
-        {% for category in page.categories %}
-          <a href="{{ category | slugify | prepend: '/books/category/' | relative_url }}"> <i class="fa-solid fa-tag fa-sm"></i> {{ category }}</a>
-          {% unless forloop.last %}
-            &nbsp;
-          {% endunless %}
-        {% endfor %}
-      {% endif %}
-    </p>
-    <hr>
-  </header>
-
-  <article>
-    {% if content == '' %}
-      <figure class="empty-review">
-        {% if page.cover %}
-          <img class="empty-review-cover" alt="{{ page.title }} cover" src="{{ site.baseurl }}/{{ page.cover }}">
-          <figcaption class="empty-review-caption">
-            Cover of <em>{{ page.title }}</em>
-          </figcaption>
-        {% elsif page.olid %}
-          <img class="empty-review-cover" alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg?default=false">
-          <figcaption class="empty-review-caption">
-            Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/olid/{{ page.olid }}">Open Library</a>.
-          </figcaption>
-        {% elsif page.isbn %}
-          <img class="empty-review-cover" alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg?default=false">
-          <figcaption class="empty-review-caption">
-            Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/isbn/{{ page.isbn }}">Open Library</a>.
-          </figcaption>
-        {% endif %}
-      </figure>
-      {% assign status = page.status | upcase %}
-      <div class="clearfix">
-        <h4>{{ status }}</h4>
-      </div>
-    {% else %}
-      <figure>
-        {% if page.cover %}
-          <img alt="{{ page.title }} cover" src="{{ site.baseurl }}/{{ page.cover }}">
-          <figcaption>
-            Cover of <em>{{ page.title }}</em>
-          </figcaption>
-        {% elsif page.olid %}
-          <img alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg?default=false">
-          <figcaption>
-            Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/olid/{{ page.olid }}">Open Library</a>.
-          </figcaption>
-        {% elsif page.isbn %}
-          <img alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg?default=false">
-          <figcaption>
-            Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/isbn/{{ page.isbn }}">Open Library</a>.
-          </figcaption>
-        {% endif %}
-      </figure>
-      <br class="mobile-break" clear="right">
-      <h4>
-        {% if page.start %} Start Date: {{ page.start | date: '%-d %B %Y' }}. {% endif %}
-        {% if page.end %} End Date: {{ page.end | date: '%-d %B %Y' }}. {% endif %}
-      </h4>
-      {{ content }}
+    <!-- Reading Streak Calendar Section -->
+    {% if page.reading_log %}
+    <div class="streak-section bg-white p-6 md:p-8 rounded-xl w-full mt-12 border border-gray-200">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Reading Streak</h2>
+        <p class="text-gray-500 mb-6 text-sm">My study sessions for "{{ page.title }}" over the last year.</p>
+        <div class="streak-container overflow-hidden pb-4"> <!-- overflow-hidden to prevent scrollbars -->
+            <div id="streak-grid" class="streak-grid"></div>
+        </div>
+        <div class="flex items-center justify-end mt-4 space-x-2 text-xs text-gray-500">
+            <span>Less</span>
+            <div class="day-legend level-0"></div>
+            <div class="day-legend level-1"></div>
+            <div class="day-legend level-2"></div>
+            <div class="day-legend level-3"></div>
+            <div class="day-legend level-4"></div>
+            <span>More</span>
+        </div>
+    </div>
     {% endif %}
-  </article>
+    <!-- End Reading Streak Calendar -->
 
-  <!-- Reading Streak Calendar Section -->
-  {% if page.reading_log %}
-  <div class="streak-section bg-white p-6 md:p-8 rounded-xl shadow-lg w-full mt-12">
-      <h2 class="text-2xl font-bold text-gray-800 mb-2">Reading Streak</h2>
-      <p class="text-gray-500 mb-6">Visualizing my study sessions for "{{ page.title }}".</p>
-      <div class="streak-container overflow-x-auto pb-4">
-          <div id="streak-grid" class="streak-grid"></div>
-      </div>
-      <div class="flex items-center justify-end mt-4 space-x-2 text-xs text-gray-500">
-          <span>Less</span>
-          <div class="day level-0"></div>
-          <div class="day level-1"></div>
-          <div class="day level-2"></div>
-          <div class="day level-3"></div>
-          <div class="day level-4"></div>
-          <span>More</span>
-      </div>
+    {% if site.giscus and page.giscus_comments %}
+      {% include giscus.liquid %}
+    {% endif %}
   </div>
-  {% endif %}
-  <!-- End Reading Streak Calendar -->
-
-  {% if site.giscus and page.giscus_comments %}
-    {% include giscus.liquid %}
-  {% endif %}
 </div>
+
 
 <!-- Add required scripts and styles at the end -->
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-  figure {
-    float: none;
-    width: auto;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  figure > img {
-    vertical-align: top;
-    display: block;
-    margin-right: 0px;
-    margin-left: 0px;
-    padding: 0px;
-  }
-  figure figcaption {
-    display: block;
-    caption-side: bottom;
-    text-align: center;
-  }
+  /* Your existing styles */
+  figure { float: none; width: auto; display: block; margin: auto; }
+  figure > img { vertical-align: top; display: block; margin: 0; padding: 0; }
+  figure figcaption { display: block; caption-side: bottom; text-align: center; }
 
   @media screen and (min-width: 600px) {
-    .empty-review {
-      float: left;
-      display: block;
-      margin: 0px 0px 0px 0px;
-      padding: 0px 0px 0px 20px;
-    }
-    .empty-review-caption {
-      caption-side: left;
-      text-align: left;
-    }
-    .empty-review-cover {
-      width: 250px;
-      vertical-align: top;
-      padding-right: 40px;
-    }
-    figure {
-      float: right;
-      display: inline-block;
-      margin: 0px 0px 0px 0px;
-      padding: 0px 0px 0px 20px;
-    }
-    figure img {
-      width: 300px;
-      vertical-align: top;
-    }
-    figure figcaption {
-      caption-side: bottom;
-      text-align: left;
-    }
+    .empty-review { float: left; display: block; margin: 0; padding: 0 0 0 20px; }
+    .empty-review-caption { caption-side: left; text-align: left; }
+    .empty-review-cover { width: 250px; vertical-align: top; padding-right: 40px; }
+    figure { float: right; display: inline-block; margin: 0; padding: 0 0 0 20px; }
+    figure img { width: 300px; vertical-align: top; }
+    figure figcaption { caption-side: bottom; text-align: left; }
     .mobile-break { display: none; }
   }
 
-  blockquote {
-    position: relative;
-    margin: 0px;
-    display: table;
-  }
-  blockquote:before, blockquote:after {
-    /* properties to format the block quotes */
-  }
-  blockquote:before {
-    top: 0;
-    left: 0;
-  }
-  blockquote:after {
-    top: 0;
-    right: 0;
-  }
+  blockquote { position: relative; margin: 0; display: table; }
 
-  /* --- Styles for Reading Streak Calendar --- */
-  .streak-section {
-    font-family: 'Inter', sans-serif;
-  }
+  /* --- Styles for Reading Streak Calendar (FIXED) --- */
+  .streak-section { font-family: 'Inter', sans-serif; }
   .streak-grid {
       display: grid;
-      grid-template-columns: repeat(53, 1fr); /* 53 to be safe */
-      grid-template-rows: repeat(7, 1fr);
+      /* This makes the columns flexible to fit the container */
+      grid-template-columns: repeat(53, 1fr); 
+      grid-template-rows: repeat(7, auto); /* Rows adjust height automatically */
       grid-auto-flow: column;
-      gap: 4px;
+      gap: 3px; /* Reduced gap for smaller screens */
   }
   .day {
-      width: 15px;
-      height: 15px;
-      border-radius: 3px;
+      /* This makes the day squares responsive */
+      width: 100%;
+      aspect-ratio: 1 / 1; /* Ensures the element is always a square */
+      border-radius: 2px;
       background-color: #ebedf0;
       transition: background-color 0.3s ease;
   }
-  .day:hover {
-      outline: 1px solid rgba(0,0,0,0.5);
+  .day-legend {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
   }
+  .day:hover { outline: 1px solid rgba(0,0,0,0.5); }
   .level-0 { background-color: #ebedf0; }
   .level-1 { background-color: #9be9a8; }
   .level-2 { background-color: #40c463; }
@@ -291,65 +245,66 @@ layout: default
       z-index: 1;
       bottom: 125%;
       left: 50%;
-      margin-left: -60px;
+      transform: translateX(-50%);
       opacity: 0;
       transition: opacity 0.3s;
       pointer-events: none;
-      width: 120px;
+      width: max-content; /* Tooltip adjusts to content */
   }
-  .day-container:hover .tooltip {
-      visibility: visible;
-      opacity: 1;
-  }
-  .day-container {
-      position: relative;
-      display: inline-block;
-  }
+  .day-container:hover .tooltip { visibility: visible; opacity: 1; }
+  .day-container { position: relative; display: inline-block; }
 </style>
 
 {% if page.reading_log %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const streakGrid = document.getElementById('streak-grid');
-    if (!streakGrid) return; // Exit if the grid isn't on the page
+    if (!streakGrid) return;
 
-    // --- Your Reading Data (from Jekyll Front Matter) ---
-    // The 'jsonify' filter converts the Liquid array to a JSON array.
     const readingData = {{ page.reading_log | jsonify }};
-
     const dataMap = new Map(readingData.map(item => [item.date, item.level]));
 
-    // --- Calendar Generation ---
     const today = new Date();
-    const oneYearAgo = new Date();
+    today.setHours(0, 0, 0, 0); // Normalize to the start of today for accurate comparison
+
+    const oneYearAgo = new Date(today);
     oneYearAgo.setFullYear(today.getFullYear() - 1);
 
     let currentDate = new Date(oneYearAgo);
-    currentDate.setDate(currentDate.getDate() - currentDate.getDay()); // Start on Sunday
+    currentDate.setDate(currentDate.getDate() - currentDate.getDay()); // Start on the nearest past Sunday
 
     const fragment = document.createDocumentFragment();
 
-    for (let i = 0; i < 372; i++) { // Loop a bit more to ensure full coverage
-        if (currentDate > today) break;
-
+    // Loop for a full 53 weeks to ensure the grid is always full
+    for (let i = 0; i < 371; i++) { 
         const dateString = currentDate.toISOString().split('T')[0];
-        const level = dataMap.get(dateString) || 0;
+        
+        // Only show squares for past and current dates
+        if (currentDate <= today) {
+            const level = dataMap.get(dateString) || 0;
 
-        const dayContainer = document.createElement('div');
-        dayContainer.classList.add('day-container');
+            const dayContainer = document.createElement('div');
+            dayContainer.classList.add('day-container');
 
-        const daySquare = document.createElement('div');
-        daySquare.classList.add('day', `level-${level}`);
-        daySquare.dataset.date = dateString;
+            const daySquare = document.createElement('div');
+            daySquare.classList.add('day', `level-${level}`);
+            daySquare.dataset.date = dateString;
 
-        const tooltip = document.createElement('span');
-        tooltip.classList.add('tooltip');
-        const contributions = level > 0 ? `${level} session(s)` : 'No sessions';
-        tooltip.textContent = `${contributions} on ${currentDate.toDateString()}`;
+            const tooltip = document.createElement('span');
+            tooltip.classList.add('tooltip');
+            const contributions = level > 0 ? `${level} session(s)` : 'No sessions';
+            tooltip.textContent = `${contributions} on ${currentDate.toDateString()}`;
 
-        dayContainer.appendChild(daySquare);
-        dayContainer.appendChild(tooltip);
-        fragment.appendChild(dayContainer);
+            dayContainer.appendChild(daySquare);
+            dayContainer.appendChild(tooltip);
+            fragment.appendChild(dayContainer);
+        } else {
+            // Create an empty, non-interactive square for future dates in the grid
+            const emptySquare = document.createElement('div');
+            emptySquare.classList.add('day', 'level-0');
+            emptySquare.style.opacity = "0.2"; // Make future days faint
+            fragment.appendChild(emptySquare);
+        }
 
         currentDate.setDate(currentDate.getDate() + 1);
     }

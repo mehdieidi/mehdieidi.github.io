@@ -15,13 +15,13 @@ stars: 4.6
 goodreads_review: "434828.MDA_Distilled_Priniciples_of_model_driven_Architecture"
 status: Reading  #'abandoned,finished,interested,paused,queued,reading,reread'
 reading_log:
-  - date: '2025-08-20'
+  - date: '2025-08-05'
     level: 1
-  - date: '2025-08-21'
+  - date: '2025-08-06'
     level: 4
-  - date: '2025-08-22'
+  - date: '2025-08-09'
     level: 2
-  - date: '2025-08-24'
+  - date: '2025-08-10'
     level: 3
 ---
 
