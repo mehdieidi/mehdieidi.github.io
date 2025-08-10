@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const streakGrid = document.getElementById('streak-grid');
     if (!streakGrid) return;
 
-    const readingData = [{"date":"2025-08-05","level":1},{"date":"2025-08-06","level":4},{"date":"2025-08-09","level":2},{"date":"2025-08-10","level":3}];
+    const readingData = [{"date":"2025-08-05","level":1},{"date":"2025-08-06","level":4},{"date":"2025-08-09","level":2},{"date":"2025-08-10","level":2}];
     const dataMap = new Map(readingData.map(item => [item.date, item.level]));
 
     // --- Timezone-Proof Date Logic for 5 Months ---
