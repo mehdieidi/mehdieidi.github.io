@@ -14,8 +14,7 @@ layout: default
 
 <div class="post">
   <header class="post-header">
-    <!-- Added text-4xl and font-bold for a larger, bolder title -->
-    <h1 class="post-title text-4xl font-bold">{{ page.title }}</h1>
+    <h1 class="post-title" style="font-size: 2.5rem; font-weight: 600;">{{ page.title }}</h1>
     {% if page.author or page.released %}
       <p class="post-meta">
         {% if page.author %}
@@ -102,9 +101,8 @@ layout: default
     <hr>
   </header>
 
-  <!-- New grid container for main content and sidebar -->
-  <div class="content-grid">
-    <article class="main-column">
+  <div class="content-wrapper">
+    <article class="main-content">
       {% if content == '' %}
         {% assign status = page.status | upcase %}
         <div class="clearfix">
@@ -117,31 +115,9 @@ layout: default
         </h4>
         {{ content }}
       {% endif %}
-
-      <!-- Reading Streak Calendar Section -->
-      {% if page.reading_log %}
-      <div class="streak-section mt-12">
-          <h2 class="text-xl font-bold mb-2">Reading Streak</h2>
-          <p class="text-sm text-gray-500 mb-6">My study sessions for "{{ page.title }}" over the last year.</p>
-          <div class="streak-container pb-4">
-              <div id="streak-grid" class="streak-grid"></div>
-          </div>
-          <div class="flex items-center justify-end mt-4 space-x-2 text-xs text-gray-500">
-              <span>Less</span>
-              <div class="day-legend level-0"></div>
-              <div class="day-legend level-1"></div>
-              <div class="day-legend level-2"></div>
-              <div class="day-legend level-3"></div>
-              <div class="day-legend level-4"></div>
-              <span>More</span>
-          </div>
-      </div>
-      {% endif %}
-      <!-- End Reading Streak Calendar -->
     </article>
 
-    <!-- Sidebar for the book cover -->
-    <aside class="sidebar-column">
+    <aside class="sidebar">
       <figure>
         {% if page.cover %}
           <img alt="{{ page.title }} cover" src="{{ site.baseurl }}/{{ page.cover }}">
@@ -163,61 +139,68 @@ layout: default
     </aside>
   </div>
 
+  <!-- Reading Streak Calendar Section -->
+  {% if page.reading_log %}
+  <div class="streak-section">
+      <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Reading Streak</h2>
+      <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 1.5rem;">My study sessions for "{{ page.title }}" over the last year.</p>
+      <div class="streak-container">
+          <div id="streak-grid" class="streak-grid"></div>
+      </div>
+      <div class="streak-legend">
+          <span>Less</span>
+          <div class="day-legend level-0"></div>
+          <div class="day-legend level-1"></div>
+          <div class="day-legend level-2"></div>
+          <div class="day-legend level-3"></div>
+          <div class="day-legend level-4"></div>
+          <span>More</span>
+      </div>
+  </div>
+  {% endif %}
+  <!-- End Reading Streak Calendar -->
+
   {% if site.giscus and page.giscus_comments %}
     {% include giscus.liquid %}
   {% endif %}
 </div>
 
-
-<!-- Add required scripts and styles at the end -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
 <style>
-  /* --- New Layout Styles --- */
-  .content-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column on mobile */
+  /* --- Simplified Layout Styles --- */
+  .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
   }
-
-  @media screen and (min-width: 768px) { /* Two columns on larger screens */
-    .content-grid {
-      grid-template-columns: 2.5fr 1fr; /* Main content is 2.5x wider than sidebar */
-    }
-    .main-column {
-      grid-column: 1;
-    }
-    .sidebar-column {
-      grid-column: 2;
-      grid-row: 1; /* Ensures sidebar stays in the first row */
-    }
+  .main-content {
+    flex: 2.5; /* Takes up more space */
+    min-width: 300px; /* Prevents it from getting too small */
   }
-
-  .sidebar-column figure {
-    position: sticky; /* Makes the cover stay in view on scroll */
+  .sidebar {
+    flex: 1; /* Takes up less space */
+    min-width: 200px;
+  }
+  .sidebar figure {
+    position: sticky;
     top: 2rem;
-    width: 100%;
   }
-
-  .sidebar-column figure img {
+  .sidebar img {
     width: 100%;
-    height: auto;
     border-radius: 8px;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
-  
-  .sidebar-column figcaption {
+  .sidebar figcaption {
     text-align: center;
     font-size: 0.875rem;
     color: #6b7280;
     margin-top: 0.75rem;
   }
 
-  blockquote { position: relative; margin: 0; display: table; }
-
-  /* --- Styles for Reading Streak Calendar (FIXED) --- */
-  .streak-section { font-family: 'Inter', sans-serif; }
+  /* --- Styles for Reading Streak Calendar --- */
+  .streak-section {
+    margin-top: 3rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
   .streak-grid {
       display: grid;
       grid-template-columns: repeat(53, 1fr); 
@@ -230,14 +213,12 @@ layout: default
       aspect-ratio: 1 / 1;
       border-radius: 2px;
       background-color: #ebedf0;
-      transition: background-color 0.3s ease;
   }
   .day-legend {
       width: 12px;
       height: 12px;
       border-radius: 2px;
   }
-  .day:hover { outline: 1px solid rgba(0,0,0,0.5); }
   .level-0 { background-color: #ebedf0; }
   .level-1 { background-color: #9be9a8; }
   .level-2 { background-color: #40c463; }
@@ -251,7 +232,7 @@ layout: default
       border-radius: 6px;
       padding: 5px 10px;
       position: absolute;
-      z-index: 10; /* Ensure tooltip is on top */
+      z-index: 10;
       bottom: 125%;
       left: 50%;
       transform: translateX(-50%);
@@ -265,6 +246,15 @@ layout: default
     position: relative; 
     display: inline-block; 
   }
+  .streak-legend {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+  }
 </style>
 
 {% if page.reading_log %}
@@ -276,41 +266,38 @@ document.addEventListener('DOMContentLoaded', function() {
     const readingData = {{ page.reading_log | jsonify }};
     const dataMap = new Map(readingData.map(item => [item.date, item.level]));
 
-    // Use UTC dates throughout to avoid timezone issues.
+    // --- Timezone-Proof Date Logic ---
     const today = new Date();
-    const todayUTC = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()));
+    // Get today's date in YYYY-MM-DD format, ignoring timezone.
+    const todayString = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
 
-    const oneYearAgoUTC = new Date(todayUTC);
-    oneYearAgoUTC.setUTCFullYear(todayUTC.getUTCFullYear() - 1);
+    const oneYearAgo = new Date();
+    oneYearAgo.setFullYear(today.getFullYear() - 1);
 
     // Start calendar on the closest past Sunday
-    let currentDate = new Date(oneYearAgoUTC);
-    currentDate.setUTCDate(currentDate.getUTCDate() - currentDate.getUTCDay());
+    let currentDate = new Date(oneYearAgo);
+    currentDate.setDate(currentDate.getDate() - currentDate.getDay());
 
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < 372; i++) { 
-        const year = currentDate.getUTCFullYear();
-        const month = String(currentDate.getUTCMonth() + 1).padStart(2, '0');
-        const day = String(currentDate.getUTCDate()).padStart(2, '0');
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
         const dateString = `${year}-${month}-${day}`;
         
         const dayContainer = document.createElement('div');
         dayContainer.classList.add('day-container');
 
-        // Compare the calendar date with today's date.
-        if (currentDate <= todayUTC) {
+        if (dateString <= todayString) {
             const level = dataMap.get(dateString) || 0;
 
             const daySquare = document.createElement('div');
             daySquare.classList.add('day', `level-${level}`);
-            daySquare.dataset.date = dateString;
-
+            
             const tooltip = document.createElement('span');
             tooltip.classList.add('tooltip');
             const contributions = level > 0 ? `${level} session(s)` : 'No sessions';
-            
-            // toDateString() uses local time, which is fine for display.
             tooltip.textContent = `${contributions} on ${currentDate.toDateString()}`;
 
             dayContainer.appendChild(daySquare);
@@ -323,8 +310,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         fragment.appendChild(dayContainer);
-        // Increment the date by one day in UTC.
-        currentDate.setUTCDate(currentDate.getUTCDate() + 1);
+        currentDate.setDate(currentDate.getDate() + 1);
     }
     streakGrid.appendChild(fragment);
 });
