@@ -22,7 +22,7 @@ reading_log:
   - date: '2025-08-09'
     level: 2
   - date: '2025-08-10'
-    level: 3
+    level: 2
 ---
 
 As systems have grown more crucial to the operations of organizations worldwide, so too have the costs associated with building and maintaining them. Enter model-driven architecture (MDA), a standard framework from the Object Management Group (OMG) that allows developers to link object models together to build complete systems. MDA prevents design decisions from being intertwined with the application and keeps it independent of its implementation. The result is an application that can be combined with other technologies as well as other applications, and models that become highly reusable assets.
