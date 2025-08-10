@@ -12,7 +12,7 @@ started: 2025-08-20
 finished: 
 released: 2004
 stars: 4.6
-goodreads_review:
+goodreads_review: 434828.MDA_Distilled_Priniciples_of_model_driven_Architecture
 status: reading  #'abandoned,finished,interested,paused,queued,reading,reread'
 ---
 
