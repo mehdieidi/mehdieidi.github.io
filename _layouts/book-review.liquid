@@ -12,8 +12,9 @@ layout: default
   </style>
 {% endif %}
 
-<!-- This wrapper re-centers your page content -->
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- This new grid container creates the two-column layout -->
+<div class="page-grid-container">
+  <!-- Main content column -->
   <div class="post">
     <header class="post-header">
       <h1 class="post-title">{{ page.title }}</h1>
@@ -105,48 +106,11 @@ layout: default
 
     <article>
       {% if content == '' %}
-        <figure class="empty-review">
-          {% if page.cover %}
-            <img class="empty-review-cover" alt="{{ page.title }} cover" src="{{ site.baseurl }}/{{ page.cover }}">
-            <figcaption class="empty-review-caption">
-              Cover of <em>{{ page.title }}</em>
-            </figcaption>
-          {% elsif page.olid %}
-            <img class="empty-review-cover" alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg?default=false">
-            <figcaption class="empty-review-caption">
-              Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/olid/{{ page.olid }}">Open Library</a>.
-            </figcaption>
-          {% elsif page.isbn %}
-            <img class="empty-review-cover" alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg?default=false">
-            <figcaption class="empty-review-caption">
-              Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/isbn/{{ page.isbn }}">Open Library</a>.
-            </figcaption>
-          {% endif %}
-        </figure>
         {% assign status = page.status | upcase %}
         <div class="clearfix">
           <h4>{{ status }}</h4>
         </div>
       {% else %}
-        <figure>
-          {% if page.cover %}
-            <img alt="{{ page.title }} cover" src="{{ site.baseurl }}/{{ page.cover }}">
-            <figcaption>
-              Cover of <em>{{ page.title }}</em>
-            </figcaption>
-          {% elsif page.olid %}
-            <img alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg?default=false">
-            <figcaption>
-              Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/olid/{{ page.olid }}">Open Library</a>.
-            </figcaption>
-          {% elsif page.isbn %}
-            <img alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg?default=false">
-            <figcaption>
-              Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/isbn/{{ page.isbn }}">Open Library</a>.
-            </figcaption>
-          {% endif %}
-        </figure>
-        <br class="mobile-break" clear="right">
         <h4>
           {% if page.start %} Start Date: {{ page.start | date: '%-d %B %Y' }}. {% endif %}
           {% if page.end %} End Date: {{ page.end | date: '%-d %B %Y' }}. {% endif %}
@@ -160,7 +124,8 @@ layout: default
     <div class="streak-section bg-white p-6 md:p-8 rounded-xl w-full mt-12 border border-gray-200">
         <h2 class="text-xl font-bold text-gray-800 mb-2">Reading Streak</h2>
         <p class="text-gray-500 mb-6 text-sm">My study sessions for "{{ page.title }}" over the last year.</p>
-        <div class="streak-container overflow-hidden pb-4"> <!-- overflow-hidden to prevent scrollbars -->
+        <!-- The container no longer hides overflow, allowing tooltips to be visible -->
+        <div class="streak-container pb-4">
             <div id="streak-grid" class="streak-grid"></div>
         </div>
         <div class="flex items-center justify-end mt-4 space-x-2 text-xs text-gray-500">
@@ -180,6 +145,28 @@ layout: default
       {% include giscus.liquid %}
     {% endif %}
   </div>
+
+  <!-- Sidebar for the book cover -->
+  <aside class="cover-sidebar">
+    <figure>
+      {% if page.cover %}
+        <img alt="{{ page.title }} cover" src="{{ site.baseurl }}/{{ page.cover }}">
+        <figcaption>
+          Cover of <em>{{ page.title }}</em>
+        </figcaption>
+      {% elsif page.olid %}
+        <img alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg?default=false">
+        <figcaption>
+          Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/olid/{{ page.olid }}">Open Library</a>.
+        </figcaption>
+      {% elsif page.isbn %}
+        <img alt="{{ page.title }} cover" src="http://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg?default=false">
+        <figcaption>
+          Cover of <em>{{ page.title }}</em> on the <a href="https://openlibrary.org/isbn/{{ page.isbn }}">Open Library</a>.
+        </figcaption>
+      {% endif %}
+    </figure>
+  </aside>
 </div>
 
 
@@ -188,19 +175,40 @@ layout: default
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-  /* Your existing styles */
-  figure { float: none; width: auto; display: block; margin: auto; }
-  figure > img { vertical-align: top; display: block; margin: 0; padding: 0; }
-  figure figcaption { display: block; caption-side: bottom; text-align: center; }
+  /* --- New Layout Styles --- */
+  .page-grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+  }
 
-  @media screen and (min-width: 600px) {
-    .empty-review { float: left; display: block; margin: 0; padding: 0 0 0 20px; }
-    .empty-review-caption { caption-side: left; text-align: left; }
-    .empty-review-cover { width: 250px; vertical-align: top; padding-right: 40px; }
-    figure { float: right; display: inline-block; margin: 0; padding: 0 0 0 20px; }
-    figure img { width: 300px; vertical-align: top; }
-    figure figcaption { caption-side: bottom; text-align: left; }
-    .mobile-break { display: none; }
+  @media screen and (min-width: 768px) { /* Two columns on larger screens */
+    .page-grid-container {
+      grid-template-columns: 2.5fr 1fr; /* Main content is 2.5x wider than sidebar */
+    }
+  }
+
+  .cover-sidebar figure {
+    position: sticky; /* Makes the cover stay in view on scroll */
+    top: 2rem;
+    width: 100%;
+  }
+
+  .cover-sidebar figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+  
+  .cover-sidebar figcaption {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.75rem;
   }
 
   blockquote { position: relative; margin: 0; display: table; }
@@ -209,16 +217,14 @@ layout: default
   .streak-section { font-family: 'Inter', sans-serif; }
   .streak-grid {
       display: grid;
-      /* This makes the columns flexible to fit the container */
       grid-template-columns: repeat(53, 1fr); 
-      grid-template-rows: repeat(7, auto); /* Rows adjust height automatically */
+      grid-template-rows: repeat(7, auto);
       grid-auto-flow: column;
-      gap: 3px; /* Reduced gap for smaller screens */
+      gap: 3px;
   }
   .day {
-      /* This makes the day squares responsive */
       width: 100%;
-      aspect-ratio: 1 / 1; /* Ensures the element is always a square */
+      aspect-ratio: 1 / 1;
       border-radius: 2px;
       background-color: #ebedf0;
       transition: background-color 0.3s ease;
@@ -242,17 +248,21 @@ layout: default
       border-radius: 6px;
       padding: 5px 10px;
       position: absolute;
-      z-index: 1;
+      z-index: 10; /* Ensure tooltip is on top */
       bottom: 125%;
       left: 50%;
       transform: translateX(-50%);
       opacity: 0;
       transition: opacity 0.3s;
       pointer-events: none;
-      width: max-content; /* Tooltip adjusts to content */
+      width: max-content;
   }
   .day-container:hover .tooltip { visibility: visible; opacity: 1; }
-  .day-container { position: relative; display: inline-block; }
+  /* The day-container is now inside the grid, and the tooltip is a child of it */
+  .day-container { 
+    position: relative; 
+    display: inline-block; 
+  }
 </style>
 
 {% if page.reading_log %}
@@ -265,26 +275,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const dataMap = new Map(readingData.map(item => [item.date, item.level]));
 
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // Normalize to the start of today for accurate comparison
+    today.setHours(0, 0, 0, 0);
 
     const oneYearAgo = new Date(today);
     oneYearAgo.setFullYear(today.getFullYear() - 1);
 
     let currentDate = new Date(oneYearAgo);
-    currentDate.setDate(currentDate.getDate() - currentDate.getDay()); // Start on the nearest past Sunday
+    currentDate.setDate(currentDate.getDate() - currentDate.getDay());
 
     const fragment = document.createDocumentFragment();
 
-    // Loop for a full 53 weeks to ensure the grid is always full
-    for (let i = 0; i < 371; i++) { 
+    // The loop now runs 372 times to ensure a full 53-week grid is always rendered
+    for (let i = 0; i < 372; i++) { 
         const dateString = currentDate.toISOString().split('T')[0];
         
-        // Only show squares for past and current dates
+        const dayContainer = document.createElement('div');
+        dayContainer.classList.add('day-container');
+
         if (currentDate <= today) {
             const level = dataMap.get(dateString) || 0;
-
-            const dayContainer = document.createElement('div');
-            dayContainer.classList.add('day-container');
 
             const daySquare = document.createElement('div');
             daySquare.classList.add('day', `level-${level}`);
@@ -296,16 +305,15 @@ document.addEventListener('DOMContentLoaded', function() {
             tooltip.textContent = `${contributions} on ${currentDate.toDateString()}`;
 
             dayContainer.appendChild(daySquare);
-            dayContainer.appendChild(tooltip);
-            fragment.appendChild(dayContainer);
+            dayContainer.appendChild(tooltip); // Tooltip is now inside the container
         } else {
-            // Create an empty, non-interactive square for future dates in the grid
             const emptySquare = document.createElement('div');
             emptySquare.classList.add('day', 'level-0');
-            emptySquare.style.opacity = "0.2"; // Make future days faint
-            fragment.appendChild(emptySquare);
+            emptySquare.style.opacity = "0.2";
+            dayContainer.appendChild(emptySquare);
         }
-
+        
+        fragment.appendChild(dayContainer);
         currentDate.setDate(currentDate.getDate() + 1);
     }
     streakGrid.appendChild(fragment);
