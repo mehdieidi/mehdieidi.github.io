@@ -17,7 +17,8 @@ layout: default
   <!-- Main content column -->
   <div class="post">
     <header class="post-header">
-      <h1 class="post-title">{{ page.title }}</h1>
+      <!-- Added text-4xl and font-bold for a larger, bolder title -->
+      <h1 class="post-title text-4xl font-bold">{{ page.title }}</h1>
       {% if page.author or page.released %}
         <p class="post-meta">
           {% if page.author %}
@@ -124,7 +125,6 @@ layout: default
     <div class="streak-section bg-white p-6 md:p-8 rounded-xl w-full mt-12 border border-gray-200">
         <h2 class="text-xl font-bold text-gray-800 mb-2">Reading Streak</h2>
         <p class="text-gray-500 mb-6 text-sm">My study sessions for "{{ page.title }}" over the last year.</p>
-        <!-- The container no longer hides overflow, allowing tooltips to be visible -->
         <div class="streak-container pb-4">
             <div id="streak-grid" class="streak-grid"></div>
         </div>
@@ -258,7 +258,6 @@ layout: default
       width: max-content;
   }
   .day-container:hover .tooltip { visibility: visible; opacity: 1; }
-  /* The day-container is now inside the grid, and the tooltip is a child of it */
   .day-container { 
     position: relative; 
     display: inline-block; 
@@ -285,9 +284,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const fragment = document.createDocumentFragment();
 
-    // The loop now runs 372 times to ensure a full 53-week grid is always rendered
     for (let i = 0; i < 372; i++) { 
-        const dateString = currentDate.toISOString().split('T')[0];
+        // This manual construction of the date string avoids all timezone issues.
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const dateString = `${year}-${month}-${day}`;
         
         const dayContainer = document.createElement('div');
         dayContainer.classList.add('day-container');
@@ -305,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function() {
             tooltip.textContent = `${contributions} on ${currentDate.toDateString()}`;
 
             dayContainer.appendChild(daySquare);
-            dayContainer.appendChild(tooltip); // Tooltip is now inside the container
+            dayContainer.appendChild(tooltip);
         } else {
             const emptySquare = document.createElement('div');
             emptySquare.classList.add('day', 'level-0');
