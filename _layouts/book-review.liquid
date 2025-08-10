@@ -153,105 +153,207 @@ layout: default
     {% endif %}
   </article>
 
+  <!-- Reading Streak Calendar Section -->
+  {% if page.reading_log %}
+  <div class="streak-section bg-white p-6 md:p-8 rounded-xl shadow-lg w-full mt-12">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">Reading Streak</h2>
+      <p class="text-gray-500 mb-6">Visualizing my study sessions for "{{ page.title }}".</p>
+      <div class="streak-container overflow-x-auto pb-4">
+          <div id="streak-grid" class="streak-grid"></div>
+      </div>
+      <div class="flex items-center justify-end mt-4 space-x-2 text-xs text-gray-500">
+          <span>Less</span>
+          <div class="day level-0"></div>
+          <div class="day level-1"></div>
+          <div class="day level-2"></div>
+          <div class="day level-3"></div>
+          <div class="day level-4"></div>
+          <span>More</span>
+      </div>
+  </div>
+  {% endif %}
+  <!-- End Reading Streak Calendar -->
+
   {% if site.giscus and page.giscus_comments %}
     {% include giscus.liquid %}
   {% endif %}
 </div>
 
+<!-- Add required scripts and styles at the end -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-      figure {
-        float: none;
-        width: auto;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
+  figure {
+    float: none;
+    width: auto;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  figure > img {
+    vertical-align: top;
+    display: block;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
+  }
+  figure figcaption {
+    display: block;
+    caption-side: bottom;
+    text-align: center;
+  }
 
-      }
-      figure  > img {
+  @media screen and (min-width: 600px) {
+    .empty-review {
+      float: left;
+      display: block;
+      margin: 0px 0px 0px 0px;
+      padding: 0px 0px 0px 20px;
+    }
+    .empty-review-caption {
+      caption-side: left;
+      text-align: left;
+    }
+    .empty-review-cover {
+      width: 250px;
+      vertical-align: top;
+      padding-right: 40px;
+    }
+    figure {
+      float: right;
+      display: inline-block;
+      margin: 0px 0px 0px 0px;
+      padding: 0px 0px 0px 20px;
+    }
+    figure img {
+      width: 300px;
+      vertical-align: top;
+    }
+    figure figcaption {
+      caption-side: bottom;
+      text-align: left;
+    }
+    .mobile-break { display: none; }
+  }
 
-           vertical-align: top;
-           display: block;
-           margin-right: 0px;
-           margin-left: 0px;
-           padding: 0px;
-
-      }
-      figure figcaption {
-
-        display: block;
-        caption-side: bottom;
-        text-align: center;
-      }
-
-      @media screen and (min-width: 600px)  {
-
-        .empty-review{
-          float: left;
-          display: block; /* in-line block; */
-          margin: 0px 0px 0px 0px;  /* adjust as needed */
-          padding: 0px 0px 0px 20px;
-         /* top right bottom left */
-          }
-
-         .empty-review-caption {
-                  caption-side: left;
-                  text-align: left;
-
-
-                  }
-
-          .empty-review-cover {
-              width:250px;
-              vertical-align: top;
-              padding-right: 40px;
-              }
-
-          figure {
-
-                float: right;
-                display: in-line block; /* in-line block; */
-                margin: 0px 0px 0px 0px;  /* adjust as needed */
-                padding: 0px 0px 0px 20px;
-               /* top right bottom left */
-              }
-
-          figure img {
-                  width:300px;
-                  vertical-align: top;
-
-                }
-
-          figure figcaption {
-                  caption-side: bottom;
-                  text-align: left;
-
-                  }
-
-          .mobile-break { display: none; }
-
-  /* =Blockquote
-  -------------------------------------------------------------- */
   blockquote {
-
-      position: relative;
-      marign: 0px;
-      display: table;
-
+    position: relative;
+    margin: 0px;
+    display: table;
   }
   blockquote:before, blockquote:after {
-
-   /* properties to format the block quotes /*
-
+    /* properties to format the block quotes */
   }
   blockquote:before {
-      top: 0;
-      left: 0;
-
-
+    top: 0;
+    left: 0;
   }
   blockquote:after {
-      top: 0;
-      right: 0;
+    top: 0;
+    right: 0;
+  }
 
+  /* --- Styles for Reading Streak Calendar --- */
+  .streak-section {
+    font-family: 'Inter', sans-serif;
+  }
+  .streak-grid {
+      display: grid;
+      grid-template-columns: repeat(53, 1fr); /* 53 to be safe */
+      grid-template-rows: repeat(7, 1fr);
+      grid-auto-flow: column;
+      gap: 4px;
+  }
+  .day {
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+      background-color: #ebedf0;
+      transition: background-color 0.3s ease;
+  }
+  .day:hover {
+      outline: 1px solid rgba(0,0,0,0.5);
+  }
+  .level-0 { background-color: #ebedf0; }
+  .level-1 { background-color: #9be9a8; }
+  .level-2 { background-color: #40c463; }
+  .level-3 { background-color: #30a14e; }
+  .level-4 { background-color: #216e39; }
+  .tooltip {
+      visibility: hidden;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 10px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      width: 120px;
+  }
+  .day-container:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+  }
+  .day-container {
+      position: relative;
+      display: inline-block;
   }
 </style>
+
+{% if page.reading_log %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const streakGrid = document.getElementById('streak-grid');
+    if (!streakGrid) return; // Exit if the grid isn't on the page
+
+    // --- Your Reading Data (from Jekyll Front Matter) ---
+    // The 'jsonify' filter converts the Liquid array to a JSON array.
+    const readingData = {{ page.reading_log | jsonify }};
+
+    const dataMap = new Map(readingData.map(item => [item.date, item.level]));
+
+    // --- Calendar Generation ---
+    const today = new Date();
+    const oneYearAgo = new Date();
+    oneYearAgo.setFullYear(today.getFullYear() - 1);
+
+    let currentDate = new Date(oneYearAgo);
+    currentDate.setDate(currentDate.getDate() - currentDate.getDay()); // Start on Sunday
+
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < 372; i++) { // Loop a bit more to ensure full coverage
+        if (currentDate > today) break;
+
+        const dateString = currentDate.toISOString().split('T')[0];
+        const level = dataMap.get(dateString) || 0;
+
+        const dayContainer = document.createElement('div');
+        dayContainer.classList.add('day-container');
+
+        const daySquare = document.createElement('div');
+        daySquare.classList.add('day', `level-${level}`);
+        daySquare.dataset.date = dateString;
+
+        const tooltip = document.createElement('span');
+        tooltip.classList.add('tooltip');
+        const contributions = level > 0 ? `${level} session(s)` : 'No sessions';
+        tooltip.textContent = `${contributions} on ${currentDate.toDateString()}`;
+
+        dayContainer.appendChild(daySquare);
+        dayContainer.appendChild(tooltip);
+        fragment.appendChild(dayContainer);
+
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+    streakGrid.appendChild(fragment);
+});
+</script>
+{% endif %}
