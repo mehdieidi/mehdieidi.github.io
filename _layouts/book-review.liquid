@@ -201,18 +201,24 @@ layout: default
     margin-top: 3rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
+  /* This media query makes the calendar smaller on desktop */
+  @media (min-width: 768px) {
+    .streak-container {
+      max-width: 550px; 
+    }
+  }
   .streak-grid {
       display: grid;
-      /* Changed from 53 to 22 columns for a 5-month view */
+      /* 22 columns for a ~5-month view */
       grid-template-columns: repeat(22, 1fr); 
       grid-template-rows: repeat(7, auto);
       grid-auto-flow: column;
-      gap: 4px; /* Slightly larger gap for bigger cells */
+      gap: 4px;
   }
   .day {
       width: 100%;
       aspect-ratio: 1 / 1;
-      border-radius: 3px; /* Slightly more rounded corners */
+      border-radius: 3px;
       background-color: #ebedf0;
   }
   .day-legend {
