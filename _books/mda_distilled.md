@@ -13,7 +13,7 @@ finished:
 released: 2004
 stars: 4.6
 goodreads_review: 434828.MDA_Distilled_Priniciples_of_model_driven_Architecture
-status: reading  #'abandoned,finished,interested,paused,queued,reading,reread'
+status: Reading  #'abandoned,finished,interested,paused,queued,reading,reread'
 ---
 
 As systems have grown more crucial to the operations of organizations worldwide, so too have the costs associated with building and maintaining them. Enter model-driven architecture (MDA), a standard framework from the Object Management Group (OMG) that allows developers to link object models together to build complete systems. MDA prevents design decisions from being intertwined with the application and keeps it independent of its implementation. The result is an application that can be combined with other technologies as well as other applications, and models that become highly reusable assets.
