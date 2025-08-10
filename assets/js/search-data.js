@@ -30,8 +30,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "books-",
-          title: '',
+        },{id: "books-mda-distilled-principles-of-model-driven-architecture",
+          title: 'MDA Distilled: Principles of Model-Driven Architecture',
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/mda_distilled/";
