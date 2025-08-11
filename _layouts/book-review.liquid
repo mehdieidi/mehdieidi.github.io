@@ -66,8 +66,8 @@ layout: default
           {% if page.started or page.finished or page.stars %}
             &nbsp;&middot;&nbsp;
           {% endif %}
-          <a target="_blank" href="{{ page.buy_link }}"
-            ><i class="fa-solid fa-cart-shopping"></i>
+          <a target="_blank" href="{{ page.buy_link }}">
+            <i class="fa-solid fa-cart-shopping"></i>
             {% assign is_amazon_link = page.buy_link | slice: 0, 19 %}
             {% if is_amazon_link == 'https://www.amazon.' %}
               <i class="fa-brands fa-amazon"></i>
@@ -166,41 +166,59 @@ layout: default
 </div>
 
 <style>
-/* --- Streak calendar (updated) --- */
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.main-content {
+  flex: 2.5;
+  min-width: 300px;
+}
+.sidebar {
+  flex: 1;
+  min-width: 200px;
+}
+.sidebar figure {
+  position: sticky;
+  top: 2rem;
+}
+.sidebar img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.sidebar figcaption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.75rem;
+}
+
+/* Streak Calendar */
 .streak-container {
   max-width: 100%;
-  overflow-x: auto; /* allow horizontal scroll if many weeks */
+  overflow-x: auto;
 }
 .streak-grid {
   display: grid;
-  grid-auto-flow: column; /* fill by column (week) */
+  grid-auto-flow: column;
   gap: 4px;
-  width: 100%;
-  /* columns will be set dynamically by JS */
   grid-template-rows: repeat(7, 1fr);
 }
-.day-container { 
-  position: relative; 
-  display: inline-block; 
-}
+.day-container { position: relative; display: inline-block; }
 .day {
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 3px;
   background-color: #ebedf0;
-  box-sizing: border-box;
 }
-.day-legend {
-  width: 12px;
-  height: 12px;
-  border-radius: 2px;
-}
+.day-legend { width: 12px; height: 12px; border-radius: 2px; }
 .level-0 { background-color: #ebedf0; }
 .level-1 { background-color: #9be9a8; }
 .level-2 { background-color: #40c463; }
 .level-3 { background-color: #30a14e; }
 .level-4 { background-color: #216e39; }
-
 .tooltip {
   visibility: hidden;
   background-color: #333;
@@ -219,48 +237,43 @@ layout: default
   width: max-content;
 }
 .day-container:hover .tooltip { visibility: visible; opacity: 1; }
+.streak-legend {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
 </style>
 
+{% if page.reading_log %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const streakGrid = document.getElementById('streak-grid');
   if (!streakGrid) return;
 
-  // reading_log from Liquid -> JS array of {date: 'YYYY-MM-DD', level: N}
   const readingData = {{ page.reading_log | jsonify }};
-
-  // map dateString -> level
   const dataMap = new Map();
   (readingData || []).forEach(item => {
     if (item && item.date) dataMap.set(item.date, item.level || 0);
   });
 
-  // helpers
-  function normalizeLocal(date) {
+  function normalize(date) {
     return new Date(date.getFullYear(), date.getMonth(), date.getDate());
   }
   function fmt(date) {
-    const y = date.getFullYear();
-    const m = String(date.getMonth() + 1).padStart(2, '0');
-    const d = String(date.getDate()).padStart(2, '0');
-    return `${y}-${m}-${d}`;
+    return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
   }
 
-  const today = normalizeLocal(new Date());
-
-  // start = same day-of-month, 5 months earlier (keeps day-of-month)
-  const startCandidate = normalizeLocal(new Date(today.getFullYear(), today.getMonth() - 5, today.getDate()));
-
-  // start on the closest past Sunday to align weeks (GitHub style)
+  const today = normalize(new Date());
+  const startCandidate = normalize(new Date(today.getFullYear(), today.getMonth() - 5, today.getDate()));
   const startSunday = new Date(startCandidate);
   startSunday.setDate(startSunday.getDate() - startSunday.getDay());
 
-  // number of days inclusive
-  const MS_PER_DAY = 24 * 60 * 60 * 1000;
-  const daysCount = Math.floor((today - startSunday) / MS_PER_DAY) + 1;
+  const daysCount = Math.floor((today - startSunday) / (1000*60*60*24)) + 1;
   const weeks = Math.ceil(daysCount / 7);
-
-  // set grid columns dynamically
   streakGrid.style.gridTemplateColumns = `repeat(${weeks}, 1fr)`;
 
   const fragment = document.createDocumentFragment();
@@ -268,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   while (current <= today) {
     const dateString = fmt(current);
-    const level = dataMap.has(dateString) ? dataMap.get(dateString) : 0;
+    const level = dataMap.get(dateString) || 0;
 
     const dayContainer = document.createElement('div');
     dayContainer.className = 'day-container';
@@ -284,7 +297,6 @@ document.addEventListener('DOMContentLoaded', function() {
     dayContainer.appendChild(tooltip);
     fragment.appendChild(dayContainer);
 
-    // next day
     current.setDate(current.getDate() + 1);
   }
 
