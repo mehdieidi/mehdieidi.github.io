@@ -66,8 +66,8 @@ layout: default
           {% if page.started or page.finished or page.stars %}
             &nbsp;&middot;&nbsp;
           {% endif %}
-          <a target="_blank" href="{{ page.buy_link }}">
-            <i class="fa-solid fa-cart-shopping"></i>
+          <a target="_blank" href="{{ page.buy_link }}"
+            ><i class="fa-solid fa-cart-shopping"></i>
             {% assign is_amazon_link = page.buy_link | slice: 0, 19 %}
             {% if is_amazon_link == 'https://www.amazon.' %}
               <i class="fa-brands fa-amazon"></i>
@@ -166,141 +166,155 @@ layout: default
 </div>
 
 <style>
-.content-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-.main-content {
-  flex: 2.5;
-  min-width: 300px;
-}
-.sidebar {
-  flex: 1;
-  min-width: 200px;
-}
-.sidebar figure {
-  position: sticky;
-  top: 2rem;
-}
-.sidebar img {
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-}
-.sidebar figcaption {
-  text-align: center;
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-top: 0.75rem;
-}
+  /* --- Simplified Layout Styles --- */
+  .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .main-content {
+    flex: 2.5; /* Takes up more space */
+    min-width: 300px; /* Prevents it from getting too small */
+  }
+  .sidebar {
+    flex: 1; /* Takes up less space */
+    min-width: 200px;
+  }
+  .sidebar figure {
+    position: sticky;
+    top: 2rem;
+  }
+  .sidebar img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+  .sidebar figcaption {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.75rem;
+  }
 
-/* Streak Calendar */
-.streak-container {
-  max-width: 100%;
-  overflow-x: auto;
-}
-.streak-grid {
-  display: grid;
-  grid-auto-flow: column;
-  gap: 4px;
-  grid-template-rows: repeat(7, 1fr);
-}
-.day-container { position: relative; display: inline-block; }
-.day {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 3px;
-  background-color: #ebedf0;
-}
-.day-legend { width: 12px; height: 12px; border-radius: 2px; }
-.level-0 { background-color: #ebedf0; }
-.level-1 { background-color: #9be9a8; }
-.level-2 { background-color: #40c463; }
-.level-3 { background-color: #30a14e; }
-.level-4 { background-color: #216e39; }
-.tooltip {
-  visibility: hidden;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 10px;
-  position: absolute;
-  z-index: 10;
-  bottom: 125%;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.2s;
-  pointer-events: none;
-  width: max-content;
-}
-.day-container:hover .tooltip { visibility: visible; opacity: 1; }
-.streak-legend {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  color: #6b7280;
-  margin-top: 0.5rem;
-}
+  /* --- Styles for Reading Streak Calendar --- */
+  .streak-section {
+    margin-top: 3rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  /* This media query makes the calendar smaller on desktop */
+  @media (min-width: 768px) {
+    .streak-container {
+      max-width: 400px; 
+    }
+  }
+  .streak-grid {
+      display: grid;
+      /* 22 columns for a ~5-month view */
+      grid-template-columns: repeat(22, 1fr); 
+      grid-template-rows: repeat(7, auto);
+      grid-auto-flow: column;
+      gap: 4px;
+  }
+  .day {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 3px;
+      background-color: #ebedf0;
+  }
+  .day-legend {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+  }
+  .level-0 { background-color: #ebedf0; }
+  .level-1 { background-color: #9be9a8; }
+  .level-2 { background-color: #40c463; }
+  .level-3 { background-color: #30a14e; }
+  .level-4 { background-color: #216e39; }
+  .tooltip {
+      visibility: hidden;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 10px;
+      position: absolute;
+      z-index: 10;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      width: max-content;
+  }
+  .day-container:hover .tooltip { visibility: visible; opacity: 1; }
+  .day-container { 
+    position: relative; 
+    display: inline-block; 
+  }
+  .streak-legend {
+    display: flex;
+    /* Changed from flex-end to flex-start to align left */
+    justify-content: flex-start; 
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+  }
 </style>
 
 {% if page.reading_log %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const streakGrid = document.getElementById('streak-grid');
-  if (!streakGrid) return;
+    const streakGrid = document.getElementById('streak-grid');
+    if (!streakGrid) return;
 
-  const readingData = {{ page.reading_log | jsonify }};
-  const dataMap = new Map();
-  (readingData || []).forEach(item => {
-    if (item && item.date) dataMap.set(item.date, item.level || 0);
-  });
+    const readingData = {{ page.reading_log | jsonify }};
+    const dataMap = new Map(readingData.map(item => [item.date, item.level]));
 
-  function normalize(date) {
-    return new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  }
-  function fmt(date) {
-    return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
-  }
+    // --- Timezone-Proof Date Logic for 5 Months ---
+    const today = new Date();
+    const todayString = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
 
-  const today = normalize(new Date());
-  const startCandidate = normalize(new Date(today.getFullYear(), today.getMonth() - 5, today.getDate()));
-  const startSunday = new Date(startCandidate);
-  startSunday.setDate(startSunday.getDate() - startSunday.getDay());
+    // Set the start date to 5 months ago
+    const fiveMonthsAgo = new Date();
+    fiveMonthsAgo.setMonth(today.getMonth() - 5);
 
-  const daysCount = Math.floor((today - startSunday) / (1000*60*60*24)) + 1;
-  const weeks = Math.ceil(daysCount / 7);
-  streakGrid.style.gridTemplateColumns = `repeat(${weeks}, 1fr)`;
+    // Start calendar on the closest past Sunday
+    let currentDate = new Date(fiveMonthsAgo);
+    currentDate.setDate(currentDate.getDate() - currentDate.getDay());
 
-  const fragment = document.createDocumentFragment();
-  const current = new Date(startSunday);
+    const fragment = document.createDocumentFragment();
 
-  while (current <= today) {
-    const dateString = fmt(current);
-    const level = dataMap.get(dateString) || 0;
+    // Loop until the current date passes today's date
+    while (currentDate <= today) {
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const dateString = `${year}-${month}-${day}`;
+        
+        const dayContainer = document.createElement('div');
+        dayContainer.classList.add('day-container');
 
-    const dayContainer = document.createElement('div');
-    dayContainer.className = 'day-container';
+        const level = dataMap.get(dateString) || 0;
 
-    const daySquare = document.createElement('div');
-    daySquare.className = `day level-${level}`;
+        const daySquare = document.createElement('div');
+        daySquare.classList.add('day', `level-${level}`);
+        
+        const tooltip = document.createElement('span');
+        tooltip.classList.add('tooltip');
+        const contributions = level > 0 ? `${level} session(s)` : 'No sessions';
+        tooltip.textContent = `${contributions} on ${currentDate.toDateString()}`;
 
-    const tooltip = document.createElement('span');
-    tooltip.className = 'tooltip';
-    tooltip.textContent = (level > 0 ? `${level} session(s)` : 'No sessions') + ' on ' + current.toDateString();
-
-    dayContainer.appendChild(daySquare);
-    dayContainer.appendChild(tooltip);
-    fragment.appendChild(dayContainer);
-
-    current.setDate(current.getDate() + 1);
-  }
-
-  streakGrid.appendChild(fragment);
+        dayContainer.appendChild(daySquare);
+        dayContainer.appendChild(tooltip);
+        
+        fragment.appendChild(dayContainer);
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+    streakGrid.appendChild(fragment);
 });
 </script>
 {% endif %}
