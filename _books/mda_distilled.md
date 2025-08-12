@@ -23,7 +23,7 @@ reading_log:
     level: 2
   - date: '2025-08-10'
     level: 2
-  - date: '2025-08-12'
+  - date: '2025-08-11'
   - level: 4
 ---
 
