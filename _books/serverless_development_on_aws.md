@@ -5,7 +5,7 @@ author: "Sheen Brisals"
 cover: assets/img/book_covers/serverless_development_on_aws.jpg
 olid:  # use Open Library ID to fetch cover (if no `cover` is provided)
 isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
-categories: cloud-computing serverless-computing serverless-architecture
+categories: "Cloud Computing" "Serverless"
 tags: serverless
 buy_link: 
 started: 2025-08-20

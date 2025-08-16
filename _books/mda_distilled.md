@@ -5,8 +5,8 @@ author: "Stephen J. Mellor"
 cover: assets/img/book_covers/mda_distilled.jpg
 olid:  # use Open Library ID to fetch cover (if no `cover` is provided)
 isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
-categories: model-driven-engineering model-driven-architecture model-driven-development
-tags: MDE
+categories: "Model-Driven Engineering"
+tags: mde
 buy_link: 
 started: 2025-08-20
 finished: 
