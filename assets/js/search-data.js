@@ -35,8 +35,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/mda_distilled/";
-            },},{id: "books-",
-          title: '',
+            },},{id: "books-serverless-development-on-aws-building-enterprise-scale-serverless-solutions",
+          title: 'Serverless Development on AWS: Building Enterprise-Scale Serverless Solutions',
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/serverless_development_on_aws/";
