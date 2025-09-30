@@ -5,8 +5,8 @@ author: "Ralph Grimaldi"
 cover: assets/img/book_covers/discrete_math.jpg
 olid:  # use Open Library ID to fetch cover (if no `cover` is provided)
 isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
-categories: model-driven-engineering
-tags: mde
+categories: math
+tags: math discrete_math
 buy_link: 
 started: 2020-02-20
 finished: 2020-05-21
