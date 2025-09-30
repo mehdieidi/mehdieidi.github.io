@@ -105,6 +105,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/programming_languages/";
+            },},{id: "books-software-engineering-a-practitioner-39-s-approach",
+          title: 'Software Engineering: A Practitioner&amp;#39;s Approach',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/se/";
             },},{id: "books-serverless-development-on-aws-building-enterprise-scale-serverless-solutions",
           title: 'Serverless Development on AWS: Building Enterprise-Scale Serverless Solutions',
           description: "",
