@@ -90,6 +90,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/mda_distilled/";
+            },},{id: "books-computer-networking-a-top-down-approach",
+          title: 'Computer Networking: A Top-Down Approach',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/networks/";
             },},{id: "books-operating-system-concepts",
           title: 'Operating System Concepts',
           description: "",
