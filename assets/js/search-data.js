@@ -30,7 +30,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "books-an-introduction-to-formal-languages-and-automata",
+        },{id: "books-introduction-to-the-design-and-analysis-of-algorithms",
+          title: 'Introduction to the Design and Analysis of Algorithms',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/algorithm/";
+            },},{id: "books-an-introduction-to-formal-languages-and-automata",
           title: 'An Introduction to Formal Languages and Automata',
           description: "",
           section: "Books",handler: () => {
