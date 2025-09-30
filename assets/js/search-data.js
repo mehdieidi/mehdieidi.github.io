@@ -100,6 +100,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/os/";
+            },},{id: "books-concepts-of-programming-languages",
+          title: 'Concepts of Programming Languages',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/programming_languages/";
             },},{id: "books-serverless-development-on-aws-building-enterprise-scale-serverless-solutions",
           title: 'Serverless Development on AWS: Building Enterprise-Scale Serverless Solutions',
           description: "",
