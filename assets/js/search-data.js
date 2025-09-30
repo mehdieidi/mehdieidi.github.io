@@ -45,8 +45,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/c_how_to_program/";
-            },},{id: "books-compilers-principles-techniques-and-tools",
-          title: 'Compilers: Principles, Techniques, and Tools',
+            },},{id: "books-operating-system-concepts",
+          title: 'Operating System Concepts',
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/compiler/";
