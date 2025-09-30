@@ -45,6 +45,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/core_java/";
+            },},{id: "books-data-structures-and-algorithms-in-java",
+          title: 'Data Structures and Algorithms in Java',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/data_structures/";
             },},{id: "books-digital-design",
           title: 'Digital Design',
           description: "",
