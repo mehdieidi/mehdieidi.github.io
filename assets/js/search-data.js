@@ -35,6 +35,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/c_how_to_program/";
+            },},{id: "books-discrete-and-combinatorial-mathematics",
+          title: 'Discrete and Combinatorial Mathematics',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/discrete_math/";
             },},{id: "books-mda-distilled-principles-of-model-driven-architecture",
           title: 'MDA Distilled: Principles of Model-Driven Architecture',
           description: "",
