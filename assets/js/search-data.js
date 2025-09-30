@@ -35,6 +35,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/c_how_to_program/";
+            },},{id: "books-core-java-volume-i-fundamentals",
+          title: 'Core Java Volume I--Fundamentals',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/core_java/";
             },},{id: "books-discrete-and-combinatorial-mathematics",
           title: 'Discrete and Combinatorial Mathematics',
           description: "",
