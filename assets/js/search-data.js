@@ -45,6 +45,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/c_how_to_program/";
+            },},{id: "books-compilers-principles-techniques-and-tools",
+          title: 'Compilers: Principles, Techniques, and Tools',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/compiler/";
             },},{id: "books-computer-organization-and-design-mips-edition-the-hardware-software-interface",
           title: 'Computer Organization and Design MIPS Edition: The Hardware/Software Interface',
           description: "",
