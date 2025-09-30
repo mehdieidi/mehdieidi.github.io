@@ -35,6 +35,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/c_how_to_program/";
+            },},{id: "books-computer-organization-and-design-mips-edition-the-hardware-software-interface",
+          title: 'Computer Organization and Design MIPS Edition: The Hardware/Software Interface',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/computer_organization/";
             },},{id: "books-core-java-volume-i-fundamentals",
           title: 'Core Java Volume I--Fundamentals',
           description: "",
