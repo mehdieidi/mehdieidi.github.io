@@ -105,6 +105,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/serverless_development_on_aws/";
+            },},{id: "books-systems-analysis-and-design",
+          title: 'Systems Analysis and Design',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/systems_design/";
             },},{
         id: 'social-email',
         title: 'email',
