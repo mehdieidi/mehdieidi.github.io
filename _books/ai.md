@@ -2,7 +2,7 @@
 layout: book-review
 title: "Artificial Intelligence: A Modern Approach"
 author: "Stuart Russell, Peter Norvig"
-cover: assets/img/book_covers/aijpg
+cover: assets/img/book_covers/ai.jpg
 olid:  # use Open Library ID to fetch cover (if no `cover` is provided)
 isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: artificial_intelligence
