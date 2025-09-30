@@ -65,6 +65,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/data_structures/";
+            },},{id: "books-database-system-concepts",
+          title: 'Database System Concepts',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/database/";
             },},{id: "books-digital-design",
           title: 'Digital Design',
           description: "",
