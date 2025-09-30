@@ -65,6 +65,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/core_java/";
+            },},{id: "books-cryptography-and-network-security-principles-and-practice",
+          title: 'Cryptography and Network Security: Principles and Practice',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/cryptography/";
             },},{id: "books-data-structures-and-algorithms-in-java",
           title: 'Data Structures and Algorithms in Java',
           description: "",
