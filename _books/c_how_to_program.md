@@ -18,12 +18,4 @@ reading_log:
 
 ---
 
-The adoption of serverless is on the rise, but until now, little guidance has been available for development teams that want to apply this technology on AWS. This definitive guide is packed with architectural, security, and data best practices and patterns for architects and engineers who want to build reliable enterprise-scale serverless solutions.
-
-Sheen Brisals, an AWS Serverless Hero, and Luke Hedger, an AWS Community Builder, outline the serverless adoption requirements for an enterprise, examine the development tools your team needs, and explain in depth the nuances of testing event-driven and distributed serverless services. You'll gain practical guidance for keeping up with change and learn how to build serverless solutions with sustainability in mind.
-
-Examine the serverless technology ecosystem and AWS services needed to develop serverless applications
-Learn the approach and preparation required for a successful serverless adoption in an enterprise
-Learn serverless architectures and implementation patterns
-Design, develop, and test distributed serverless microservices on AWS cloud
-Apply security best practices while building serverless solutions
+C How to Program is a comprehensive introduction to programming in C. Like other texts of the Deitels’ How to Program series, the book serves as a detailed beginner source of information for college students looking to embark on a career in coding, or instructors and software-development professionals seeking to learn how to program with C.
