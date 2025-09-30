@@ -30,7 +30,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "books-introduction-to-the-design-and-analysis-of-algorithms",
+        },{id: "books-artificial-intelligence-a-modern-approach",
+          title: 'Artificial Intelligence: A Modern Approach',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/ai/";
+            },},{id: "books-introduction-to-the-design-and-analysis-of-algorithms",
           title: 'Introduction to the Design and Analysis of Algorithms',
           description: "",
           section: "Books",handler: () => {
