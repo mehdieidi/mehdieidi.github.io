@@ -30,7 +30,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "books-mda-distilled-principles-of-model-driven-architecture",
+        },{id: "books-c-how-to-program",
+          title: 'C How to Program',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/c_how_to_program/";
+            },},{id: "books-mda-distilled-principles-of-model-driven-architecture",
           title: 'MDA Distilled: Principles of Model-Driven Architecture',
           description: "",
           section: "Books",handler: () => {
