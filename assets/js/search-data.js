@@ -85,6 +85,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/discrete_math/";
+            },},{id: "books-introduction-to-information-retrieval",
+          title: 'Introduction to Information Retrieval',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/information_retrieval/";
             },},{id: "books-linux-system-programming",
           title: 'Linux System Programming',
           description: "",
