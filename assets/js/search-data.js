@@ -80,11 +80,21 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/discrete_math/";
+            },},{id: "books-linux-system-programming",
+          title: 'Linux System Programming',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/linux_programming/";
             },},{id: "books-mda-distilled-principles-of-model-driven-architecture",
           title: 'MDA Distilled: Principles of Model-Driven Architecture',
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/mda_distilled/";
+            },},{id: "books-operating-system-concepts",
+          title: 'Operating System Concepts',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/os/";
             },},{id: "books-serverless-development-on-aws-building-enterprise-scale-serverless-solutions",
           title: 'Serverless Development on AWS: Building Enterprise-Scale Serverless Solutions',
           description: "",
