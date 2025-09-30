@@ -2,7 +2,7 @@
 layout: book-review
 title: "Computer Organization and Design MIPS Edition: The Hardware/Software Interface"
 author: "David A. Patterson, John L. Hennessy"
-cover: assets/img/book_covers/discrete_math.jpg
+cover: assets/img/book_covers/computer_organization.jpg
 olid:  # use Open Library ID to fetch cover (if no `cover` is provided)
 isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: computer_architecture
