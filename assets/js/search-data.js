@@ -40,6 +40,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/core_java/";
+            },},{id: "books-digital-design",
+          title: 'Digital Design',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/digital_design/";
             },},{id: "books-discrete-and-combinatorial-mathematics",
           title: 'Discrete and Combinatorial Mathematics',
           description: "",
