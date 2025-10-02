@@ -1,4 +1,4 @@
-
+let searchTheme = "light"
 const ninjaKeys = document.querySelector("ninja-keys");
 
 if (searchTheme === "dark") {
