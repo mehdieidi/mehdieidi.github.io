@@ -8,6 +8,7 @@ isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: automata
 tags: language_theory
 buy_link: 
+date: 2021-02-19
 started: 2021-02-19
 finished: 2021-05-22
 released: 2016

@@ -8,6 +8,7 @@ isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: cloud-computing serverless
 tags: serverless
 buy_link: 
+date: 2025-08-20
 started: 2025-08-20
 finished: 
 released: 2024

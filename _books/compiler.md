@@ -8,6 +8,7 @@ isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: compiler_design
 tags: compiler
 buy_link: 
+date: 2021-09-23
 started: 2021-09-23
 finished: 2022-02-20
 released: 2006

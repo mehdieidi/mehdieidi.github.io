@@ -8,6 +8,7 @@ isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: c
 tags: c
 buy_link: 
+date: 2019-09-23
 started: 2019-09-23
 finished: 2020-02-20
 released: 2015

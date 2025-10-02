@@ -8,6 +8,7 @@ isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: model-driven-engineering
 tags: mde
 buy_link: 
+date: 2025-08-20
 started: 2025-08-20
 finished: 
 released: 2004

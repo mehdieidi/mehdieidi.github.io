@@ -8,6 +8,7 @@ isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: math
 tags: math discrete_math
 buy_link: 
+date: 2020-02-20
 started: 2020-02-20
 finished: 2020-05-21
 released: 2013
