@@ -56,11 +56,11 @@
       "summary": "",
       "highlights": [
         "Designed and implemented REST APIs and gRPC services for a video-on-demand system.",
-        "Designed a scalable video transcoding system to handle high volumes of media processing.",
-        "Developed a search system tolerant to spelling mistakes, improving search accuracy and user satisfaction.",
-        "Migrated high volumes of data from MongoDB to PostgreSQL with zero data loss.",
-        "Engineered an automated NGINX configuration generator to streamline server management.",
-        "Created a real-time chat feature to enhance user engagement and interactivity."
+        "Designed a scalable video transcoding system to handle large volumes of media processing.",
+        "Developed a typo-tolerant search system, improving accuracy and user satisfaction.",
+        "Performed large volume data migration from MongoDB to PostgreSQL.",
+        "Developed an automated NGINX configuration generator to streamline server management.",
+        "Designed and developed a real-time chat subsystem to enhance user engagement and interactivity."
       ]
     },
     {
@@ -71,10 +71,11 @@
       "endDate": "2023-07-01",
       "summary": "",
       "highlights": [
-        "Designed and developed a call-center system with a microservices architecture.",
-        "Enhanced system performance by improving the latency of a critical API by a factor of 37 times.",
-        "Mentored and managed entry developers to introduce the architecture and practices of backend development.",
-        "Dockerized and deployed services, utilizing Docker Compose."
+        "Designed and developed a call-center system based on a microservices architecture.",
+        "Improved performance by reducing the latency of a critical API by a factor of 37.",
+        "Conducted architectural and detailed design using Unified Modeling Language (UML).",
+        "Implemented integrated authorization and failover mechanisms.",
+        "Containerized and deployed services using Docker Compose."
       ]
     }
   ],
@@ -249,13 +250,11 @@
       "name": "Research Interests",
       "icon": "fa-solid fa-tag",
       "keywords":  [
-        "Model-Driven Engineering (MDE)",
-        "Low-Code / No-Code Development",
-        "Software Architecture",
         "Serverless Computing",
+        "Model-Driven Engineering (MDE)",
+        "Low-Code Development",
+        "Method Engineering",
         "DevOps",
-        "Empirical Software Engineering",
-        "Situational Method Engineering",
         "AI for Software Engineering (AI4SE)"
       ]
     }
