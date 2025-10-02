@@ -8,6 +8,7 @@ isbn:  # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: artificial_intelligence
 tags: 
 buy_link: 
+date: 2022
 started: 2022-02-20
 finished: 2022-05-22
 released: 2016
