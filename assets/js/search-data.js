@@ -140,6 +140,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/system_design_xu/";
+            },},{id: "books-cloud-native-go-building-reliable-services-in-unreliable-environments",
+          title: 'Cloud Native Go: Building Reliable Services in Unreliable Environments',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/cloud_go/";
             },},{id: "books-network-programming-with-go-learn-to-code-secure-and-reliable-network-services-from-scratch",
           title: 'Network Programming with Go: Learn to Code Secure and Reliable Network Services from...',
           description: "",
@@ -160,6 +165,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/arch_patterns/";
+            },},{id: "books-the-practice-of-enterprise-architecture-a-modern-approach-to-business-and-it-alignment",
+          title: 'The Practice of Enterprise Architecture: A Modern Approach to Business and IT Alignment...',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/ea/";
             },},{id: "books-design-patterns-elements-of-reusable-object-oriented-software",
           title: 'Design patterns : elements of reusable object-oriented software',
           description: "",
@@ -170,6 +180,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/posa/";
+            },},{id: "books-refactoring-improving-the-design-of-existing-code",
+          title: 'Refactoring: Improving the Design of Existing Code',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/refactoring/";
             },},{id: "books-mda-distilled-principles-of-model-driven-architecture",
           title: 'MDA Distilled: Principles of Model-Driven Architecture',
           description: "",
