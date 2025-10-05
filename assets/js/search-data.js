@@ -75,6 +75,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/database/";
+            },},{id: "books-learning-go-an-idiomatic-approach-to-real-world-go-programming",
+          title: 'Learning Go: An Idiomatic Approach to Real-World Go Programming',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/go/";
             },},{id: "books-compilers-principles-techniques-and-tools",
           title: 'Compilers: Principles, Techniques, and Tools',
           description: "",
@@ -135,6 +140,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/system_design_xu/";
+            },},{id: "books-network-programming-with-go-learn-to-code-secure-and-reliable-network-services-from-scratch",
+          title: 'Network Programming with Go: Learn to Code Secure and Reliable Network Services from...',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/network_go/";
             },},{id: "books-introduction-to-software-testing",
           title: 'Introduction to Software Testing',
           description: "",
