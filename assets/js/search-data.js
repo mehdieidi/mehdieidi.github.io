@@ -105,6 +105,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/ai/";
+            },},{id: "books-design-patterns-for-cloud-native-applications-patterns-in-practice-using-apis-data-events-and-streams",
+          title: 'Design Patterns for Cloud Native Applications: Patterns in Practice Using APIs, Data, Events,...',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/cloud_native_patterns/";
             },},{id: "books-cryptography-and-network-security-principles-and-practice",
           title: 'Cryptography and Network Security: Principles and Practice',
           description: "",
@@ -145,6 +150,16 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/arch_patterns/";
+            },},{id: "books-design-patterns-elements-of-reusable-object-oriented-software",
+          title: 'Design patterns : elements of reusable object-oriented software',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/gof/";
+            },},{id: "books-pattern-oriented-software-architecture-volume-1-a-system-of-patterns",
+          title: 'Pattern-Oriented Software Architecture Volume 1: A System of Patterns',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/posa/";
             },},{id: "books-mda-distilled-principles-of-model-driven-architecture",
           title: 'MDA Distilled: Principles of Model-Driven Architecture',
           description: "",
