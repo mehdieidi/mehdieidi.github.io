@@ -125,6 +125,26 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/se/";
+            },},{id: "books-system-design-interview-an-insider-39-s-guide",
+          title: 'System Design Interview – An insider&amp;#39;s guide',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/system_design_xu/";
+            },},{id: "books-introduction-to-software-testing",
+          title: 'Introduction to Software Testing',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/software_testing/";
+            },},{id: "books-choose-your-wow-a-disciplined-agile-delivery-handbook-for-optimizing-your-way-of-working-wow",
+          title: 'Choose Your WoW!: A Disciplined Agile Delivery Handbook for Optimizing Your Way of...',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/wow/";
+            },},{id: "books-software-architecture-patterns",
+          title: 'Software Architecture Patterns',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/arch_patterns/";
             },},{id: "books-mda-distilled-principles-of-model-driven-architecture",
           title: 'MDA Distilled: Principles of Model-Driven Architecture',
           description: "",
