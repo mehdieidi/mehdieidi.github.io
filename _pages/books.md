@@ -1,7 +1,7 @@
 ---
 layout: book-shelf
 title: Bookshelf
-subtitle: Books that I am reading, have read, or will read.
+subtitle: Some of the books I'm reading, have read, or plan to read.
 permalink: /books/
 nav: true
 collection: books
