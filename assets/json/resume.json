@@ -32,7 +32,7 @@
       "startDate": "2024-09-01",
       "endDate": "",
       "score": "",
-      "courses": ["Software Development Methodologies", "Patterns in Software Engineering", "Requirements Engineering", "Enterprise Architecture", "Software Testing"]
+      "courses": ["Software Development Methodologies", "Patterns in Software Engineering", "Requirements Engineering", "Enterprise Architecture", "Software Testing", "Decision Support Systems", "Software Architecture"]
     },
     {
       "institution": "Urmia University",
@@ -100,7 +100,7 @@
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Go (Golang)",
+        "Golang",
         "Java",
         "Python",
         "Bash Scripting"
@@ -112,10 +112,9 @@
       "icon": "fa-solid fa-hashtag",
       "keywords": [
         "Version Control: Git, Branching Strategies",
-        "Containerization & Orchestration: Docker, Kubernetes",
-        "CI/CD: GitHub Actions, Jenkins",
-        "Infrastructure as Code (IaC): Terraform, Ansible",
-        "Linux (LPIC)"
+        "Containerization: Docker",
+        "CI/CD: GitHub Actions",
+        "Linux (LPIC-1)"
       ]
     },
     {
@@ -125,7 +124,8 @@
       "keywords": [
         "Object-Oriented Design",
         "Domain-Driven Design (DDD)",
-        "Modeling Languages:  UML, BPMN, SysML"
+        "Serverless Architecture",
+        "Modeling Languages:  TOSCA, UML, BPMN"
       ]
     },
     {
@@ -139,7 +139,6 @@
         "Reengineering Patterns",
         "Anti-patterns",
         "Serverless Patterns",
-        "Workflow Patterns",
         "Microservices Patterns"
       ]
     },
@@ -162,8 +161,7 @@
         "Relational Database Design",
         "Caching Techniques & Strategies",
         "Relational Databases: Postgres",
-        "NoSQL Databases: MongoDB, Cassandra, Redis",
-        "Big Data Frameworks: Apache Spark, Apache Hadoop"
+        "NoSQL Databases: MongoDB, Cassandra, Redis"
       ]
     },
     {
@@ -171,7 +169,7 @@
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Software Testing Techniques",
+        "Model-Based Testing Techniques",
         "Development Practices: Test-Driven Development (TDD), Behavior-Driven Development (BDD)"
       ]
     },
@@ -182,7 +180,8 @@
       "keywords": [
         "Data Structures",
         "Algorithm Design",
-        "Graph Algorithms"
+        "Graph Algorithms",
+        "Discrete Mathematics"
       ]
     }
   ],
@@ -251,11 +250,9 @@
       "icon": "fa-solid fa-tag",
       "keywords":  [
         "Serverless Computing",
-        "Model-Driven Engineering (MDE)",
+        "Model-Driven Engineering",
         "Low-Code Development",
-        "Method Engineering",
-        "DevOps",
-        "AI for Software Engineering (AI4SE)"
+        "DevOps"
       ]
     }
   ]
