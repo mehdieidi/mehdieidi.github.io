@@ -29,7 +29,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a master’s student in Software Engineering at [Sharif University of Technology](https://en.sharif.ir/), with academic interests that span Serverless Computing, Model-Driven Engineering, DevOps, and Method Engineering.
+I am a master’s student in Software Engineering at [Sharif University of Technology](https://en.sharif.ir/), with academic interests that span Serverless Computing, Model-Driven Engineering, and DevOps.
 
 As a member of the [Methodology Engineering Lab](https://www.sharif.ir/en/web/me_ce), I am currently conducting my [thesis](https://www.sharif.ir/en/web/me_ce/w/mehdi-eidi) under the supervision of [Dr. Raman Ramsin](https://sharif.edu/~ramsin/). My research focuses on the engineering of a model-driven methodology for developing serverless software systems.
 
