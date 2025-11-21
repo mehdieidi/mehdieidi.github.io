@@ -30,18 +30,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-a-post-with-formatting-and-links",
-        
-          title: "a post with formatting and links",
-        
-        description: "march &amp; april, looking forward to summer",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/Engineering/";
-          
-        },
-      },{id: "books-c-how-to-program",
+        },{id: "books-c-how-to-program",
           title: 'C How to Program',
           description: "",
           section: "Books",handler: () => {
