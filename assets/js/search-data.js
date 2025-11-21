@@ -30,18 +30,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-engineering-software-engineering-and-methodologies",
-        
-          title: "Engineering, Software Engineering, and Methodologies",
-        
-        description: "My viewpoint on software engineering",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2025/Engineering/";
-          
-        },
-      },{id: "books-c-how-to-program",
+        },{id: "books-c-how-to-program",
           title: 'C How to Program',
           description: "",
           section: "Books",handler: () => {
