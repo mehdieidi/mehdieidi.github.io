@@ -1,10 +1,10 @@
 ---
 layout: post
-title: a post with formatting and links
-date: 2015-03-15 16:40:16
-description: march & april, looking forward to summer
-tags: formatting links
-categories: sample-posts
+title: Engineering, Software Engineering, Software Development Methodologies
+date: 2025-11-21 16:40:16
+description: What is engineering?
+tags: engineering software_engineering methodology
+categories: concept
 ---
 
 To do
