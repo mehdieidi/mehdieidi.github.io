@@ -34,11 +34,11 @@ ninja.data = [{
         
           title: "Engineering, Software Engineering, and Methodologies",
         
-        description: "My viewpoint on engineering.",
+        description: "My viewpoint on software engineering",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2015/Engineering/";
+            window.location.href = "/blog/2025/Engineering/";
           
         },
       },{id: "books-c-how-to-program",
