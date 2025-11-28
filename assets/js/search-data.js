@@ -223,4 +223,11 @@ ninja.data = [{
         handler: () => {
           window.open("https://medium.com/@mehdieidi", "_blank");
         },
+      },{
+        id: 'social-orcid',
+        title: 'ORCID',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://orcid.org/0009-0000-2426-7728", "_blank");
+        },
       },];
