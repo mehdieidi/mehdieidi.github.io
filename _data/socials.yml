@@ -27,7 +27,7 @@ medium_username: "mehdieidi"
 
 # mastodon_username: # your mastodon instance+username in the format instance.tld/@username
 
-# orcid_id: # your ORCID ID
+orcid_id: 0009-0000-2426-7728
 # osf_id: # your OSF ID
 # pinterest_id: # your pinterest id
 # publons_id: # your ID on Publons
