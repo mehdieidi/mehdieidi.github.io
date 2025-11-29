@@ -223,4 +223,11 @@ ninja.data = [{
         handler: () => {
           window.open("https://orcid.org/0009-0000-2426-7728", "_blank");
         },
+      },{
+        id: 'social-researchgate',
+        title: 'ResearchGate',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.researchgate.net/profile/https://www.researchgate.net/profile/Mehdi-Eidi/", "_blank");
+        },
       },];
