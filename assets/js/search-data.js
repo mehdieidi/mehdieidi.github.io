@@ -217,13 +217,6 @@ ninja.data = [{
           window.open("https://github.com/mehdieidi", "_blank");
         },
       },{
-        id: 'social-medium',
-        title: 'Medium',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://medium.com/@mehdieidi", "_blank");
-        },
-      },{
         id: 'social-orcid',
         title: 'ORCID',
         section: 'Socials',
