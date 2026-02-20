@@ -1803,6 +1803,6 @@ const CATEGORIES = {
     systems:      { label: "Systems",       color: "#f0883e", icon: "⚙️" },
     theory:       { label: "Theory",        color: "#f778ba", icon: "🧠" },
     engineering:  { label: "Engineering",   color: "#3fb950", icon: "🏗️" },
-    ai:           { label: "AI",            color: "#f85149", icon: "🤖" },
+    "ai-ml":           { label: "AI",            color: "#f85149", icon: "🤖" },
     professional: { label: "Professional",  color: "#d29922", icon: "👔" }
 };
