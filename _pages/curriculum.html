@@ -1,6 +1,6 @@
 ---
 layout: none
-title: CS Curriculum
+title: CS Curriculum Explorer
 permalink: /curriculum/
 ---
 
@@ -9,8 +9,8 @@ permalink: /curriculum/
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS & Software Engineering Curriculum Explorer</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <title>Curriculum Explorer</title>
+    <link rel="stylesheet" href="/assets/css/curriculum_styles.css">
 </head>
 <body>
     <div id="app">
@@ -18,12 +18,12 @@ permalink: /curriculum/
         <aside id="sidebar">
             <div class="sidebar-header">
                 <h1>🎓 Curriculum Explorer</h1>
-                <p class="subtitle">Zero → Senior Engineer in 5 Years</p>
+                <!-- <p class="subtitle">Subtitle</p> -->
             </div>
             <nav id="curriculum-nav">
                 <button class="nav-btn active" data-curriculum="bsc">
                     <span class="nav-icon">🖥️</span>
-                    <span class="nav-label">BSc Computer Science</span>
+                    <span class="nav-label">BSc CS</span>
                     <span class="nav-badge" id="bsc-badge">0/0</span>
                 </button>
                 <button class="nav-btn" data-curriculum="se">
@@ -31,11 +31,11 @@ permalink: /curriculum/
                     <span class="nav-label">Software Engineering</span>
                     <span class="nav-badge" id="se-badge">0/0</span>
                 </button>
-                <button class="nav-btn" data-curriculum="master">
+                <!-- <button class="nav-btn" data-curriculum="master">
                     <span class="nav-icon">🚀</span>
                     <span class="nav-label">Master Curriculum</span>
                     <span class="nav-badge" id="master-badge">0/0</span>
-                </button>
+                </button> -->
                 <button class="nav-btn" data-curriculum="sharif">
                     <span class="nav-icon">🏛️</span>
                     <span class="nav-label">SUT CE</span>
@@ -58,7 +58,7 @@ permalink: /curriculum/
                         <option value="all">All Categories</option>
                     </select>
                 </div>
-                <div class="filter-group">
+                <!-- <div class="filter-group">
                     <label>AI-Proof Rating</label>
                     <select id="filter-ai">
                         <option value="all">All Ratings</option>
@@ -66,7 +66,7 @@ permalink: /curriculum/
                         <option value="medium">🟡 Medium (5-7)</option>
                         <option value="low">🔴 Low (1-4)</option>
                     </select>
-                </div>
+                </div> -->
                 <div class="filter-group">
                     <label>Status</label>
                     <select id="filter-status">
@@ -114,7 +114,7 @@ permalink: /curriculum/
                     <span class="legend-item"><span class="dot systems"></span>Systems</span>
                     <span class="legend-item"><span class="dot theory"></span>Theory</span>
                     <span class="legend-item"><span class="dot engineering"></span>Engineering</span>
-                    <span class="legend-item"><span class="dot ai-ml"></span>AI/ML</span>
+                    <span class="legend-item"><span class="dot ai-ml"></span>AI</span>
                     <span class="legend-item"><span class="dot professional"></span>Professional</span>
                 </div>
             </header>
@@ -154,7 +154,7 @@ permalink: /curriculum/
                             <th class="sortable" data-sort="semester">Semester</th>
                             <th class="sortable" data-sort="category">Category</th>
                             <th class="sortable" data-sort="hours">Hours</th>
-                            <th class="sortable" data-sort="aiproof">AI-Proof</th>
+                            <!-- <th class="sortable" data-sort="aiproof">AI-Proof</th> -->
                             <th>Prerequisites</th>
                         </tr>
                     </thead>
@@ -170,7 +170,7 @@ permalink: /curriculum/
         </div>
     </div>
 
-    <script src="/assets/js/data.js"></script>
-    <script src="/assets/js/app.js"></script>
+    <script src="/assets/data/curriculum/data.js"></script>
+    <script src="/assets/js/curriculum_app.js"></script>
 </body>
 </html>
