@@ -1,13 +1,12 @@
 // ============================================
-// CURRICULUM DATA — Based on MIT, Stanford, Harvard
-// All links verified to free courseware with video lectures
+// CURRICULUM DATA — Based on MIT, Stanford, Harvard, SUT
 // ============================================
 
 const CURRICULA = {
     bsc: {
         name: "BSc Computer Science",
         icon: "🖥️",
-        description: "Complete undergraduate CS curriculum based on MIT 6-3, Stanford CS BS, and Harvard CS concentration requirements. All resources are free with video lectures.",
+        description: "BSc CS curriculum based on MIT, Stanford, and Harvard.",
         semesters: [
             { id: "1a", label: "Year 1 — Fall", subtitle: "Intro Programming & Calculus" },
             { id: "1b", label: "Year 1 — Spring", subtitle: "Data Structures & Discrete Math" },
@@ -912,13 +911,8 @@ const CURRICULA = {
             }
         ]
     },
-    // ============================================
-// SHARIF UNIVERSITY — BSc Computer Engineering
-// Add this as a new key inside CURRICULA = { bsc: {...}, se: {...}, master: {...}, sharif: {...} }
-// Paste after the master curriculum's closing brace and comma
-// ============================================
 
-        sharif: {
+    sharif: {
         name: "Sharif University — BSc CE",
         icon: "🏛️",
         description: "Official BSc Computer Engineering curriculum from Sharif University of Technology, Tehran. 140 units total: 20 general, 25 foundation, 61 core, 21 specialized, 13 elective. Last approved: 1402/03/10 (2023/05/31). Source: docs.ce.sharif.edu/programs/bs-ce",
@@ -1809,6 +1803,6 @@ const CATEGORIES = {
     systems:      { label: "Systems",       color: "#f0883e", icon: "⚙️" },
     theory:       { label: "Theory",        color: "#f778ba", icon: "🧠" },
     engineering:  { label: "Engineering",   color: "#3fb950", icon: "🏗️" },
-    "ai-ml":      { label: "AI/ML",         color: "#f85149", icon: "🤖" },
+    ai:           { label: "AI",            color: "#f85149", icon: "🤖" },
     professional: { label: "Professional",  color: "#d29922", icon: "👔" }
 };
