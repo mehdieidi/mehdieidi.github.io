@@ -1,12 +1,12 @@
 // ============================================
-// CURRICULUM EXPLORER APP — COMPLETE
+// CURRICULUM EXPLORER APP — COMPLETE (FIXED)
 // ============================================
 
 (function () {
     "use strict";
 
     // ---- STATE ----
-    const state = {
+    var state = {
         currentCurriculum: "bsc",
         currentView: "timeline",
         selectedCourse: null,
@@ -26,7 +26,8 @@
             dragStartX: 0,
             dragStartY: 0,
             dragOffsetX: 0,
-            dragOffsetY: 0
+            dragOffsetY: 0,
+            initialized: false   // true after first bindGraphEvents
         }
     };
 
@@ -239,7 +240,6 @@
         g.nodes.forEach(function (n) { g.nodeMap[n.id] = n; });
     }
 
-    // Recursively collect the full prerequisite and future-use chains
     function getConnectedIds(nodeId) {
         var course = findCourse(nodeId);
         if (!course) return { prereqs: {}, futures: {}, edges: [] };
@@ -247,57 +247,40 @@
         var prereqs = {};
         var futures = {};
         var edges = [];
+        var edgeSet = {};
 
-        // Walk prerequisites recursively (all ancestors)
+        function addEdge(from, to, type) {
+            var key = from + "|" + to;
+            if (!edgeSet[key]) {
+                edgeSet[key] = true;
+                edges.push({ from: from, to: to, type: type });
+            }
+        }
+
         function walkUp(id) {
             var c = findCourse(id);
             if (!c) return;
             c.prerequisites.forEach(function (pid) {
+                addEdge(pid, id, "prereq");
                 if (!prereqs[pid]) {
                     prereqs[pid] = true;
-                    edges.push({ from: pid, to: id, type: "prereq" });
                     walkUp(pid);
-                } else {
-                    // Edge might still be missing even if node was visited via another path
-                    if (!edges.some(function (e) { return e.from === pid && e.to === id; })) {
-                        edges.push({ from: pid, to: id, type: "prereq" });
-                    }
                 }
             });
         }
 
-        // Walk future-use recursively (all descendants)
         function walkDown(id) {
             var c = findCourse(id);
             if (!c) return;
             c.futureUse.forEach(function (fid) {
+                addEdge(id, fid, "future");
                 if (!futures[fid]) {
                     futures[fid] = true;
-                    edges.push({ from: id, to: fid, type: "future" });
                     walkDown(fid);
-                } else {
-                    if (!edges.some(function (e) { return e.from === id && e.to === fid; })) {
-                        edges.push({ from: id, to: fid, type: "future" });
-                    }
                 }
             });
         }
 
-        // Also add direct edges for the selected node itself
-        course.prerequisites.forEach(function (pid) {
-            prereqs[pid] = true;
-            if (!edges.some(function (e) { return e.from === pid && e.to === nodeId; })) {
-                edges.push({ from: pid, to: nodeId, type: "prereq" });
-            }
-        });
-        course.futureUse.forEach(function (fid) {
-            futures[fid] = true;
-            if (!edges.some(function (e) { return e.from === nodeId && e.to === fid; })) {
-                edges.push({ from: nodeId, to: fid, type: "future" });
-            }
-        });
-
-        // Now recurse
         walkUp(nodeId);
         walkDown(nodeId);
 
@@ -348,6 +331,7 @@
 
     function drawGraph() {
         var canvas = document.getElementById("graph-canvas");
+        if (!canvas) return;
         var ctx = canvas.getContext("2d");
         var g = state.graph;
         var nodes = g.nodes;
@@ -359,37 +343,41 @@
         // Compute highlight sets
         var hlPrereqs = {};
         var hlFutures = {};
+        var hlEdgeSet = {};
         var hlEdges = [];
         if (isHL) {
             var conn = getConnectedIds(selected);
             hlPrereqs = conn.prereqs;
             hlFutures = conn.futures;
             hlEdges = conn.edges;
+            hlEdges.forEach(function (e) { hlEdgeSet[e.from + "|" + e.to] = e.type; });
         }
 
-        // Build a lookup for highlighted edges for fast checking
-        var hlEdgeSet = {};
-        hlEdges.forEach(function (e) { hlEdgeSet[e.from + "|" + e.to] = e.type; });
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Clear using CSS pixel dimensions (DPI handled by transform)
+        var dpr = window.devicePixelRatio || 1;
         ctx.save();
-        ctx.translate(g.offsetX, g.offsetY);
-        ctx.scale(g.scale, g.scale);
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.restore();
 
-        // ========== PASS 1: Draw ALL edges (dimmed if highlight mode) ==========
+        ctx.save();
+        // DPI base transform is set by initGraph, so just apply pan/zoom on top
+        ctx.setTransform(
+            dpr * g.scale, 0, 0, dpr * g.scale,
+            dpr * g.offsetX, dpr * g.offsetY
+        );
+
+        // ===== PASS 1: Background edges (dimmed when highlight active) =====
         nodes.forEach(function (n) {
-            // Prerequisite edges (solid) — drawn as: prerequisite → this node
             n.course.prerequisites.forEach(function (pid) {
                 var pn = nodeMap[pid];
                 if (!pn) return;
                 var key = pid + "|" + n.id;
-                // Skip if this edge will be drawn in the highlight pass
                 if (isHL && hlEdgeSet[key]) return;
                 var alpha = isHL ? 0.06 : 0.25;
                 drawArrow(ctx, pn.x, pn.y, n.x, n.y, n.r,
                     "rgba(88,166,255," + alpha + ")", isHL ? 1 : 1.5, false);
             });
-            // Future-use edges (dashed) — drawn as: this node → future
             n.course.futureUse.forEach(function (fid) {
                 var fn = nodeMap[fid];
                 if (!fn) return;
@@ -401,7 +389,7 @@
             });
         });
 
-        // ========== PASS 2: Draw HIGHLIGHTED edges on top ==========
+        // ===== PASS 2: Highlighted edges (bright, on top) =====
         if (isHL) {
             hlEdges.forEach(function (edge) {
                 var fromN = nodeMap[edge.from];
@@ -415,7 +403,7 @@
             });
         }
 
-        // ========== PASS 3: Draw NODES ==========
+        // ===== PASS 3: Nodes =====
         nodes.forEach(function (n) {
             var status = getStatus(n.id);
             var color = (CATEGORIES[n.course.category] || {}).color || "#8b949e";
@@ -426,30 +414,22 @@
             var isConn = isSel || isPre || isFut;
             var dimmed = isHL && !isConn;
 
-            // Glow behind connected nodes
+            // Glow
             if (isSel) {
-                ctx.beginPath();
-                ctx.arc(n.x, n.y, n.r + 12, 0, Math.PI * 2);
-                ctx.fillStyle = "rgba(240,136,62,0.2)";
-                ctx.fill();
+                ctx.beginPath(); ctx.arc(n.x, n.y, n.r + 12, 0, Math.PI * 2);
+                ctx.fillStyle = "rgba(240,136,62,0.2)"; ctx.fill();
             } else if (isPre && isHL) {
-                ctx.beginPath();
-                ctx.arc(n.x, n.y, n.r + 10, 0, Math.PI * 2);
-                ctx.fillStyle = "rgba(88,166,255,0.12)";
-                ctx.fill();
+                ctx.beginPath(); ctx.arc(n.x, n.y, n.r + 10, 0, Math.PI * 2);
+                ctx.fillStyle = "rgba(88,166,255,0.12)"; ctx.fill();
             } else if (isFut && isHL) {
-                ctx.beginPath();
-                ctx.arc(n.x, n.y, n.r + 10, 0, Math.PI * 2);
-                ctx.fillStyle = "rgba(63,185,80,0.12)";
-                ctx.fill();
+                ctx.beginPath(); ctx.arc(n.x, n.y, n.r + 10, 0, Math.PI * 2);
+                ctx.fillStyle = "rgba(63,185,80,0.12)"; ctx.fill();
             }
 
-            // Save alpha for dimmed nodes
             if (dimmed) ctx.globalAlpha = 0.2;
 
-            // Node body
-            ctx.beginPath();
-            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            // Body
+            ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
             if (status === "completed") ctx.fillStyle = "rgba(63,185,80,0.25)";
             else if (status === "in-progress") ctx.fillStyle = "rgba(210,153,34,0.25)";
             else ctx.fillStyle = "rgba(28,33,40,0.9)";
@@ -462,30 +442,21 @@
             else if (isFut && isHL) { bColor = "#3fb950"; bWidth = 3; }
             else if (status === "completed") bColor = "#3fb950";
             else if (status === "in-progress") bColor = "#d29922";
-
-            ctx.strokeStyle = bColor;
-            ctx.lineWidth = bWidth;
-            ctx.stroke();
+            ctx.strokeStyle = bColor; ctx.lineWidth = bWidth; ctx.stroke();
 
             // Hover ring
             if (isHov && !isSel) {
-                ctx.beginPath();
-                ctx.arc(n.x, n.y, n.r + 5, 0, Math.PI * 2);
-                ctx.strokeStyle = "rgba(230,237,243,0.5)";
-                ctx.lineWidth = 2;
-                ctx.stroke();
+                ctx.beginPath(); ctx.arc(n.x, n.y, n.r + 5, 0, Math.PI * 2);
+                ctx.strokeStyle = "rgba(230,237,243,0.5)"; ctx.lineWidth = 2; ctx.stroke();
             }
 
             // Category dot
-            ctx.beginPath();
-            ctx.arc(n.x, n.y, 5, 0, Math.PI * 2);
-            ctx.fillStyle = color;
-            ctx.fill();
+            ctx.beginPath(); ctx.arc(n.x, n.y, 5, 0, Math.PI * 2);
+            ctx.fillStyle = color; ctx.fill();
 
             // Label
             ctx.font = "600 10px -apple-system, BlinkMacSystemFont, sans-serif";
-            ctx.textAlign = "center";
-            ctx.textBaseline = "top";
+            ctx.textAlign = "center"; ctx.textBaseline = "top";
             ctx.fillStyle = "#e6edf3";
             var label = n.course.name.length > 22 ? n.course.name.slice(0, 20) + "…" : n.course.name;
             ctx.fillText(label, n.x, n.y + n.r + 8);
@@ -515,53 +486,58 @@
         drawGraph();
     }
 
-    function resetGraphView() {
+    // Only resets zoom/pan, optionally selection
+    function resetGraphView(clearSelection) {
         var g = state.graph;
         g.scale = 1;
         g.offsetX = 0;
         g.offsetY = 0;
-        g.selectedId = null;
-        g.hoveredId = null;
+        if (clearSelection) {
+            g.selectedId = null;
+            g.hoveredId = null;
+        }
         updateZoomLabel();
         drawGraph();
     }
 
-    function initGraph() {
+    // Resize canvas and rebuild layout, but PRESERVE selection and zoom
+    function sizeCanvas() {
         var canvas = document.getElementById("graph-canvas");
         var parent = canvas.parentElement;
         var dpr = window.devicePixelRatio || 1;
-
-        // Set canvas size to fill parent in CSS pixels, scale for DPI
         canvas.style.width = parent.clientWidth + "px";
         canvas.style.height = parent.clientHeight + "px";
         canvas.width = parent.clientWidth * dpr;
         canvas.height = parent.clientHeight * dpr;
+    }
 
-        var ctx = canvas.getContext("2d");
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-        var g = state.graph;
-        g.scale = 1;
-        g.offsetX = 0;
-        g.offsetY = 0;
-        g.selectedId = null;
-        g.hoveredId = null;
-
+    function refreshGraph(preserveState) {
+        sizeCanvas();
         buildGraphLayout();
+
+        if (!preserveState) {
+            state.graph.scale = 1;
+            state.graph.offsetX = 0;
+            state.graph.offsetY = 0;
+            state.graph.selectedId = null;
+            state.graph.hoveredId = null;
+        }
+
         updateZoomLabel();
         drawGraph();
     }
 
     function bindGraphEvents() {
-        var canvas = document.getElementById("graph-canvas");
-        if (canvas._gBound) return;
-        canvas._gBound = true;
-
         var g = state.graph;
+        if (g.initialized) return;
+        g.initialized = true;
+
+        var canvas = document.getElementById("graph-canvas");
         var tooltip = document.getElementById("graph-tooltip");
 
         // ---- WHEEL ----
         canvas.addEventListener("wheel", function (e) {
+            if (state.currentView !== "graph") return;
             e.preventDefault();
             var rect = canvas.getBoundingClientRect();
             zoomGraph(e.deltaY < 0 ? 1 : -1, e.clientX - rect.left, e.clientY - rect.top);
@@ -569,18 +545,17 @@
 
         // ---- MOUSEDOWN ----
         canvas.addEventListener("mousedown", function (e) {
+            if (state.currentView !== "graph") return;
             var rect = canvas.getBoundingClientRect();
             var mx = e.clientX - rect.left, my = e.clientY - rect.top;
             var w = screenToWorld(mx, my);
             var hit = hitTestNode(w.x, w.y);
 
             if (hit) {
-                // Toggle selection
                 g.selectedId = (g.selectedId === hit.id) ? null : hit.id;
                 drawGraph();
                 return;
             }
-            // Start pan
             g.dragging = true;
             g.dragStartX = e.clientX;
             g.dragStartY = e.clientY;
@@ -591,6 +566,7 @@
 
         // ---- MOUSEMOVE ----
         canvas.addEventListener("mousemove", function (e) {
+            if (state.currentView !== "graph") return;
             var rect = canvas.getBoundingClientRect();
             var mx = e.clientX - rect.left, my = e.clientY - rect.top;
 
@@ -644,8 +620,9 @@
             drawGraph();
         });
 
-        // ---- DBLCLICK: open detail ----
+        // ---- DBLCLICK ----
         canvas.addEventListener("dblclick", function (e) {
+            if (state.currentView !== "graph") return;
             var rect = canvas.getBoundingClientRect();
             var w = screenToWorld(e.clientX - rect.left, e.clientY - rect.top);
             var hit = hitTestNode(w.x, w.y);
@@ -655,6 +632,7 @@
         // ---- TOUCH ----
         var lastDist = 0;
         canvas.addEventListener("touchstart", function (e) {
+            if (state.currentView !== "graph") return;
             if (e.touches.length === 1) {
                 var t = e.touches[0], rect = canvas.getBoundingClientRect();
                 var w = screenToWorld(t.clientX - rect.left, t.clientY - rect.top);
@@ -670,6 +648,7 @@
         }, { passive: true });
 
         canvas.addEventListener("touchmove", function (e) {
+            if (state.currentView !== "graph") return;
             e.preventDefault();
             if (e.touches.length === 1 && g.dragging) {
                 var t = e.touches[0];
@@ -688,16 +667,21 @@
 
         canvas.addEventListener("touchend", function () { g.dragging = false; lastDist = 0; });
 
-        // ---- CONTROL BUTTONS ----
+        // ---- BUTTONS ----
         document.getElementById("graph-zoom-in").addEventListener("click", function () {
-            zoomGraph(1, canvas.clientWidth / 2, canvas.clientHeight / 2);
+            var c = document.getElementById("graph-canvas");
+            zoomGraph(1, c.clientWidth / 2, c.clientHeight / 2);
         });
         document.getElementById("graph-zoom-out").addEventListener("click", function () {
-            zoomGraph(-1, canvas.clientWidth / 2, canvas.clientHeight / 2);
+            var c = document.getElementById("graph-canvas");
+            zoomGraph(-1, c.clientWidth / 2, c.clientHeight / 2);
         });
-        document.getElementById("graph-zoom-reset").addEventListener("click", resetGraphView);
+        document.getElementById("graph-zoom-reset").addEventListener("click", function () {
+            resetGraphView(true);
+        });
         document.getElementById("graph-deselect").addEventListener("click", function () {
-            g.selectedId = null; drawGraph();
+            g.selectedId = null;
+            drawGraph();
         });
     }
 
@@ -779,7 +763,8 @@
         renderTimeline();
         renderTable();
         if (state.currentView === "graph") {
-            requestAnimationFrame(function () { initGraph(); });
+            // Preserve selection when re-rendering due to status change etc.
+            requestAnimationFrame(function () { refreshGraph(true); });
         }
     }
 
@@ -791,7 +776,11 @@
         document.getElementById(view + "-view").classList.add("active");
         document.querySelector('.view-btn[data-view="' + view + '"]').classList.add("active");
         if (view === "graph") {
-            requestAnimationFrame(function () { initGraph(); bindGraphEvents(); });
+            // Rebuild layout (canvas may have been hidden), but PRESERVE selection
+            requestAnimationFrame(function () {
+                refreshGraph(true);
+                bindGraphEvents();
+            });
         }
     }
 
@@ -803,8 +792,13 @@
                 document.querySelectorAll(".nav-btn").forEach(function (b) { b.classList.remove("active"); });
                 btn.classList.add("active");
                 closeDetail();
-                var c = document.getElementById("graph-canvas");
-                c._gBound = false;
+                // Curriculum change → reset graph state fully
+                state.graph.initialized = false;
+                state.graph.selectedId = null;
+                state.graph.hoveredId = null;
+                state.graph.scale = 1;
+                state.graph.offsetX = 0;
+                state.graph.offsetY = 0;
                 renderAll();
             });
         });
@@ -856,17 +850,16 @@
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function () {
                 if (state.currentView === "graph") {
-                    document.getElementById("graph-canvas")._gBound = false;
-                    initGraph();
-                    bindGraphEvents();
+                    refreshGraph(true);
                 }
             }, 150);
         });
 
         document.addEventListener("keydown", function (e) {
             if (e.key === "Escape") {
-                if (!document.getElementById("detail-panel").classList.contains("hidden")) closeDetail();
-                else if (state.graph.selectedId && state.currentView === "graph") {
+                if (!document.getElementById("detail-panel").classList.contains("hidden")) {
+                    closeDetail();
+                } else if (state.graph.selectedId && state.currentView === "graph") {
                     state.graph.selectedId = null;
                     drawGraph();
                 }
