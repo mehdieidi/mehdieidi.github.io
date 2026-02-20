@@ -911,6 +911,576 @@ const CURRICULA = {
                 aiAnalysis: "Building a reputation, contributing to communities, networking, and communicating your value are deeply human activities."
             }
         ]
+    },
+    // ============================================
+// SHARIF UNIVERSITY — BSc Computer Engineering
+// Add this as a new key inside CURRICULA = { bsc: {...}, se: {...}, master: {...}, sharif: {...} }
+// Paste after the master curriculum's closing brace and comma
+// ============================================
+
+    sharif: {
+        name: "Sharif University — BSc CE",
+        icon: "🏛️",
+        description: "Official BSc Computer Engineering curriculum from Sharif University of Technology, Tehran. 140 units total: 20 general, 25 foundation, 61 core, 21 specialized, 13 elective. Last approved: 2023/05/31.",
+        semesters: [
+            { id: "sh1", label: "Semester 1", subtitle: "Foundation Math & Physics" },
+            { id: "sh2", label: "Semester 2", subtitle: "Programming & Math II" },
+            { id: "sh3", label: "Semester 3", subtitle: "Data Structures & Digital Logic" },
+            { id: "sh4", label: "Semester 4", subtitle: "Architecture & Circuits" },
+            { id: "sh5", label: "Semester 5", subtitle: "OS, Databases & Theory" },
+            { id: "sh6", label: "Semester 6", subtitle: "Networks, AI & Systems Design" },
+            { id: "sh7", label: "Semester 7", subtitle: "Specialization Courses" },
+            { id: "sh8", label: "Semester 8", subtitle: "Electives & Capstone" }
+        ],
+        courses: [
+            // ===== SEMESTER 1 — Foundation =====
+            {
+                id: "sh-1", name: "Calculus I",
+                semester: "sh1", category: "math", hours: 64,
+                aiProof: 5, source: "Sharif 22015",
+                link: "https://ocw.sharif.edu/",
+                description: "Single-variable calculus: limits, derivatives, integrals, series, applications. 4 units.",
+                topics: ["Limits", "Derivatives", "Integrals", "Series", "Applications"],
+                prerequisites: [], futureUse: ["sh-4", "sh-5", "sh-9"],
+                whyIncluded: "Foundation course (دروس پایه). Required for all engineering math that follows.",
+                aiAnalysis: "Calculus builds mathematical maturity. AI computes integrals but cannot decide which model fits a problem."
+            },
+            {
+                id: "sh-2", name: "Physics I",
+                semester: "sh1", category: "math", hours: 48,
+                aiProof: 5, source: "Sharif 24011",
+                link: "https://ocw.sharif.edu/",
+                description: "Classical mechanics: kinematics, dynamics, energy, momentum, rotational motion. 3 units.",
+                topics: ["Mechanics", "Energy", "Momentum", "Rotation", "Oscillations"],
+                prerequisites: [], futureUse: ["sh-5"],
+                whyIncluded: "Foundation course. Physics provides the physical intuition behind circuits and signals.",
+                aiAnalysis: "Physics reasoning develops problem-solving skills applicable across engineering domains."
+            },
+            {
+                id: "sh-3", name: "Introduction to Programming",
+                semester: "sh1", category: "programming", hours: 48,
+                aiProof: 5, source: "Sharif 40153",
+                link: "https://ocw.sharif.edu/",
+                description: "First programming course. Variables, control flow, functions, arrays, basic algorithms. 3 units.",
+                topics: ["Variables", "Control flow", "Functions", "Arrays", "Basic algorithms"],
+                prerequisites: [], futureUse: ["sh-7", "sh-8", "sh-11"],
+                whyIncluded: "Foundation course. Entry point to all programming and CS coursework.",
+                aiAnalysis: "Understanding programming fundamentals is essential to evaluate and debug AI-generated code."
+            },
+            {
+                id: "sh-6", name: "Computer Workshop",
+                semester: "sh1", category: "programming", hours: 16,
+                aiProof: 4, source: "Sharif 40108",
+                link: "https://ocw.sharif.edu/",
+                description: "Practical introduction to computer tools, Linux, command line, basic scripting. 1 unit.",
+                topics: ["Linux", "CLI", "Scripting", "Tools"],
+                prerequisites: [], futureUse: [],
+                whyIncluded: "Core course (دروس اصلی). Practical skills for working with computers.",
+                aiAnalysis: "Tool proficiency is essential but largely automatable by AI."
+            },
+            {
+                id: "sh-10", name: "Logic Circuits",
+                semester: "sh1", category: "systems", hours: 48,
+                aiProof: 7, source: "Sharif 40212",
+                link: "https://ocw.sharif.edu/",
+                description: "Boolean algebra, combinational logic, sequential circuits, FSMs, minimization. 3 units.",
+                topics: ["Boolean algebra", "Combinational logic", "Sequential circuits", "FSMs", "Karnaugh maps"],
+                prerequisites: [], futureUse: ["sh-12", "sh-14", "sh-16", "sh-17"],
+                whyIncluded: "Core course. Foundation for all hardware and computer architecture courses.",
+                aiAnalysis: "Understanding digital logic is essential for hardware-software co-design and architecture reasoning."
+            },
+            // ===== SEMESTER 2 =====
+            {
+                id: "sh-4", name: "Calculus II",
+                semester: "sh2", category: "math", hours: 64,
+                aiProof: 5, source: "Sharif 22016",
+                link: "https://ocw.sharif.edu/",
+                description: "Multivariable calculus: partial derivatives, multiple integrals, vector calculus. 4 units.",
+                topics: ["Partial derivatives", "Multiple integrals", "Vector calculus", "Gradient", "Divergence"],
+                prerequisites: ["sh-1"], futureUse: ["sh-13", "sh-22"],
+                whyIncluded: "Foundation course. Required for differential equations, linear algebra, and signals.",
+                aiAnalysis: "Multivariate reasoning is essential for ML optimization and signal processing."
+            },
+            {
+                id: "sh-5", name: "Physics II",
+                semester: "sh2", category: "math", hours: 48,
+                aiProof: 5, source: "Sharif 24012",
+                link: "https://ocw.sharif.edu/",
+                description: "Electromagnetism: electric fields, magnetic fields, circuits, electromagnetic waves. 3 units.",
+                topics: ["Electric fields", "Magnetic fields", "Circuits", "EM waves", "Optics"],
+                prerequisites: ["sh-2"], futureUse: ["sh-15"],
+                whyIncluded: "Foundation course. Prerequisites for electrical circuits and electronics.",
+                aiAnalysis: "EM theory provides physical intuition for circuit design and signal transmission."
+            },
+            {
+                id: "sh-19", name: "Physics II Lab",
+                semester: "sh2", category: "math", hours: 16,
+                aiProof: 4, source: "Sharif 24002",
+                link: "https://ocw.sharif.edu/",
+                description: "Laboratory experiments in electromagnetism and optics. 1 unit. Co-requisite with Physics II.",
+                topics: ["Lab techniques", "EM experiments", "Measurement", "Data analysis"],
+                prerequisites: ["sh-5"], futureUse: [],
+                whyIncluded: "Foundation course. Hands-on experimental skills.",
+                aiAnalysis: "Lab work develops hands-on skills that AI cannot replicate."
+            },
+            {
+                id: "sh-7", name: "Advanced Programming",
+                semester: "sh2", category: "programming", hours: 48,
+                aiProof: 6, source: "Sharif 40244",
+                link: "https://ocw.sharif.edu/",
+                description: "OOP, data abstraction, generics, design patterns intro, testing, debugging. Typically Java/C++. 3 units.",
+                topics: ["OOP", "Inheritance", "Polymorphism", "Generics", "Testing", "Debugging"],
+                prerequisites: ["sh-3"], futureUse: ["sh-8", "sh-36", "sh-37", "sh-38"],
+                whyIncluded: "Core course. Deepens programming skills and introduces software design concepts.",
+                aiAnalysis: "Deep OOP knowledge helps evaluate AI-generated architectures and identify design issues."
+            },
+            {
+                id: "sh-9", name: "Probability and Engineering Statistics",
+                semester: "sh2", category: "math", hours: 48,
+                aiProof: 7, source: "Sharif 40181",
+                link: "https://ocw.sharif.edu/",
+                description: "Probability distributions, Bayes theorem, random variables, hypothesis testing, regression. 3 units.",
+                topics: ["Probability", "Bayes theorem", "Distributions", "Hypothesis testing", "Regression"],
+                prerequisites: ["sh-1"], futureUse: ["sh-25", "sh-29", "sh-42", "sh-43", "sh-44"],
+                whyIncluded: "Foundation course. Required for AI, ML, networks, and data-driven engineering.",
+                aiAnalysis: "Statistical reasoning is essential for evaluating AI models and making data-informed decisions."
+            },
+            {
+                id: "sh-20", name: "General Workshop",
+                semester: "sh2", category: "engineering", hours: 16,
+                aiProof: 4, source: "Sharif 33018",
+                link: "https://ocw.sharif.edu/",
+                description: "Basic engineering workshop: soldering, PCB, mechanical tools, safety. 1 unit.",
+                topics: ["Soldering", "PCB", "Mechanical tools", "Safety"],
+                prerequisites: [], futureUse: [],
+                whyIncluded: "Foundation course. Hands-on fabrication experience.",
+                aiAnalysis: "Physical fabrication skills are inherently non-automatable."
+            },
+            {
+                id: "sh-21", name: "Discrete Structures",
+                semester: "sh2", category: "math", hours: 48,
+                aiProof: 8, source: "Sharif 40115",
+                link: "https://ocw.sharif.edu/",
+                description: "Logic, proofs, sets, relations, graph theory, combinatorics, number theory. 3 units.",
+                topics: ["Logic", "Proofs", "Sets", "Relations", "Graph theory", "Combinatorics"],
+                prerequisites: [], futureUse: ["sh-8"],
+                whyIncluded: "Core course. Mathematical foundation for algorithms, databases, and formal methods.",
+                aiAnalysis: "Proof construction and discrete reasoning are among the hardest tasks for AI."
+            },
+            // ===== SEMESTER 3 =====
+            {
+                id: "sh-8", name: "Data Structures and Algorithms",
+                semester: "sh3", category: "programming", hours: 48,
+                aiProof: 7, source: "Sharif 40254",
+                link: "https://ocw.sharif.edu/",
+                description: "Arrays, linked lists, trees, graphs, hashing, sorting, searching, complexity analysis. 3 units.",
+                topics: ["Arrays", "Trees", "Graphs", "Hashing", "Sorting", "Complexity", "BST", "Heaps"],
+                prerequisites: ["sh-21", "sh-7"], futureUse: ["sh-22", "sh-23", "sh-25", "sh-26", "sh-27", "sh-28", "sh-33", "sh-34", "sh-42", "sh-43"],
+                whyIncluded: "Core course. Central to all CS — every system design depends on data structure choices.",
+                aiAnalysis: "AI implements data structures trivially. Choosing the right one for a specific context is human judgment."
+            },
+            {
+                id: "sh-11", name: "Computer Structure and Language",
+                semester: "sh3", category: "systems", hours: 48,
+                aiProof: 7, source: "Sharif 40126",
+                link: "https://ocw.sharif.edu/",
+                description: "Assembly language, instruction sets, CPU organization, memory hierarchy basics. 3 units.",
+                topics: ["Assembly", "ISA", "CPU organization", "Memory", "I/O"],
+                prerequisites: ["sh-3", "sh-10"], futureUse: ["sh-16", "sh-17", "sh-14"],
+                whyIncluded: "Core course. Bridge between software and hardware — understanding what happens below high-level code.",
+                aiAnalysis: "Low-level system understanding is critical for performance engineering and debugging."
+            },
+            {
+                id: "sh-12", name: "Logic Circuits Lab",
+                semester: "sh3", category: "systems", hours: 16,
+                aiProof: 5, source: "Sharif 40206",
+                link: "https://ocw.sharif.edu/",
+                description: "Hands-on digital logic design: breadboard circuits, FPGA intro, sequential circuit testing. 1 unit.",
+                topics: ["Breadboard", "FPGA intro", "Circuit testing", "Sequential design"],
+                prerequisites: ["sh-10"], futureUse: ["sh-18", "sh-24"],
+                whyIncluded: "Core course. Practical hardware design experience.",
+                aiAnalysis: "Hands-on hardware debugging requires physical intuition AI cannot provide."
+            },
+            {
+                id: "sh-15", name: "Electrical and Electronic Circuits Fundamentals",
+                semester: "sh3", category: "systems", hours: 48,
+                aiProof: 6, source: "Sharif 40124",
+                link: "https://ocw.sharif.edu/",
+                description: "Analog circuits, op-amps, transistors, diodes, frequency response. 3 units.",
+                topics: ["Analog circuits", "Op-amps", "Transistors", "Diodes", "Frequency response"],
+                prerequisites: ["sh-5"], futureUse: ["sh-30", "sh-31", "sh-45"],
+                whyIncluded: "Core course. Understanding analog electronics for mixed-signal systems and interfaces.",
+                aiAnalysis: "Circuit analysis and design require physical intuition and analog reasoning."
+            },
+            {
+                id: "sh-13", name: "Differential Equations",
+                semester: "sh3", category: "math", hours: 48,
+                aiProof: 5, source: "Sharif 22034",
+                link: "https://ocw.sharif.edu/",
+                description: "ODEs, Laplace transforms, systems of equations, series solutions. 3 units. Co-requisite with Calculus II.",
+                topics: ["ODEs", "Laplace transforms", "Systems of equations", "Series solutions"],
+                prerequisites: ["sh-4"], futureUse: ["sh-32"],
+                whyIncluded: "Foundation course. Required for signals, control systems, and numerical methods.",
+                aiAnalysis: "Differential equation modeling develops analytical thinking for dynamic systems."
+            },
+            // ===== SEMESTER 4 =====
+            {
+                id: "sh-16", name: "Computer Architecture",
+                semester: "sh4", category: "systems", hours: 48,
+                aiProof: 8, source: "Sharif 40323",
+                link: "https://ocw.sharif.edu/",
+                description: "Pipelining, caches, memory hierarchy, multiprocessors, I/O systems, performance analysis. 3 units.",
+                topics: ["Pipelining", "Caches", "Memory hierarchy", "Multiprocessors", "I/O", "Performance"],
+                prerequisites: ["sh-11"], futureUse: ["sh-24", "sh-26", "sh-35", "sh-39", "sh-40", "sh-46"],
+                whyIncluded: "Core course. Understanding the machine is what separates engineers from script writers.",
+                aiAnalysis: "Hardware-software interaction understanding is critical for performance engineering — deeply AI-resistant."
+            },
+            {
+                id: "sh-14", name: "Digital Systems Design",
+                semester: "sh4", category: "systems", hours: 48,
+                aiProof: 7, source: "Sharif 40223",
+                link: "https://ocw.sharif.edu/",
+                description: "Advanced digital design: FSMs, datapaths, controllers, FPGA-based design. 3 units.",
+                topics: ["FSMs", "Datapaths", "Controllers", "FPGA design", "Timing analysis"],
+                prerequisites: ["sh-11"], futureUse: ["sh-18", "sh-31", "sh-47"],
+                whyIncluded: "Core course. Advanced hardware design for embedded and digital systems.",
+                aiAnalysis: "Digital system architecture requires understanding timing, power, and area trade-offs."
+            },
+            {
+                id: "sh-22", name: "Linear Algebra",
+                semester: "sh4", category: "math", hours: 48,
+                aiProof: 7, source: "Sharif 40282",
+                link: "https://ocw.sharif.edu/",
+                description: "Vectors, matrices, eigenvalues, SVD, linear transformations, vector spaces. 3 units.",
+                topics: ["Vectors", "Matrices", "Eigenvalues", "SVD", "Linear transformations"],
+                prerequisites: ["sh-4"], futureUse: ["sh-29", "sh-44", "sh-48"],
+                whyIncluded: "Core course. THE most practically useful advanced math — essential for ML, graphics, and data science.",
+                aiAnalysis: "Understanding linear algebra lets you understand what ML models do, not just use them as black boxes."
+            },
+            {
+                id: "sh-49", name: "Technical English for CS",
+                semester: "sh4", category: "professional", hours: 32,
+                aiProof: 3, source: "Sharif 40211",
+                link: "https://ocw.sharif.edu/",
+                description: "Reading and writing technical English for computer science. 2 units.",
+                topics: ["Technical reading", "Academic writing", "CS terminology", "Paper reading"],
+                prerequisites: [], futureUse: ["sh-50", "sh-51", "sh-52"],
+                whyIncluded: "Core course. English proficiency is essential for reading papers and documentation.",
+                aiAnalysis: "AI translates well, but understanding nuanced technical communication remains valuable."
+            },
+            // ===== SEMESTER 5 =====
+            {
+                id: "sh-23", name: "Automata and Formal Languages",
+                semester: "sh5", category: "theory", hours: 48,
+                aiProof: 8, source: "Sharif 40415",
+                link: "https://ocw.sharif.edu/",
+                description: "Finite automata, regular expressions, CFGs, pushdown automata, Turing machines. 3 units.",
+                topics: ["DFA/NFA", "Regular expressions", "CFGs", "PDA", "Turing machines", "Decidability"],
+                prerequisites: ["sh-8"], futureUse: [],
+                whyIncluded: "Core course. Understanding computational limits — what can and cannot be computed.",
+                aiAnalysis: "Formal language theory and computability develop rigorous thinking AI cannot replicate."
+            },
+            {
+                id: "sh-25", name: "Artificial Intelligence",
+                semester: "sh5", category: "ai-ml", hours: 48,
+                aiProof: 7, source: "Sharif 40417",
+                link: "https://ocw.sharif.edu/",
+                description: "Search, constraint satisfaction, game trees, probability, Bayesian networks, ML intro. 3 units.",
+                topics: ["Search", "CSP", "Game trees", "Bayesian networks", "ML basics", "Planning"],
+                prerequisites: ["sh-8", "sh-9"], futureUse: ["sh-44"],
+                whyIncluded: "Core course. Understanding AI fundamentals to architect systems that use AI effectively.",
+                aiAnalysis: "Understanding AI is essential TO WORK WITH AI — evaluate, integrate, and debug AI systems."
+            },
+            {
+                id: "sh-26", name: "Operating Systems",
+                semester: "sh5", category: "systems", hours: 48,
+                aiProof: 9, source: "Sharif 40424",
+                link: "https://ocw.sharif.edu/",
+                description: "Processes, threads, scheduling, virtual memory, file systems, synchronization, deadlocks. 3 units.",
+                topics: ["Processes", "Threads", "Scheduling", "Virtual memory", "File systems", "Synchronization"],
+                prerequisites: ["sh-16"], futureUse: ["sh-27", "sh-28", "sh-41"],
+                whyIncluded: "Core course. Every piece of software runs on an OS. Concurrency and systems understanding is essential.",
+                aiAnalysis: "Debugging concurrency bugs and OS-level issues are among the HARDEST, most AI-resistant problems."
+            },
+            {
+                id: "sh-34", name: "Database Design",
+                semester: "sh5", category: "systems", hours: 48,
+                aiProof: 8, source: "Sharif 40384",
+                link: "https://ocw.sharif.edu/",
+                description: "Relational model, SQL, ER modeling, normalization, indexing, query optimization, transactions. 3 units.",
+                topics: ["Relational model", "SQL", "ER modeling", "Normalization", "Indexing", "Transactions"],
+                prerequisites: ["sh-8"], futureUse: ["sh-53"],
+                whyIncluded: "Core course. Almost every application is database-backed. Understanding internals enables informed decisions.",
+                aiAnalysis: "AI writes SQL. Designing schemas for scale and understanding transaction isolation is human expertise."
+            },
+            {
+                id: "sh-50", name: "Scientific and Technical Presentation",
+                semester: "sh5", category: "professional", hours: 32,
+                aiProof: 8, source: "Sharif 40221",
+                link: "https://ocw.sharif.edu/",
+                description: "Technical writing, presentation skills, paper structure, academic communication. 2 units.",
+                topics: ["Technical writing", "Presentations", "Paper structure", "Communication"],
+                prerequisites: ["sh-49"], futureUse: ["sh-53", "sh-51", "sh-52"],
+                whyIncluded: "Core course. Communication multiplies engineering impact.",
+                aiAnalysis: "Clear technical communication is deeply human and one of the most career-impactful skills."
+            },
+            {
+                id: "sh-24", name: "Computer Architecture Lab",
+                semester: "sh5", category: "systems", hours: 16,
+                aiProof: 6, source: "Sharif 40103",
+                link: "https://ocw.sharif.edu/",
+                description: "Hands-on CPU design, pipelining implementation, cache simulation. 1 unit.",
+                topics: ["CPU design lab", "Pipeline implementation", "Cache simulation"],
+                prerequisites: ["sh-16", "sh-12"], futureUse: ["sh-54", "sh-55"],
+                whyIncluded: "Core course. Hands-on hardware implementation experience.",
+                aiAnalysis: "Building hardware from specifications develops irreplaceable debugging skills."
+            },
+            {
+                id: "sh-18", name: "Digital Systems Design Lab",
+                semester: "sh5", category: "systems", hours: 16,
+                aiProof: 5, source: "Sharif 40203",
+                link: "https://ocw.sharif.edu/",
+                description: "FPGA-based design projects, HDL coding, testing digital systems. 1 unit.",
+                topics: ["FPGA projects", "VHDL/Verilog", "Digital testing"],
+                prerequisites: ["sh-12", "sh-14"], futureUse: [],
+                whyIncluded: "Core course. Practical digital design experience.",
+                aiAnalysis: "Hardware verification and testing require systematic thinking beyond AI capabilities."
+            },
+            // ===== SEMESTER 6 =====
+            {
+                id: "sh-27", name: "Operating Systems Lab",
+                semester: "sh6", category: "systems", hours: 16,
+                aiProof: 7, source: "Sharif 40408",
+                link: "https://ocw.sharif.edu/",
+                description: "Kernel programming, system calls, process management, shell implementation. 1 unit.",
+                topics: ["Kernel programming", "System calls", "Shell", "Process management"],
+                prerequisites: ["sh-26"], futureUse: [],
+                whyIncluded: "Core course. Writing real kernel code builds deep systems understanding.",
+                aiAnalysis: "Kernel-level debugging is among the most AI-resistant technical skills."
+            },
+            {
+                id: "sh-28", name: "Computer Networks",
+                semester: "sh6", category: "systems", hours: 48,
+                aiProof: 8, source: "Sharif 40443",
+                link: "https://ocw.sharif.edu/",
+                description: "TCP/IP, HTTP, DNS, routing, congestion control, application layer protocols, security basics. 3 units.",
+                topics: ["TCP/IP", "HTTP", "DNS", "Routing", "Congestion control", "Network security"],
+                prerequisites: ["sh-9", "sh-26"], futureUse: ["sh-56", "sh-57"],
+                whyIncluded: "Core course. Every distributed system and web app runs on networks.",
+                aiAnalysis: "Network debugging and protocol design are deeply context-dependent and AI-resistant."
+            },
+            {
+                id: "sh-53", name: "Systems Analysis and Design",
+                semester: "sh6", category: "engineering", hours: 48,
+                aiProof: 9, source: "Sharif 40418",
+                link: "https://ocw.sharif.edu/",
+                description: "Requirements engineering, UML, design patterns, software architecture, project planning. 3 units.",
+                topics: ["Requirements", "UML", "Design patterns", "Architecture", "Project planning"],
+                prerequisites: ["sh-50", "sh-34"], futureUse: ["sh-37", "sh-38", "sh-58", "sh-59", "sh-60"],
+                whyIncluded: "Core course. The bridge from coding to engineering — designing systems that teams can maintain.",
+                aiAnalysis: "System design judgment — choosing architectures, making trade-offs — is the MOST AI-proof skill."
+            },
+            {
+                id: "sh-56", name: "Computer Networks Lab",
+                semester: "sh6", category: "systems", hours: 16,
+                aiProof: 6, source: "Sharif 40416",
+                link: "https://ocw.sharif.edu/",
+                description: "Network configuration, packet analysis, socket programming, protocol implementation. 1 unit.",
+                topics: ["Wireshark", "Socket programming", "Network config", "Protocol analysis"],
+                prerequisites: ["sh-28"], futureUse: [],
+                whyIncluded: "Core course. Hands-on networking skills.",
+                aiAnalysis: "Practical network debugging requires contextual understanding."
+            },
+            {
+                id: "sh-57", name: "Data and Network Security",
+                semester: "sh6", category: "systems", hours: 48,
+                aiProof: 9, source: "Sharif 40441",
+                link: "https://ocw.sharif.edu/",
+                description: "Cryptography, authentication, access control, network attacks, firewalls, intrusion detection. 3 units.",
+                topics: ["Cryptography", "Authentication", "Access control", "Network attacks", "Firewalls"],
+                prerequisites: ["sh-28"], futureUse: [],
+                whyIncluded: "Core course. Security is non-negotiable. Every engineer must understand threats.",
+                aiAnalysis: "Security requires adversarial thinking — anticipating attackers. AI checks patterns but can't think like an attacker."
+            },
+            // ===== SEMESTER 7 — Specialized =====
+            {
+                id: "sh-33", name: "Algorithm Design",
+                semester: "sh7", category: "theory", hours: 48,
+                aiProof: 8, source: "Sharif 40354",
+                link: "https://ocw.sharif.edu/",
+                description: "Greedy algorithms, divide and conquer, dynamic programming, network flow, NP-completeness. 3 units.",
+                topics: ["Greedy", "Divide & conquer", "DP", "Network flow", "NP-completeness", "Approximation"],
+                prerequisites: ["sh-8"], futureUse: ["sh-61"],
+                whyIncluded: "Specialized course (دروس تخصصی). Advanced algorithmic thinking for optimization and complex problems.",
+                aiAnalysis: "Advanced algorithm design — choosing approaches for novel problems — requires creative human thinking."
+            },
+            {
+                id: "sh-36", name: "Web Programming",
+                semester: "sh7", category: "programming", hours: 48,
+                aiProof: 4, source: "Sharif 40419",
+                link: "https://ocw.sharif.edu/",
+                description: "Full-stack web development: HTML, CSS, JavaScript, backend frameworks, databases, APIs. 3 units.",
+                topics: ["HTML/CSS", "JavaScript", "Backend frameworks", "REST APIs", "Deployment"],
+                prerequisites: ["sh-7"], futureUse: [],
+                whyIncluded: "Specialized course. Practical skill for building real applications.",
+                aiAnalysis: "Web dev is heavily AI-automatable. But understanding the full stack helps architect web systems."
+            },
+            {
+                id: "sh-29", name: "Machine Learning",
+                semester: "sh7", category: "ai-ml", hours: 48,
+                aiProof: 7, source: "Sharif 40717",
+                link: "https://ocw.sharif.edu/",
+                description: "Supervised/unsupervised learning, regression, classification, neural networks, evaluation. 3 units.",
+                topics: ["Regression", "Classification", "Neural networks", "Clustering", "Evaluation", "Bias-variance"],
+                prerequisites: ["sh-9", "sh-22"], futureUse: [],
+                whyIncluded: "Specialized course. ML is embedded in modern software — understanding it enables informed decisions.",
+                aiAnalysis: "Understanding ML deeply makes you better at using AI tools and knowing their limitations."
+            },
+            {
+                id: "sh-35", name: "Compiler Design",
+                semester: "sh7", category: "theory", hours: 48,
+                aiProof: 7, source: "Sharif 40414",
+                link: "https://ocw.sharif.edu/",
+                description: "Lexical analysis, parsing, semantic analysis, code generation, optimization. 3 units.",
+                topics: ["Lexing", "Parsing", "ASTs", "Semantic analysis", "Code generation", "Optimization"],
+                prerequisites: ["sh-8"], futureUse: [],
+                whyIncluded: "Specialized course. Understanding how languages work makes you better at using any language.",
+                aiAnalysis: "Compiler design informs how you evaluate AI-generated code across different paradigms."
+            },
+            {
+                id: "sh-30", name: "Signals and Systems",
+                semester: "sh7", category: "systems", hours: 48,
+                aiProof: 6, source: "Sharif 40242",
+                link: "https://ocw.sharif.edu/",
+                description: "Continuous and discrete signals, Fourier transforms, sampling, filtering, LTI systems. 3 units.",
+                topics: ["Fourier transforms", "Sampling", "Filtering", "LTI systems", "Z-transform"],
+                prerequisites: ["sh-15"], futureUse: ["sh-62", "sh-63"],
+                whyIncluded: "Specialized course. Essential for multimedia, communications, and signal processing.",
+                aiAnalysis: "Signal processing theory provides mathematical foundations for many AI applications."
+            },
+            {
+                id: "sh-32", name: "Numerical Methods",
+                semester: "sh7", category: "math", hours: 48,
+                aiProof: 5, source: "Sharif 40215",
+                link: "https://ocw.sharif.edu/",
+                description: "Root finding, interpolation, numerical integration, ODEs, linear systems solving. 3 units.",
+                topics: ["Root finding", "Interpolation", "Numerical integration", "ODE solvers", "Linear systems"],
+                prerequisites: ["sh-13"], futureUse: [],
+                whyIncluded: "Specialized course. Computational methods for solving real-world engineering problems.",
+                aiAnalysis: "Numerical methods provide tools for simulation and optimization in engineering."
+            },
+            {
+                id: "sh-38", name: "Software Engineering",
+                semester: "sh7", category: "engineering", hours: 48,
+                aiProof: 8, source: "Sharif 40474",
+                link: "https://ocw.sharif.edu/",
+                description: "SDLC, testing strategies, version control, CI/CD, quality assurance, project management. 3 units.",
+                topics: ["SDLC", "Testing", "CI/CD", "Version control", "QA", "Project management"],
+                prerequisites: ["sh-53"], futureUse: ["sh-60", "sh-64"],
+                whyIncluded: "Specialized course. Where coding becomes engineering — professional software development practices.",
+                aiAnalysis: "Test strategy, process design, and quality judgment are deeply human skills."
+            },
+            // ===== SEMESTER 8 — Electives & Capstone =====
+            {
+                id: "sh-37", name: "Object-Oriented Systems Design",
+                semester: "sh8", category: "engineering", hours: 48,
+                aiProof: 7, source: "Sharif 40484",
+                link: "https://ocw.sharif.edu/",
+                description: "OO analysis, UML in depth, design patterns, SOLID principles, refactoring. 3 units.",
+                topics: ["OO analysis", "UML", "Design patterns", "SOLID", "Refactoring"],
+                prerequisites: ["sh-53"], futureUse: [],
+                whyIncluded: "Specialized course. Design patterns and OO principles for maintainable software.",
+                aiAnalysis: "Knowing WHEN a pattern is wrong for your context is irreplaceable expertise."
+            },
+            {
+                id: "sh-39", name: "Multicore Computing",
+                semester: "sh8", category: "systems", hours: 48,
+                aiProof: 8, source: "Sharif 40432",
+                link: "https://ocw.sharif.edu/",
+                description: "Parallel programming, thread synchronization, GPU computing, cache coherence, performance. 3 units.",
+                topics: ["Parallel programming", "Thread sync", "GPU computing", "Cache coherence", "SIMD"],
+                prerequisites: ["sh-7", "sh-16"], futureUse: [],
+                whyIncluded: "Specialized course. Modern hardware is multicore — understanding parallelism is essential.",
+                aiAnalysis: "Parallel debugging and performance optimization require deep reasoning AI cannot replicate."
+            },
+            {
+                id: "sh-40", name: "Embedded Systems",
+                semester: "sh8", category: "systems", hours: 48,
+                aiProof: 7, source: "Sharif 40462",
+                link: "https://ocw.sharif.edu/",
+                description: "Microcontroller programming, real-time constraints, sensor interfaces, power management. 3 units.",
+                topics: ["Microcontrollers", "Real-time", "Sensors", "Power management", "RTOS"],
+                prerequisites: ["sh-16"], futureUse: [],
+                whyIncluded: "Specialized course. Embedded systems are everywhere — IoT, automotive, medical devices.",
+                aiAnalysis: "Embedded systems require hardware-software co-design thinking that AI cannot replicate."
+            },
+            {
+                id: "sh-41", name: "Real-Time Systems",
+                semester: "sh8", category: "systems", hours: 48,
+                aiProof: 7, source: "Sharif 40453",
+                link: "https://ocw.sharif.edu/",
+                description: "Real-time scheduling, deadline guarantees, RTOS, priority inversion, timing analysis. 3 units.",
+                topics: ["Real-time scheduling", "Deadlines", "RTOS", "Priority inversion", "Timing analysis"],
+                prerequisites: ["sh-26"], futureUse: [],
+                whyIncluded: "Specialized course. Safety-critical systems require guaranteed timing behavior.",
+                aiAnalysis: "Real-time system design requires formal reasoning about timing that AI cannot guarantee."
+            },
+            {
+                id: "sh-42", name: "Computer Simulation",
+                semester: "sh8", category: "systems", hours: 48,
+                aiProof: 6, source: "Sharif 40634",
+                link: "https://ocw.sharif.edu/",
+                description: "Discrete-event simulation, Monte Carlo methods, random number generation, validation. 3 units.",
+                topics: ["Discrete-event simulation", "Monte Carlo", "Random generation", "Validation"],
+                prerequisites: ["sh-9"], futureUse: [],
+                whyIncluded: "Specialized course. Simulation is essential for testing systems that can't be tested in production.",
+                aiAnalysis: "Designing simulations and interpreting results requires domain expertise and judgment."
+            },
+            {
+                id: "sh-43", name: "Advanced Information Retrieval",
+                semester: "sh8", category: "programming", hours: 48,
+                aiProof: 6, source: "Sharif 40324",
+                link: "https://ocw.sharif.edu/",
+                description: "Text indexing, search ranking, NLP basics, web crawling, recommendation systems. 3 units.",
+                topics: ["Indexing", "Search ranking", "NLP basics", "Web crawling", "Recommendation"],
+                prerequisites: ["sh-8"], futureUse: [],
+                whyIncluded: "Specialized course. Search and retrieval are fundamental to modern applications.",
+                aiAnalysis: "IR combines algorithms with understanding user intent — a human judgment call."
+            },
+            {
+                id: "sh-31", name: "VLSI Design",
+                semester: "sh8", category: "systems", hours: 48,
+                aiProof: 7, source: "Sharif 40353",
+                link: "https://ocw.sharif.edu/",
+                description: "CMOS design, layout, timing, power, standard cells, ASIC flow. 3 units.",
+                topics: ["CMOS", "Layout", "Timing", "Power", "Standard cells", "ASIC"],
+                prerequisites: ["sh-14", "sh-15"], futureUse: [],
+                whyIncluded: "Specialized course. Chip design for those interested in hardware specialization.",
+                aiAnalysis: "VLSI design requires understanding physics, electrical behavior, and manufacturing constraints."
+            },
+            {
+                id: "sh-51", name: "Internship",
+                semester: "sh8", category: "professional", hours: 0,
+                aiProof: 9, source: "Sharif 40450",
+                link: "https://ocw.sharif.edu/",
+                description: "Industry internship. Apply knowledge in a real engineering environment. 0 units (pass/fail).",
+                topics: ["Industry experience", "Teamwork", "Professional skills", "Real-world engineering"],
+                prerequisites: ["sh-50"], futureUse: [],
+                whyIncluded: "Core course. Real industry experience is irreplaceable.",
+                aiAnalysis: "Working in teams, navigating organizations, and handling real constraints is deeply human."
+            },
+            {
+                id: "sh-52", name: "Capstone Project",
+                semester: "sh8", category: "engineering", hours: 48,
+                aiProof: 9, source: "Sharif 40760",
+                link: "https://ocw.sharif.edu/",
+                description: "Individual or team research/engineering project. Design, implement, test, document, and present. 3 units.",
+                topics: ["Research", "System design", "Implementation", "Documentation", "Presentation"],
+                prerequisites: ["sh-50"], futureUse: [],
+                whyIncluded: "Core course. Your proof that you can engineer real software, not just study it.",
+                aiAnalysis: "End-to-end engineering judgment — problem selection, design, execution — is irreplaceable."
+            }
+        ]
     }
 };
 
