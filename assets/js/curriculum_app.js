@@ -147,7 +147,7 @@
                     '<div class="card-title">' + c.name + '</div></div>' +
                     '<div class="card-meta"><span class="meta-tag">' + (cat.icon || '') + ' ' + (cat.label || c.category) + '</span>' +
                     '<span class="meta-tag hours">⏱ ' + c.hours + 'h</span>' +
-                    '<span class="meta-tag ai-proof ' + aiProofClass(c.aiProof) + '">AI-Proof: ' + aiProofLabel(c.aiProof) + '</span></div>' +
+                    '</div>' +
                     '<div class="card-desc">' + c.description + '</div>' + phtml + '</div>';
             });
             html += '</div></div>';
@@ -188,7 +188,8 @@
             html += '<tr data-id="' + c.id + '"><td><input type="checkbox" class="table-checkbox" data-id="' + c.id + '" ' + chk + '></td>' +
                 '<td>' + c.id + '</td><td><strong>' + c.name + '</strong><br><small style="color:var(--text-muted)">' + c.source + '</small></td>' +
                 '<td>' + c.semester + '</td><td><span class="cat-badge ' + c.category + '">' + (cat.label || c.category) + '</span></td>' +
-                '<td>' + c.hours + 'h</td><td><span class="meta-tag ai-proof ' + aiProofClass(c.aiProof) + '">' + aiProofLabel(c.aiProof) + '</span></td>' +
+                '<td>' + c.hours + 'h</td>'+ 
+                // '<td><span class="meta-tag ai-proof ' + aiProofClass(c.aiProof) + '">' + aiProofLabel(c.aiProof) + '</span></td>' +
                 '<td><small>' + pq + '</small></td></tr>';
         });
         tbody.innerHTML = html;
@@ -597,7 +598,7 @@
                 }
                 tooltip.innerHTML =
                     '<div class="tooltip-title">' + c.name + '</div>' +
-                    '<div class="tooltip-meta">' + (cat.label || c.category) + ' · ' + c.hours + 'h · AI-Proof: ' + c.aiProof + '/10</div>' +
+                    '<div class="tooltip-meta">' + (cat.label || c.category) + ' · ' + c.hours + 'h </div>' +
                     '<div class="tooltip-desc">' + c.description + '</div>' + extra;
             } else {
                 canvas.style.cursor = g.dragging ? "grabbing" : "grab";
@@ -719,16 +720,16 @@
             '<div class="detail-tags">' +
             '<span class="meta-tag">' + (cat.icon || '') + ' ' + (cat.label || c.category) + '</span>' +
             '<span class="meta-tag hours">⏱ ' + c.hours + ' hours</span>' +
-            '<span class="meta-tag ai-proof ' + aiProofClass(c.aiProof) + '">AI-Proof: ' + aiProofLabel(c.aiProof) + '</span>' +
+            // '<span class="meta-tag ai-proof ' + aiProofClass(c.aiProof) + '">AI-Proof: ' + aiProofLabel(c.aiProof) + '</span>' +
             '</div></div>' +
             '<div class="detail-section"><h3>Status</h3><div class="detail-status-toggle">' + sBtns + '</div></div>' +
             '<div class="detail-section"><h3>Description</h3><p>' + c.description + '</p></div>' +
             '<div class="detail-section"><h3>Topics Covered</h3><div class="card-meta">' + c.topics.map(function (t) { return '<span class="meta-tag">' + t + '</span>'; }).join("") + '</div></div>' +
             '<div class="detail-section"><h3>Why This Course Is Here</h3><p>' + c.whyIncluded + '</p></div>' +
-            '<div class="detail-section"><h3>🤖 AI-Proof Analysis</h3>' +
-            '<div class="ai-meter"><div class="ai-meter-bar"><div class="ai-meter-fill" style="width:' + (c.aiProof * 10) + '%;background:' + aiMeterColor(c.aiProof) + '"></div></div>' +
-            '<div class="ai-meter-label" style="color:' + aiMeterColor(c.aiProof) + '">' + c.aiProof + '/10</div></div>' +
-            '<p style="margin-top:8px">' + c.aiAnalysis + '</p></div>' +
+            // '<div class="detail-section"><h3>🤖 AI-Proof Analysis</h3>' +
+            // '<div class="ai-meter"><div class="ai-meter-bar"><div class="ai-meter-fill" style="width:' + (c.aiProof * 10) + '%;background:' + aiMeterColor(c.aiProof) + '"></div></div>' +
+            // '<div class="ai-meter-label" style="color:' + aiMeterColor(c.aiProof) + '">' + c.aiProof + '/10</div></div>' +
+            // '<p style="margin-top:8px">' + c.aiAnalysis + '</p></div>' +
             '<div class="detail-section"><h3>Prerequisites</h3><div class="prereq-chain">' + phtml + '</div></div>' +
             '<div class="detail-section"><h3>Where This Leads (Future Use)</h3><div class="prereq-chain">' + fhtml + '</div></div>' +
             '<div class="detail-section"><h3>📚 Free Resource</h3>' +
@@ -808,7 +809,7 @@
         });
 
         document.getElementById("filter-category").addEventListener("change", function (e) { state.filters.category = e.target.value; renderAll(); });
-        document.getElementById("filter-ai").addEventListener("change", function (e) { state.filters.ai = e.target.value; renderAll(); });
+        // document.getElementById("filter-ai").addEventListener("change", function (e) { state.filters.ai = e.target.value; renderAll(); });
         document.getElementById("filter-status").addEventListener("change", function (e) { state.filters.status = e.target.value; renderAll(); });
         document.getElementById("search-input").addEventListener("input", function (e) { state.search = e.target.value; renderAll(); });
 
