@@ -213,11 +213,19 @@
 
     function buildGraphLayout() {
         var g = state.graph;
-        var courses = getCourses();
+        // *** FIX: Use getFilteredCourses() so search/filter applies to graph ***
+        var courses = getFilteredCourses();
         var semesters = getCurriculum().semesters;
         var canvas = document.getElementById("graph-canvas");
         var w = canvas.clientWidth;
         var h = canvas.clientHeight;
+
+        // If selected node was filtered out, deselect it
+        var filteredIds = {};
+        courses.forEach(function (c) { filteredIds[c.id] = true; });
+        if (g.selectedId && !filteredIds[g.selectedId]) {
+            g.selectedId = null;
+        }
 
         var semMap = {};
         semesters.forEach(function (s, i) { semMap[s.id] = i; });
@@ -369,10 +377,11 @@
         );
 
         // ===== PASS 1: Background edges (dimmed when highlight active) =====
+        // *** FIX: Only draw edges when BOTH endpoints exist in nodeMap (i.e. not filtered out) ***
         nodes.forEach(function (n) {
             n.course.prerequisites.forEach(function (pid) {
                 var pn = nodeMap[pid];
-                if (!pn) return;
+                if (!pn) return; // prerequisite node filtered out — skip edge
                 var key = pid + "|" + n.id;
                 if (isHL && hlEdgeSet[key]) return;
                 var alpha = isHL ? 0.06 : 0.25;
@@ -381,7 +390,7 @@
             });
             n.course.futureUse.forEach(function (fid) {
                 var fn = nodeMap[fid];
-                if (!fn) return;
+                if (!fn) return; // future node filtered out — skip edge
                 var key = n.id + "|" + fid;
                 if (isHL && hlEdgeSet[key]) return;
                 var alpha = isHL ? 0.04 : 0.15;
@@ -395,7 +404,7 @@
             hlEdges.forEach(function (edge) {
                 var fromN = nodeMap[edge.from];
                 var toN = nodeMap[edge.to];
-                if (!fromN || !toN) return;
+                if (!fromN || !toN) return; // edge endpoints filtered out
                 if (edge.type === "prereq") {
                     drawArrow(ctx, fromN.x, fromN.y, toN.x, toN.y, toN.r, "#f0883e", 3, false);
                 } else {
@@ -763,8 +772,9 @@
         renderProgress();
         renderTimeline();
         renderTable();
+        // *** FIX: Always rebuild graph layout so filters/search apply even in graph view ***
         if (state.currentView === "graph") {
-            // Preserve selection when re-rendering due to status change etc.
+            // Preserve zoom/pan but rebuild layout with filtered courses
             requestAnimationFrame(function () { refreshGraph(true); });
         }
     }
