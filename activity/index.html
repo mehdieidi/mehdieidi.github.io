@@ -1,0 +1,518 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="theme-color" content="#2196F3"> <title>Activity Logger</title> <style>*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}:root{--primary:#2196f3;--success:#4caf50;--danger:#f44336;--light:#f5f5f5;--dark:#333;--border:#e0e0e0}html,body{width:100%;height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:white}body{display:flex;flex-direction:column;background:#fafafa}.header{background:var(--primary);color:white;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 4px rgba(0,0,0,0.1)}.header h1{font-size:18px;font-weight:600}.header-btn{background:rgba(255,255,255,0.2);border:0;color:white;padding:8px 12px;border-radius:4px;cursor:pointer;font-size:16px;touch-action:manipulation;margin-left:8px}.header-btn:active{background:rgba(255,255,255,0.3)}.tabs{background:white;display:flex;border-bottom:1px solid var(--border);padding:0}.tab-btn{flex:1;padding:12px 16px;border:0;background:white;color:#666;font-weight:500;font-size:14px;cursor:pointer;border-bottom:3px solid transparent;touch-action:manipulation}.tab-btn.active{color:var(--primary);border-bottom-color:var(--primary)}.tab-content{display:none;flex:1;overflow-y:auto;flex-direction:column}.tab-content.active{display:flex}.date-bar{background:white;padding:12px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}.date-text{font-weight:600;font-size:14px}.date-buttons{display:flex;gap:8px}.date-btn{background:var(--light);border:1px solid var(--border);padding:6px 12px;border-radius:4px;cursor:pointer;font-size:12px;font-weight:500;touch-action:manipulation}.date-btn.active{background:var(--primary);color:white;border-color:var(--primary)}.stats{background:white;padding:8px 16px;border-bottom:1px solid var(--border);font-size:12px;color:#666;flex-shrink:0}.activities-container{flex:1;overflow-y:auto;background:white}.empty-message{text-align:center;padding:40px 20px;color:#999}.activity-item{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:white;touch-action:manipulation}.activity-item:active{background:#f9f9f9}.activity-info{flex:1}.activity-name{font-weight:500;color:var(--dark);font-size:15px;margin-bottom:4px}.activity-time{font-size:12px;color:#999;margin-bottom:2px}.activity-duration{font-size:12px;color:var(--success);font-weight:500}.delete-btn{background:var(--danger);color:white;border:0;padding:6px 10px;border-radius:3px;font-size:12px;cursor:pointer;margin-left:8px;touch-action:manipulation}.delete-btn:active{background:#d32f2f}.input-section{background:white;padding:12px 16px;border-top:1px solid var(--border);display:flex;gap:8px;flex-shrink:0}.input-section input{flex:1;padding:10px 12px;border:1px solid var(--border);border-radius:4px;font-size:14px;font-family:inherit;touch-action:manipulation}.input-section input:focus{outline:0;border-color:var(--primary);background:#f9f9f9}.log-btn{background:var(--success);color:white;border:0;padding:10px 20px;border-radius:4px;font-weight:600;cursor:pointer;font-size:14px;touch-action:manipulation;white-space:nowrap}.log-btn:active{background:#45a049}.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:1000;justify-content:center;align-items:flex-end}.modal.show{display:flex}.modal-content{background:white;width:100%;max-width:500px;border-radius:12px 12px 0 0;padding:20px;max-height:90vh;overflow-y:auto}.modal h2{margin-bottom:16px;font-size:16px}.form-group{margin-bottom:12px}.form-group label{display:block;font-size:12px;color:#666;margin-bottom:6px;font-weight:500}.form-group input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:4px;font-size:14px;font-family:inherit;touch-action:manipulation}.form-group input:focus{outline:0;border-color:var(--primary)}.form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:monospace;resize:vertical;min-height:120px;touch-action:manipulation}.form-group textarea:focus{outline:0;border-color:var(--primary)}.modal-buttons{display:flex;gap:8px;margin-top:20px}.modal-btn{flex:1;padding:10px;border:0;border-radius:4px;font-weight:600;cursor:pointer;font-size:14px;touch-action:manipulation}.modal-btn.primary{background:var(--primary);color:white}.modal-btn.primary:active{background:#1565c0}.modal-btn.secondary{background:var(--light);color:var(--dark)}.modal-btn.secondary:active{background:#e0e0e0}.modal-btn.danger{background:var(--danger);color:white}.modal-btn.danger:active{background:#d32f2f}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--dark);color:white;padding:12px 20px;border-radius:4px;font-size:14px;z-index:2000}.import-section{padding:16px;overflow-y:auto}.import-section h3{margin-bottom:12px;font-size:14px;font-weight:600}.import-data-group{margin-bottom:20px;padding:12px;background:var(--light);border-radius:4px}
+.import-data-date{font-weight:600;color:var(--primary);margin-bottom:8px;font-size:13px}.import-data-count{font-size:12px;color:#666;margin-bottom:8px}.import-actions{display:flex;gap:8px}.import-actions button{flex:1;padding:8px;border:0;border-radius:3px;font-size:12px;cursor:pointer;touch-action:manipulation}.merge-btn{background:var(--success);color:white}.merge-btn:active{background:#45a049}.replace-btn{background:var(--danger);color:white}.replace-btn:active{background:#d32f2f}::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}.import-textarea-group{margin-bottom:12px}.import-textarea-group label{display:block;margin-bottom:8px;font-weight:500;font-size:13px}.import-textarea-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:monospace;resize:vertical;min-height:120px;touch-action:manipulation}.import-textarea-group textarea:focus{outline:0;border-color:var(--primary)}.import-parse-btn{width:100%;padding:10px;background:var(--primary);color:white;border:0;border-radius:4px;font-weight:600;cursor:pointer;touch-action:manipulation}.import-parse-btn:active{background:#1565c0}</style> </head> <body> <div class="header"> <h1>📋 Activity Logger</h1> <div> <button class="header-btn" id="exportBtn">💾</button> <button class="header-btn" id="helpBtn">ℹ️</button> </div> </div> <div class="tabs"> <button class="tab-btn active" data-tab="current">📅 Current</button> <button class="tab-btn" data-tab="import">📥 Import Data</button> </div> <div class="tab-content active" id="current-tab"> <div class="date-bar"> <span class="date-text" id="dateText"></span> <div class="date-buttons"> <button class="date-btn" id="todayBtn">Today</button> <button class="date-btn" id="yesterdayBtn">Yesterday</button> </div> </div> <div class="stats" id="statsText"></div> <div class="activities-container" id="activitiesContainer"></div> <div class="input-section"> <input type="text" id="activityInput" placeholder="What are you doing?" autocomplete="off"> <button class="log-btn" id="logBtn">Log</button> </div> </div> <div class="tab-content" id="import-tab"> <div class="import-section"> <h3>Paste Data to Preview</h3> <div class="import-textarea-group"> <label>JSON Data</label> <textarea id="importJsonInput" placeholder="Paste your exported JSON data here..."></textarea> </div> <button class="import-parse-btn" id="parseImportBtn">🔍 Preview Import</button> <div id="importPreview" style="margin-top: 20px;"></div> </div> </div> <div class="modal" id="exportModal"> <div class="modal-content"> <h2>Backup & Restore</h2> <h3 style="margin-top: 16px; margin-bottom: 8px; font-size: 14px;">Export Data</h3> <div class="form-group"> <textarea id="exportText" readonly></textarea> </div> <div class="modal-buttons"> <button class="modal-btn secondary" id="copyBtn">📋 Copy</button> <button class="modal-btn primary" id="downloadBtn">⬇️ Download</button> </div> <div class="modal-buttons" style="margin-top: 16px;"> <button class="modal-btn secondary" id="closeExportBtn" style="flex: 1;">Close</button> <button class="modal-btn danger" id="clearBtn">🗑️ Clear All</button> </div> </div> </div> <div class="modal" id="editModal"> <div class="modal-content"> <h2>Edit Activity</h2> <div class="form-group"> <label>Activity Name</label> <input type="text" id="editName"> </div> <div class="form-group"> <label>Start Time</label> <input type="time" id="editStart"> </div> <div class="form-group"> <label>End Time</label> <input type="time" id="editEnd"> </div> <div class="modal-buttons"> <button class="modal-btn secondary" id="cancelEditBtn">Cancel</button> <button class="modal-btn primary" id="saveEditBtn">Save</button> </div> </div> </div> <script>
+        // ============================================================================
+        // ACTIVITY LOGGER CLASS
+        // ============================================================================
+
+        class ActivityLogger {
+            constructor() {
+                this.storageKey = 'activityLogs_v1';
+                this.currentDate = this.getTodayDate();
+                this.editingActivityId = null;
+                this.importedData = null;
+                this.loadData();
+            }
+
+            getTodayDate() {
+                const d = new Date();
+                d.setHours(0, 0, 0, 0);
+                return d;
+            }
+
+            getDateKey(date) {
+                return date.toISOString().split('T')[0];
+            }
+
+            loadData() {
+                try {
+                    const stored = localStorage.getItem(this.storageKey);
+                    this.data = stored ? JSON.parse(stored) : {};
+                    console.log('Data loaded:', this.data);
+                } catch (e) {
+                    console.error('Error loading data:', e);
+                    this.data = {};
+                }
+            }
+
+            saveData() {
+                try {
+                    localStorage.setItem(this.storageKey, JSON.stringify(this.data));
+                    console.log('Data saved');
+                } catch (e) {
+                    console.error('Error saving data:', e);
+                    this.toast('❌ Error saving data!');
+                }
+            }
+
+            getTodayActivities() {
+                const key = this.getDateKey(this.currentDate);
+                if (!this.data[key]) {
+                    this.data[key] = [];
+                    this.saveData();
+                }
+                return this.data[key];
+            }
+
+            addActivity(name) {
+                if (!name || !name.trim()) {
+                    this.toast('Please enter an activity name');
+                    return;
+                }
+
+                const activities = this.getTodayActivities();
+                const now = new Date();
+                const timeStr = this.formatTime(now);
+
+                // End previous activity if it's still ongoing
+                if (activities.length > 0) {
+                    const last = activities[activities.length - 1];
+                    if (!last.endTime) {
+                        last.endTime = timeStr;
+                    }
+                }
+
+                activities.push({
+                    id: Date.now(),
+                    name: name.trim(),
+                    startTime: timeStr,
+                    endTime: null
+                });
+
+                this.saveData();
+                this.render();
+                this.toast(`✓ Logged: ${name}`);
+            }
+
+            deleteActivity(id) {
+                const activities = this.getTodayActivities();
+                const idx = activities.findIndex(a => a.id === id);
+                if (idx !== -1) {
+                    activities.splice(idx, 1);
+                    this.saveData();
+                    this.render();
+                    this.toast('Activity deleted');
+                }
+            }
+
+            updateActivity(id, name, startTime, endTime) {
+                const activities = this.getTodayActivities();
+                const activity = activities.find(a => a.id === id);
+                if (activity) {
+                    activity.name = name;
+                    activity.startTime = startTime;
+                    activity.endTime = endTime || null;
+                    this.saveData();
+                    this.render();
+                    this.toast('Activity updated');
+                }
+            }
+
+            formatTime(date) {
+                const h = String(date.getHours()).padStart(2, '0');
+                const m = String(date.getMinutes()).padStart(2, '0');
+                return `${h}:${m}`;
+            }
+
+            calculateDuration(start, end) {
+                if (!end) return 'ongoing';
+
+                const [sh, sm] = start.split(':').map(Number);
+                const [eh, em] = end.split(':').map(Number);
+
+                let mins = (eh * 60 + em) - (sh * 60 + sm);
+                if (mins < 0) mins += 24 * 60;
+
+                if (mins < 60) return `${mins}m`;
+                const h = Math.floor(mins / 60);
+                const m = mins % 60;
+                return m > 0 ? `${h}h ${m}m` : `${h}h`;
+            }
+
+            exportData() {
+                return JSON.stringify(this.data, null, 2);
+            }
+
+            parseImportData(json) {
+                try {
+                    const imported = JSON.parse(json);
+                    if (typeof imported !== 'object' || imported === null) {
+                        throw new Error('Data must be an object');
+                    }
+                    this.importedData = imported;
+                    return true;
+                } catch (e) {
+                    this.toast('❌ Invalid JSON');
+                    console.error('Parse error:', e);
+                    return false;
+                }
+            }
+
+            mergeImportedData() {
+                if (!this.importedData) {
+                    this.toast('❌ No imported data to merge');
+                    return;
+                }
+
+                this.data = { ...this.data, ...this.importedData };
+                this.saveData();
+                this.importedData = null;
+                document.getElementById('importJsonInput').value = '';
+                document.getElementById('importPreview').innerHTML = '';
+                this.render();
+                this.toast('✓ Data merged successfully!');
+            }
+
+            replaceWithImportedData(dateKey) {
+                if (!this.importedData) {
+                    this.toast('❌ No imported data');
+                    return;
+                }
+
+                if (!confirm(`Replace activities for ${dateKey}?`)) {
+                    return;
+                }
+
+                this.data[dateKey] = this.importedData[dateKey];
+                this.saveData();
+                this.render();
+                this.toast('✓ Data replaced!');
+            }
+
+            mergeAllImportedData() {
+                if (!this.importedData) {
+                    this.toast('❌ No imported data to merge');
+                    return;
+                }
+
+                if (!confirm('Merge all imported data into existing data?')) {
+                    return;
+                }
+
+                this.data = { ...this.data, ...this.importedData };
+                this.saveData();
+                this.importedData = null;
+                document.getElementById('importJsonInput').value = '';
+                document.getElementById('importPreview').innerHTML = '';
+                this.render();
+                this.switchTab('current');
+                this.toast('✓ All data merged successfully!');
+            }
+
+            clearAllData() {
+                if (!confirm('Delete ALL activities? This cannot be undone!')) return;
+                this.data = {};
+                this.saveData();
+                this.render();
+                this.toast('All data cleared');
+            }
+
+            setDate(date) {
+                this.currentDate = new Date(date);
+                this.currentDate.setHours(0, 0, 0, 0);
+                this.render();
+            }
+
+            toast(msg) {
+                const existing = document.querySelector('.toast');
+                if (existing) existing.remove();
+
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                toast.textContent = msg;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2000);
+            }
+
+            render() {
+                this.renderDate();
+                this.renderActivities();
+                this.renderStats();
+            }
+
+            switchTab(tabName) {
+                document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                
+                document.getElementById(tabName + '-tab').classList.add('active');
+                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+            }
+
+            renderDate() {
+                const today = this.getTodayDate();
+                const yesterday = new Date(today);
+                yesterday.setDate(yesterday.getDate() - 1);
+
+                let text = this.currentDate.toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric'
+                });
+
+                if (this.currentDate.getTime() === today.getTime()) {
+                    text = 'Today • ' + text;
+                } else if (this.currentDate.getTime() === yesterday.getTime()) {
+                    text = 'Yesterday • ' + text;
+                }
+
+                document.getElementById('dateText').textContent = text;
+                document.getElementById('todayBtn').classList.toggle('active', 
+                    this.currentDate.getTime() === today.getTime());
+                document.getElementById('yesterdayBtn').classList.toggle('active',
+                    this.currentDate.getTime() === yesterday.getTime());
+            }
+
+            renderStats() {
+                const activities = this.getTodayActivities();
+                const statsEl = document.getElementById('statsText');
+
+                if (activities.length === 0) {
+                    statsEl.textContent = '';
+                    return;
+                }
+
+                let totalMins = 0;
+                activities.forEach(a => {
+                    if (a.endTime) {
+                        const [sh, sm] = a.startTime.split(':').map(Number);
+                        const [eh, em] = a.endTime.split(':').map(Number);
+                        let mins = (eh * 60 + em) - (sh * 60 + sm);
+                        if (mins < 0) mins += 24 * 60;
+                        totalMins += mins;
+                    }
+                });
+
+                const h = Math.floor(totalMins / 60);
+                const m = totalMins % 60;
+                const timeStr = h > 0 ? `${h}h ${m}m` : `${m}m`;
+
+                statsEl.textContent = `${activities.length} activities • Total: ${timeStr}`;
+            }
+
+            renderActivities() {
+                const container = document.getElementById('activitiesContainer');
+                const activities = this.getTodayActivities();
+
+                if (activities.length === 0) {
+                    container.innerHTML = `<div class="empty-message">📭 No activities yet. Start logging!</div>`;
+                    return;
+                }
+
+                container.innerHTML = activities.map(a => `
+                    <div class="activity-item">
+                        <div class="activity-info">
+                            <div class="activity-name">${this.escapeHtml(a.name)}</div>
+                            <div class="activity-time">${a.startTime}${a.endTime ? ' – ' + a.endTime : ' – ongoing'}</div>
+                            <div class="activity-duration">${this.calculateDuration(a.startTime, a.endTime)}</div>
+                        </div>
+                        <button class="delete-btn" data-id="${a.id}">Delete</button>
+                    </div>
+                `).join('');
+
+                // Add event listeners
+                container.querySelectorAll('.delete-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const id = parseInt(btn.getAttribute('data-id'));
+                        this.deleteActivity(id);
+                    });
+                });
+
+                container.querySelectorAll('.activity-item').forEach((item, idx) => {
+                    item.querySelector('.activity-info').addEventListener('click', () => {
+                        const a = activities[idx];
+                        this.showEditModal(a.id, a.name, a.startTime, a.endTime || '');
+                    });
+                });
+            }
+
+            renderImportPreview() {
+                const preview = document.getElementById('importPreview');
+                
+                if (!this.importedData || Object.keys(this.importedData).length === 0) {
+                    preview.innerHTML = '<p style="color: #999; text-align: center;">No data to preview</p>';
+                    return;
+                }
+
+                let html = '<div style="margin-bottom: 16px;"><strong>📊 Imported Data Summary:</strong></div>';
+                let totalActivities = 0;
+
+                Object.entries(this.importedData).forEach(([dateKey, activities]) => {
+                    if (!Array.isArray(activities)) return;
+
+                    totalActivities += activities.length;
+                    const existingDate = this.data[dateKey];
+                    const hasConflict = existingDate && existingDate.length > 0;
+
+                    html += `
+                        <div class="import-data-group">
+                            <div class="import-data-date">📅 ${dateKey}</div>
+                            <div class="import-data-count">${activities.length} activities${hasConflict ? ' (⚠️ will overwrite existing)' : ''}</div>
+                            ${activities.map(a => `
+                                <div style="font-size: 11px; color: #666; padding: 4px 0; border-top: 1px solid #ddd; padding-top: 4px;">
+                                    ${this.escapeHtml(a.name)} <br/>
+                                    <span style="color: #999;">${a.startTime}${a.endTime ? ' – ' + a.endTime : ' – ongoing'}</span>
+                                </div>
+                            `).join('')}
+                            <div class="import-actions">
+                                <button class="merge-btn" onclick="app.replaceWithImportedData('${dateKey}')">✅ Use This</button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += `
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 2px solid var(--border);">
+                        <button class="import-parse-btn" style="background: var(--success);" onclick="app.mergeAllImportedData()">
+                            ✓ Merge All (${totalActivities} activities)
+                        </button>
+                    </div>
+                `;
+
+                preview.innerHTML = html;
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            showEditModal(id, name, start, end) {
+                this.editingActivityId = id;
+                document.getElementById('editName').value = name;
+                document.getElementById('editStart').value = start;
+                document.getElementById('editEnd').value = end;
+                document.getElementById('editModal').classList.add('show');
+                document.getElementById('editName').focus();
+            }
+        }
+
+        // ============================================================================
+        // INITIALIZE
+        // ============================================================================
+
+        const app = new ActivityLogger();
+
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabName = btn.getAttribute('data-tab');
+                app.switchTab(tabName);
+                document.getElementById('activityInput').focus();
+            });
+        });
+
+        // Log Input
+        document.getElementById('logBtn').addEventListener('click', () => {
+            const input = document.getElementById('activityInput');
+            app.addActivity(input.value);
+            input.value = '';
+            input.focus();
+        });
+
+        document.getElementById('activityInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                document.getElementById('logBtn').click();
+            }
+        });
+
+        // Date Navigation
+        document.getElementById('todayBtn').addEventListener('click', () => {
+            app.setDate(new Date());
+        });
+
+        document.getElementById('yesterdayBtn').addEventListener('click', () => {
+            const d = new Date();
+            d.setDate(d.getDate() - 1);
+            app.setDate(d);
+        });
+
+        // Export Modal
+        document.getElementById('exportBtn').addEventListener('click', () => {
+            document.getElementById('exportText').value = app.exportData();
+            document.getElementById('exportModal').classList.add('show');
+        });
+
+        document.getElementById('closeExportBtn').addEventListener('click', () => {
+            document.getElementById('exportModal').classList.remove('show');
+        });
+
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            const text = document.getElementById('exportText');
+            text.select();
+            document.execCommand('copy');
+            app.toast('✓ Copied!');
+        });
+
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            const data = app.exportData();
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `activities_${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            app.toast('✓ Downloaded!');
+        });
+
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            app.clearAllData();
+            document.getElementById('exportModal').classList.remove('show');
+        });
+
+        // Import Tab
+        document.getElementById('parseImportBtn').addEventListener('click', () => {
+            const json = document.getElementById('importJsonInput').value;
+            if (app.parseImportData(json)) {
+                app.renderImportPreview();
+            }
+        });
+
+        // Edit Modal
+        document.getElementById('saveEditBtn').addEventListener('click', () => {
+            const name = document.getElementById('editName').value;
+            const start = document.getElementById('editStart').value;
+            const end = document.getElementById('editEnd').value;
+
+            if (!name || !start) {
+                app.toast('Name and start time required');
+                return;
+            }
+
+            app.updateActivity(app.editingActivityId, name, start, end);
+            document.getElementById('editModal').classList.remove('show');
+        });
+
+        document.getElementById('cancelEditBtn').addEventListener('click', () => {
+            document.getElementById('editModal').classList.remove('show');
+        });
+
+        // Close modals on outside click
+        document.getElementById('exportModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('exportModal')) {
+                document.getElementById('exportModal').classList.remove('show');
+            }
+        });
+
+        document.getElementById('editModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('editModal')) {
+                document.getElementById('editModal').classList.remove('show');
+            }
+        });
+
+        // Help Button
+        document.getElementById('helpBtn').addEventListener('click', () => {
+            alert('💡 QUICK TIPS:\n\n📅 CURRENT TAB:\n1. Type activity name\n2. Tap "Log"\n3. Previous activity auto-ends\n4. Tap activity to edit times\n\n📥 IMPORT DATA TAB:\n1. Paste JSON data\n2. Click "Preview Import"\n3. Choose "Use This" per date OR "Merge All"\n4. Your existing data is never destroyed!\n\n💾 Use header button to backup/restore\n\nThat\'s it! 🎯');
+        });
+
+        // Initial render
+        app.render();
+
+        // Auto-focus input
+        setTimeout(() => {
+            document.getElementById('activityInput').focus();
+        }, 100);
+
+        console.log('App initialized successfully');
+    </script> </body> </html>
