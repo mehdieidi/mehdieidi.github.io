@@ -34,167 +34,167 @@ ninja.data = [{
           title: 'C How to Program',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/c_how_to_program/";
+              window.location.href = "/books/draft/c_how_to_program/";
             },},{id: "books-core-java-volume-i-fundamentals",
           title: 'Core Java Volume I--Fundamentals',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/core_java/";
+              window.location.href = "/books/draft/core_java/";
             },},{id: "books-digital-design",
           title: 'Digital Design',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/digital_design/";
+              window.location.href = "/books/draft/digital_design/";
             },},{id: "books-discrete-and-combinatorial-mathematics",
           title: 'Discrete and Combinatorial Mathematics',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/discrete_math/";
+              window.location.href = "/books/draft/discrete_math/";
             },},{id: "books-computer-organization-and-design-mips-edition-the-hardware-software-interface",
           title: 'Computer Organization and Design MIPS Edition: The Hardware/Software Interface',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/computer_organization/";
+              window.location.href = "/books/draft/computer_organization/";
             },},{id: "books-data-structures-and-algorithms-in-java",
           title: 'Data Structures and Algorithms in Java',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/data_structures/";
+              window.location.href = "/books/draft/data_structures/";
             },},{id: "books-introduction-to-the-design-and-analysis-of-algorithms",
           title: 'Introduction to the Design and Analysis of Algorithms',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/algorithm/";
+              window.location.href = "/books/draft/algorithm/";
             },},{id: "books-an-introduction-to-formal-languages-and-automata",
           title: 'An Introduction to Formal Languages and Automata',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/automata/";
+              window.location.href = "/books/draft/automata/";
             },},{id: "books-database-system-concepts",
           title: 'Database System Concepts',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/database/";
+              window.location.href = "/books/draft/database/";
             },},{id: "books-learning-go-an-idiomatic-approach-to-real-world-go-programming",
           title: 'Learning Go: An Idiomatic Approach to Real-World Go Programming',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/go/";
+              window.location.href = "/books/draft/go/";
             },},{id: "books-compilers-principles-techniques-and-tools",
           title: 'Compilers: Principles, Techniques, and Tools',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/compiler/";
+              window.location.href = "/books/draft/compiler/";
             },},{id: "books-linux-system-programming",
           title: 'Linux System Programming',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/linux_programming/";
+              window.location.href = "/books/draft/linux_programming/";
             },},{id: "books-computer-networking-a-top-down-approach",
           title: 'Computer Networking: A Top-Down Approach',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/networks/";
+              window.location.href = "/books/draft/networks/";
             },},{id: "books-operating-system-concepts",
           title: 'Operating System Concepts',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/os/";
+              window.location.href = "/books/draft/os/";
             },},{id: "books-systems-analysis-and-design",
           title: 'Systems Analysis and Design',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/systems_design/";
+              window.location.href = "/books/draft/systems_design/";
             },},{id: "books-artificial-intelligence-a-modern-approach",
           title: 'Artificial Intelligence: A Modern Approach',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/ai/";
+              window.location.href = "/books/draft/ai/";
             },},{id: "books-design-patterns-for-cloud-native-applications-patterns-in-practice-using-apis-data-events-and-streams",
           title: 'Design Patterns for Cloud Native Applications: Patterns in Practice Using APIs, Data, Events,...',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/cloud_native_patterns/";
+              window.location.href = "/books/draft/cloud_native_patterns/";
             },},{id: "books-cryptography-and-network-security-principles-and-practice",
           title: 'Cryptography and Network Security: Principles and Practice',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/cryptography/";
+              window.location.href = "/books/draft/cryptography/";
             },},{id: "books-introduction-to-information-retrieval",
           title: 'Introduction to Information Retrieval',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/information_retrieval/";
+              window.location.href = "/books/draft/information_retrieval/";
             },},{id: "books-concepts-of-programming-languages",
           title: 'Concepts of Programming Languages',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/programming_languages/";
+              window.location.href = "/books/draft/programming_languages/";
             },},{id: "books-software-engineering-a-practitioner-39-s-approach",
           title: 'Software Engineering: A Practitioner&amp;#39;s Approach',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/se/";
+              window.location.href = "/books/draft/se/";
             },},{id: "books-system-design-interview-an-insider-39-s-guide",
           title: 'System Design Interview – An insider&amp;#39;s guide',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/system_design_xu/";
+              window.location.href = "/books/draft/system_design_xu/";
             },},{id: "books-cloud-native-go-building-reliable-services-in-unreliable-environments",
           title: 'Cloud Native Go: Building Reliable Services in Unreliable Environments',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/cloud_go/";
+              window.location.href = "/books/draft/cloud_go/";
             },},{id: "books-network-programming-with-go-learn-to-code-secure-and-reliable-network-services-from-scratch",
           title: 'Network Programming with Go: Learn to Code Secure and Reliable Network Services from...',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/network_go/";
+              window.location.href = "/books/draft/network_go/";
             },},{id: "books-introduction-to-software-testing",
           title: 'Introduction to Software Testing',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/software_testing/";
+              window.location.href = "/books/draft/software_testing/";
             },},{id: "books-choose-your-wow-a-disciplined-agile-delivery-handbook-for-optimizing-your-way-of-working-wow",
           title: 'Choose Your WoW!: A Disciplined Agile Delivery Handbook for Optimizing Your Way of...',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/wow/";
+              window.location.href = "/books/draft/wow/";
             },},{id: "books-software-architecture-patterns",
           title: 'Software Architecture Patterns',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/arch_patterns/";
+              window.location.href = "/books/draft/arch_patterns/";
             },},{id: "books-the-practice-of-enterprise-architecture-a-modern-approach-to-business-and-it-alignment",
           title: 'The Practice of Enterprise Architecture: A Modern Approach to Business and IT Alignment...',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/ea/";
+              window.location.href = "/books/draft/ea/";
             },},{id: "books-design-patterns-elements-of-reusable-object-oriented-software",
           title: 'Design patterns : elements of reusable object-oriented software',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/gof/";
+              window.location.href = "/books/draft/gof/";
             },},{id: "books-pattern-oriented-software-architecture-volume-1-a-system-of-patterns",
           title: 'Pattern-Oriented Software Architecture Volume 1: A System of Patterns',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/posa/";
+              window.location.href = "/books/draft/posa/";
             },},{id: "books-refactoring-improving-the-design-of-existing-code",
           title: 'Refactoring: Improving the Design of Existing Code',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/refactoring/";
+              window.location.href = "/books/draft/refactoring/";
             },},{id: "books-mda-distilled-principles-of-model-driven-architecture",
           title: 'MDA Distilled: Principles of Model-Driven Architecture',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/mda_distilled/";
+              window.location.href = "/books/draft/mda_distilled/";
             },},{id: "books-serverless-development-on-aws-building-enterprise-scale-serverless-solutions",
           title: 'Serverless Development on AWS: Building Enterprise-Scale Serverless Solutions',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/serverless_development_on_aws/";
+              window.location.href = "/books/draft/serverless_development_on_aws/";
             },},{
         id: 'social-email',
         title: 'email',
