@@ -3,7 +3,7 @@ layout: book-shelf
 title: Bookshelf
 subtitle: Some of the books I'm reading, have read, or plan to read.
 permalink: /books/
-nav: true
+nav: false
 collection: books
 nav_order: 2
 ---
