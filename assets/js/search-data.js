@@ -65,4 +65,11 @@ ninja.data = [{
         handler: () => {
           window.open("https://www.researchgate.net/profile/Mehdi-Eidi/", "_blank");
         },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=4-JXbrsAAAAJ", "_blank");
+        },
       },];
