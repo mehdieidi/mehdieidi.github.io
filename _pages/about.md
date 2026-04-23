@@ -6,7 +6,7 @@ subtitle: Software Engineer | Researcher
 
 profile:
   align: right
-  image: 40.jpg
+  image: 47.png
   image_circular: false # crops the image to make it circular
   more_info: >
     <p style="font-size: 0.6rem; color: #b509ac">Methodology Engineering Lab, Room 612</p><br>
