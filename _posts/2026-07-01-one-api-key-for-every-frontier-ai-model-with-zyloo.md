@@ -1,6 +1,6 @@
 ---
 layout: post
-title: One API Key for Every Frontier AI Model, A Hands-On Look at Zyloo
+title: One API Key for Every Frontier AI Model, a Hands-On Look at Zyloo
 date: 2026-07-01 10:00:00
 description: How Zyloo's OpenAI-compatible gateway lets you call GPT, Claude, Gemini, and dozens of other models through a single endpoint — and why that matters for real software projects.
 tags: ai api software-engineering llm
