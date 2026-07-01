@@ -32,7 +32,7 @@ ninja.data = [{
           },
         },{id: "post-one-api-key-for-every-frontier-ai-model-a-hands-on-look-at-zyloo",
         
-          title: "One API Key for Every Frontier AI Model, A Hands-On Look at Zyloo...",
+          title: "One API Key for Every Frontier AI Model, a Hands-On Look at Zyloo...",
         
         description: "How Zyloo&#39;s OpenAI-compatible gateway lets you call GPT, Claude, Gemini, and dozens of other models through a single endpoint — and why that matters for real software projects.",
         section: "Posts",
