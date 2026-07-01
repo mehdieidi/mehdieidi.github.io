@@ -8,8 +8,6 @@ categories: tools
 related_posts: false
 ---
 
-_Disclosure: This article was written as part of [Zyloo's creator rewards program](https://zyloo.io/dashboard/free-balance). If the post is approved, my Zyloo account may receive promotional credits. The technical evaluation below reflects my own experience._
-
 If you have shipped anything with large language models in the last two years, you already know the operational tax: one API key for OpenAI, another for Anthropic, a third for Google, separate billing dashboards, different rate limits, and slightly different request formats even when the underlying capability is the same. Swapping models in a prototype is easy; doing it in production — with budgets, failover, and observability — is where the friction shows up.
 
 [Zyloo](https://zyloo.io/) is a unified AI API gateway that routes requests to 40+ frontier models behind a single [OpenAI-compatible endpoint](https://zyloo.io/docs). Instead of re-architecting your stack every time you want to try Claude instead of GPT, you change the `model` field and keep everything else. I spent time integrating Zyloo into a few typical developer workflows — a Node.js script, a Python experiment, and an editor configuration — to see whether the "two-line migration" claim holds up in practice.
@@ -185,7 +183,7 @@ Zyloo is not a replacement for every provider feature. If you need fine-grained 
 
 Zyloo runs on a prepaid credit model. You can top up via card, PayPal, Apple Pay, Google Pay, WeChat Pay, or crypto (including USDT and Bitcoin), and your balance updates when payment confirms. There is no recurring subscription.
 
-New accounts receive welcome credit on signup, which is enough to run meaningful experiments. For ongoing use, the [free balance dashboard](https://zyloo.io/dashboard/free-balance) also outlines ways to earn additional promotional credit — including the creator rewards program that motivated this write-up.
+New accounts receive welcome credit on signup, which is enough to run meaningful experiments before you add funds.
 
 ## Final thoughts
 
@@ -200,4 +198,4 @@ If you already have OpenAI-shaped code, the migration cost is effectively two co
 - [Models and pricing](https://zyloo.io/models)
 - [Dashboard](https://zyloo.io/dashboard)
 
-If you try Zyloo on a project, start with a budget-capped key, run a few streaming and tool-calling requests against your actual workloads, and compare latency and output quality against your current provider. That fifteen-minute experiment will tell you more than any overview article — including this one.
+If you try Zyloo on a project, start with a budget-capped key, run a few streaming and tool-calling requests against your actual workloads, and compare latency and output quality against your current provider. A short benchmark against your own workloads is the fastest way to decide whether a unified gateway fits your stack.
