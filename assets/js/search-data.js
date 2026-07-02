@@ -30,18 +30,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-one-api-key-for-every-frontier-ai-model-a-hands-on-look-at-zyloo",
-        
-          title: "One API Key for Every Frontier AI Model, a Hands-On Look at Zyloo...",
-        
-        description: "How Zyloo&#39;s OpenAI-compatible gateway lets you call GPT, Claude, Gemini, and dozens of other models through a single endpoint — and why that matters for real software projects.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/one-api-key-for-every-frontier-ai-model-with-zyloo/";
-          
-        },
-      },{
+        },{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
