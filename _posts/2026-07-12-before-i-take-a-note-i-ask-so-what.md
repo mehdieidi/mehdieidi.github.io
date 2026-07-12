@@ -1,8 +1,8 @@
 ---
 layout: distill
 title: "Before Taking a Note, Ask 'So What?!'"
-description: "A skeptical person's perspective on note-taking, Obsidian, and why most notes are not worth writing."
-tags: notes obsidian pkm learning productivity
+description: "A skeptical person's perspective on note-taking, second brain, and why most notes are not worth writing."
+tags: notes learning productivity
 giscus_comments: false
 date: 2026-07-12
 featured: false
@@ -14,7 +14,6 @@ toc:
   - name: The two jobs a note can do
   - name: Notes that save work
   - name: Notes that do their work immediately
-  - name: What I no longer capture
   - name: My test for a note
   - name: This is not an anti-note argument
 ---
@@ -25,19 +24,19 @@ Maybe I needed better folders. Maybe tags were the answer. Maybe I should use Ob
 
 But whenever I tried to follow that advice, a stubborn question kept getting in the way:
 
-> **So what?!**
+> So what?!
 
 Suppose I write a careful note explaining recursion. So what?! There are already thousands of explanations of recursion, including textbooks, lectures, documentation, and articles written by people who probably understand the subject better than I do.
 
 Suppose I create a note called “Docker,” summarize containers and images, add a few links, and connect it to Linux. Again: so what?! What can I now do that I could not do before?
 
-That question eventually made me realize that I had been debating the wrong thing. The important question was never how to organize notes. It was whether a particular note deserved to exist in the first place.
+That question eventually made me realize that I had been debating the wrong thing. The important question was never _how_ to organize notes. It was whether a particular note deserved _to exist_ in the first place.
 
 ## Attention is not free
 
 Most note-taking advice begins after the decision to take a note has already been made. It tells us how to capture, structure, tag, link, review, or retrieve information. It rarely asks whether capturing that information is worth the time.
 
-That omission matters because information is no longer scarce. I do not need to maintain my own explanation of Git branches, HTTP status codes, Docker volumes, or recursion, merely to ensure that such explanations continue to exist. They are already available, usually in a better form than the version I would write.
+That omission matters, because information is no longer scarce. I do not need to maintain my own explanation of Git branches, HTTP status codes, Docker volumes, or recursion, merely to ensure that such explanations continue to exist. They are already available, usually in a better form than the version I would write.
 
 Attention is not free! A note costs more than the minute it takes to type. It becomes one more thing in a collection that I may later search, reorganize, review, update, or ignore. A vault full of notes may occupy almost no disk space while still creating a great deal of mental clutter.
 
@@ -49,7 +48,7 @@ A personal Wikipedia sounds attractive until I ask what problem it solves.
 
 Wikipedia is useful because it is public, broad, maintained by many people, and designed as a reference work. My private notes have none of those advantages. If I copy ordinary reference information into them, I am not producing new knowledge. I am maintaining a smaller, less accurate, less complete encyclopedia for an audience of one!
 
-Research on the “generation effect” has repeatedly found that people tend to remember material better when they generate it rather than merely read it.<d-footnote>See Norman J. Slamecka and Peter Graf, “The Generation Effect: Delineation of a Phenomenon,” <em>Journal of Experimental Psychology: Human Learning and Memory</em> 4, no. 6 (1978): 592–604, <a href="https://doi.org/10.1037/0278-7393.4.6.592">doi:10.1037/0278-7393.4.6.592</a>.</d-footnote> Similarly, retrieval practice, trying to reconstruct an idea from memory, can produce stronger learning than additional passive study.<d-footnote>Jeffrey D. Karpicke and Janell R. Blunt, “Retrieval Practice Produces More Learning than Elaborative Studying with Concept Mapping,” <em>Science</em> 331, no. 6018 (2011): 772–775, <a href="https://doi.org/10.1126/science.1199327">doi:10.1126/science.1199327</a>.</d-footnote>
+Research on the “generation effect” has repeatedly found that people tend to remember material better when they generate it rather than merely read it.See Norman J. Slamecka and Peter Graf, “The Generation Effect: Delineation of a Phenomenon,” <em>Journal of Experimental Psychology: Human Learning and Memory</em> 4, no. 6 (1978): 592–604, <a href="https://doi.org/10.1037/0278-7393.4.6.592">doi:10.1037/0278-7393.4.6.592</a>. Similarly, retrieval practice, trying to reconstruct an idea from memory, can produce stronger learning than additional passive study.Jeffrey D. Karpicke and Janell R. Blunt, “Retrieval Practice Produces More Learning than Elaborative Studying with Concept Mapping,” <em>Science</em> 331, no. 6018 (2011): 772–775, <a href="https://doi.org/10.1126/science.1199327">doi:10.1126/science.1199327</a>.
 
 That is a good reason to explain recursion in my own words while I am learning it. It is not necessarily a good reason to preserve that explanation forever, link it to twenty other notes, and maintain it as part of a personal encyclopedia.
 
@@ -57,11 +56,10 @@ That is a good reason to explain recursion in my own words while I am learning i
 
 ## The two jobs a note can do
 
-I now think a note has only two serious ways to justify itself.
+I now think a note has only two serious ways to justify itself:
 
-The first is to **save future work**.
-
-The second is to **improve present thinking**.
+1. **save future work**.
+2. **improve present thinking**.
 
 A note does not need to do both. But if it does neither, I struggle to see why I should write it.
 
@@ -83,7 +81,7 @@ An experiment fails. The failure looks unimportant at the time, but three months
 
 These notes are valuable because the knowledge is local, contextual, and costly to recreate. They preserve not just the answer but the path that led to it.
 
-This is a form of cognitive offloading: placing information in the environment so that the mind does not have to carry or reconstruct all of it.<d-footnote>Evan F. Risko and Sam J. Gilbert, “Cognitive Offloading,” <em>Trends in Cognitive Sciences</em> 20, no. 9 (2016): 676–688, <a href="https://doi.org/10.1016/j.tics.2016.07.002">doi:10.1016/j.tics.2016.07.002</a>.</d-footnote> Offloading is useful when the external record is reliable and when retrieval is easier than redoing the work.
+This is a form of cognitive offloading: placing information in the environment so that the mind does not have to carry or reconstruct all of it.Evan F. Risko and Sam J. Gilbert, “Cognitive Offloading,” <em>Trends in Cognitive Sciences</em> 20, no. 9 (2016): 676–688, <a href="https://doi.org/10.1016/j.tics.2016.07.002">doi:10.1016/j.tics.2016.07.002</a>. Offloading is useful when the external record is reliable and when retrieval is easier than redoing the work.
 
 ## Notes that do their work immediately
 
@@ -102,22 +100,6 @@ In this case, the note does its job during creation. Keeping it is optional. I m
 This is where much discussion about note-taking becomes confused. We often evaluate a note only by asking whether we will reread it. But some writing is closer to scratch work in mathematics. I do not keep every page of scratch work, yet it was necessary to reach the result.
 
 > A note can be disposable and still worth writing.
-
-## What I no longer capture
-
-I no longer feel an obligation to save every explanation that helped me, every quote I liked, or every fact that seemed interesting for thirty seconds.
-
-I am especially suspicious of notes that begin with titles such as:
-
-- “What is X?”
-- “Introduction to Y”
-- “Definition of Z”
-
-They may be useful during study, but they often become dead reference pages afterward. Their existence gives me a pleasant sense of accumulation without necessarily improving my work.
-
-I also do not capture something merely because I might need it someday. “Someday” is capable of justifying an infinite amount of clerical work. YAGNI!
-
-> The question is not whether I can preserve something. The question is whether losing it would matter.
 
 ## My test for a note
 
