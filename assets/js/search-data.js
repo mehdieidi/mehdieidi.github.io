@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{
+        },{id: "post-before-taking-a-note-ask-39-so-what-39",
+        
+          title: "Before Taking a Note, Ask &#39;So What?!&#39;",
+        
+        description: "A skeptical person&#39;s perspective on note-taking, Obsidian, and why most notes are not worth writing.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/before-i-take-a-note-i-ask-so-what/";
+          
+        },
+      },{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
