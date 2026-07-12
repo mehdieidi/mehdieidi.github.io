@@ -38,7 +38,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/before-i-take-a-note-i-ask-so-what/";
+            window.location.href = "/blog/2026/before-taking-a-note-ask-so-what/";
           
         },
       },{
