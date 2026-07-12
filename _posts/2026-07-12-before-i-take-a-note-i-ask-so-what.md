@@ -1,6 +1,7 @@
 ---
 layout: distill
 title: "Before Taking a Note, Ask 'So What?!'"
+bibliography: before-taking-a-note-ask-so-what.bib
 description: "A skeptical person's perspective on note-taking, second brain, and why most notes are not worth writing."
 tags: notes learning productivity
 giscus_comments: false
@@ -48,7 +49,7 @@ A personal Wikipedia sounds attractive until I ask what problem it solves.
 
 Wikipedia is useful because it is public, broad, maintained by many people, and designed as a reference work. My private notes have none of those advantages. If I copy ordinary reference information into them, I am not producing new knowledge. I am maintaining a smaller, less accurate, less complete encyclopedia for an audience of one!
 
-Research on the “generation effect” has repeatedly found that people tend to remember material better when they generate it rather than merely read it.See Norman J. Slamecka and Peter Graf, “The Generation Effect: Delineation of a Phenomenon,” <em>Journal of Experimental Psychology: Human Learning and Memory</em> 4, no. 6 (1978): 592–604, <a href="https://doi.org/10.1037/0278-7393.4.6.592">doi:10.1037/0278-7393.4.6.592</a>. Similarly, retrieval practice, trying to reconstruct an idea from memory, can produce stronger learning than additional passive study.Jeffrey D. Karpicke and Janell R. Blunt, “Retrieval Practice Produces More Learning than Elaborative Studying with Concept Mapping,” <em>Science</em> 331, no. 6018 (2011): 772–775, <a href="https://doi.org/10.1126/science.1199327">doi:10.1126/science.1199327</a>.
+Research on the “generation effect” has repeatedly found that people tend to remember material better when they generate it rather than merely read it<d-cite key="slamecka1978generation"></d-cite>. Similarly, retrieval practice, trying to reconstruct an idea from memory, can produce stronger learning than additional passive study<d-cite key="karpicke2011retrieval"></d-cite>.
 
 That is a good reason to explain recursion in my own words while I am learning it. It is not necessarily a good reason to preserve that explanation forever, link it to twenty other notes, and maintain it as part of a personal encyclopedia.
 
@@ -81,7 +82,7 @@ An experiment fails. The failure looks unimportant at the time, but three months
 
 These notes are valuable because the knowledge is local, contextual, and costly to recreate. They preserve not just the answer but the path that led to it.
 
-This is a form of cognitive offloading: placing information in the environment so that the mind does not have to carry or reconstruct all of it.Evan F. Risko and Sam J. Gilbert, “Cognitive Offloading,” <em>Trends in Cognitive Sciences</em> 20, no. 9 (2016): 676–688, <a href="https://doi.org/10.1016/j.tics.2016.07.002">doi:10.1016/j.tics.2016.07.002</a>. Offloading is useful when the external record is reliable and when retrieval is easier than redoing the work.
+This is a form of cognitive offloading: placing information in the environment so that the mind does not have to carry or reconstruct all of it<d-cite key="risko2016cognitive"></d-cite>. Offloading is useful when the external record is reliable and when retrieval is easier than redoing the work.
 
 ## Notes that do their work immediately
 
@@ -127,16 +128,3 @@ This is not an algorithm. It is a resistance to automatic capture. I do not want
 I am not arguing that people should stop taking notes. Researchers, writers, historians, lawyers, designers, engineers, and many others do work that depends on synthesizing and combining material across long periods of time. For them, a well-maintained collection of notes can be essential infrastructure.
 
 I am arguing against treating that need as universal. Not everyone needs a second brain. Not every interest needs a knowledge base. Not every idea needs an atomic note, and not every relationship needs a wikilink!
-
-
-{% details References %}
-
-1. Karpicke, Jeffrey D., and Janell R. Blunt. “Retrieval Practice Produces More Learning than Elaborative Studying with Concept Mapping.” *Science* 331, no. 6018 (2011): 772–775. [doi:10.1126/science.1199327](https://doi.org/10.1126/science.1199327).
-
-2. Risko, Evan F., and Sam J. Gilbert. “Cognitive Offloading.” *Trends in Cognitive Sciences* 20, no. 9 (2016): 676–688. [doi:10.1016/j.tics.2016.07.002](https://doi.org/10.1016/j.tics.2016.07.002).
-
-3. Slamecka, Norman J., and Peter Graf. “The Generation Effect: Delineation of a Phenomenon.” *Journal of Experimental Psychology: Human Learning and Memory* 4, no. 6 (1978): 592–604. [doi:10.1037/0278-7393.4.6.592](https://doi.org/10.1037/0278-7393.4.6.592).
-
-4. Schacter, Daniel L. “The Seven Sins of Memory: Insights from Psychology and Cognitive Neuroscience.” *American Psychologist* 54, no. 3 (1999): 182–203. [doi:10.1037/0003-066X.54.3.182](https://doi.org/10.1037/0003-066X.54.3.182).
-
-{% enddetails %}
