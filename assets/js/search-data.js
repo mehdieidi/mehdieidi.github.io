@@ -34,7 +34,7 @@ ninja.data = [{
         
           title: "Before Taking a Note, Ask &#39;So What?!&#39;",
         
-        description: "A skeptical person&#39;s perspective on note-taking, Obsidian, and why most notes are not worth writing.",
+        description: "A skeptical person&#39;s perspective on note-taking, second brain, and why most notes are not worth writing.",
         section: "Posts",
         handler: () => {
           
