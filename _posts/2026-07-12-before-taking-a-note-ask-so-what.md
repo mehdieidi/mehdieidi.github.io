@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: "Before Taking a Note, Ask 'So What?!'"
-bibliography: before-taking-a-note-ask-so-what.bib
+bibliography: 2026-07-12-before-taking-a-note-ask-so-what.bib
 description: "A skeptical person's perspective on note-taking, second brain, and why most notes are not worth writing."
 tags: notes learning productivity
 giscus_comments: false
