@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: distill
 title: "Before Taking a Note, Ask 'So What?!'"
 description: "A skeptical person's perspective on note-taking, second brain, and why most notes are not worth writing."
 tags: notes learning productivity
