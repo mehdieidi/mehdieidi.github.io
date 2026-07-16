@@ -9,7 +9,8 @@ last_name: Eidi
 contact_note: >
   The best way to contact me is via email.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Homepage.
+  Personal homepage of Mehdi Eidi, a software engineer and researcher working on
+  serverless computing, model-driven engineering, and software engineering.
 footer_text: >
 keywords: software-engineering, computer-science, computer-engineering # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
