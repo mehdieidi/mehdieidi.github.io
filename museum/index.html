@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ede9df" />
+  <title>The Software Engineering Museum — a researched history through 2026</title>
+  <meta name="description" content="A walkable 3D museum of software engineering history: Grady Booch's 2018 essay expanded with researched galleries through 2026." />
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="museum" aria-label="Interactive 3D museum"></canvas>
+
+    <header class="hud topbar">
+      <button class="brand ghost" id="homeButton" aria-label="Return to entrance">
+        <span class="brand-mark">SE</span>
+        <span class="brand-copy"><b>The Software Engineering Museum</b><small>Booch 2018 · researched extension through 2026</small></span>
+      </button>
+      <nav class="top-actions" aria-label="Museum tools">
+        <button class="ghost" data-open="map">Map</button>
+        <button class="ghost" data-open="collection">Collection</button>
+        <button class="ghost" data-open="source">Source</button>
+        <button class="ghost" data-open="help">How to move</button>
+      </nav>
+    </header>
+
+    <section class="hud room-label" id="roomLabel" aria-live="polite">
+      <span id="roomNumber">00</span>
+      <div><small id="roomEra">The question</small><strong id="roomTitle">What is software engineering?</strong></div><button id="roomGuide" class="room-guide-button">Room guide</button>
+    </section>
+
+    <div class="hud hover-label" id="hoverLabel" hidden></div>
+
+    <div class="hud reticle" id="reticle" aria-hidden="true"><span></span></div>
+
+    <footer class="hud tourbar">
+      <div class="control-hint" id="controlHint">
+        <span class="mouse-icon" aria-hidden="true"></span>
+        <span><b>Drag</b> to look · <b>WASD / arrows</b> to walk · <b>wheel</b> forward/back · click an exhibit</span>
+      </div>
+      <div class="tour-controls">
+        <button id="prevGallery" class="round" aria-label="Previous gallery">←</button>
+        <button id="guidedMode" class="primary">Guided tour</button>
+        <button id="nextGallery" class="round" aria-label="Next gallery">→</button>
+      </div>
+    </footer>
+
+    <div class="mobile-move hud" aria-label="Mobile movement controls">
+      <button data-move="forward" aria-label="Move forward">↑</button>
+      <div><button data-move="left" aria-label="Move left">←</button><button data-move="back" aria-label="Move backward">↓</button><button data-move="right" aria-label="Move right">→</button></div>
+    </div>
+
+    <div class="intro" id="intro">
+      <div class="intro-card">
+        <p class="eyebrow">A walkable history · 1840s → 2026</p>
+        <h1>Software engineering<br><em>as a place.</em></h1>
+        <p class="lede">Not a slideshow. Walk through eighteen connected galleries. The first wing follows Grady Booch’s <i>The History of Software Engineering</i>; a clearly marked research wing extends the record through cloud-native engineering, secure development and the AI-assisted software era to 2026.</p>
+        <div class="intro-actions">
+          <button id="enterGuided" class="primary large">Enter guided tour</button>
+          <button id="enterFree" class="secondary large">Explore freely</button>
+        </div>
+        <div class="intro-instructions">
+          <span><i class="mouse-icon"></i><b>Click + drag</b> to turn your head</span>
+          <span><kbd>W A S D</kbd><b>Walk</b> through gallery doorways and vestibules</span>
+          <span><kbd>Click</kbd><b>Inspect</b> real historical exhibits</span>
+        </div>
+        <p class="intro-note">The paper is included locally. This edition uses a local historical-media cache: run <code>python3 run_museum.py</code> once while online and it fetches one distinct real Wikimedia Commons photograph/artifact for every wall exhibit, records the exact attribution, and caches Three.js. After that, the museum can run offline.</p>
+      </div>
+    </div>
+
+    <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+    <aside class="drawer exhibit-drawer" id="exhibitDrawer" aria-hidden="true" aria-label="Exhibit details">
+      <button class="close" data-close aria-label="Close">×</button>
+      <div class="drawer-scroll">
+        <p class="eyebrow" id="exhibitGallery"></p>
+        <h2 id="exhibitTitle"></h2>
+        <p class="sub" id="exhibitSubtitle"></p>
+        <figure id="exhibitFigure" hidden>
+          <img id="exhibitImage" alt="" />
+          <figcaption id="exhibitCredit"></figcaption>
+        </figure>
+        <section><h3 id="sourceBasisTitle">From Booch’s paper</h3><p id="exhibitPaper"></p></section>
+        <section><h3>Why it matters</h3><p id="exhibitMeaning"></p></section>
+        <section id="accuracySection" class="accuracy" hidden><h3>Curatorial accuracy note</h3><p id="exhibitAccuracy"></p><a id="accuracyLink" target="_blank" rel="noreferrer">Open verification source ↗</a></section>
+        <section id="sourcesSection" hidden><h3>Credible historical sources</h3><div id="exhibitSources" class="exhibit-sources"></div></section>
+        <section id="provenanceSection" hidden><h3>Object / image provenance</h3><p id="exhibitProvenance"></p><a id="mediaLink" target="_blank" rel="noreferrer">Open original source page ↗</a></section>
+        <div class="tag-row" id="exhibitTags"></div>
+      </div>
+    </aside>
+
+    <section class="modal" id="mapModal" hidden aria-label="Museum map">
+      <div class="modal-shell wide">
+        <div class="modal-head"><div><p class="eyebrow">Floor plan</p><h2>Choose a gallery</h2></div><button class="close" data-close>×</button></div>
+        <div class="map-layout"><div class="map-canvas" id="mapCanvas"></div><div class="map-copy"><p>The building is laid out as a sequence of rooms with actual left and right turns. Each transition is a short architectural vestibule with a framed portal; the wall beside every forward doorway tells you what the next gallery contains. Click any gallery to move there.</p><div id="mapCurrent"></div></div></div>
+      </div>
+    </section>
+
+    <section class="modal" id="collectionModal" hidden aria-label="Museum collection index">
+      <div class="modal-shell full">
+        <div class="modal-head"><div><p class="eyebrow">Museum collection index</p><h2>People, systems, methods & ideas</h2></div><button class="close" data-close>×</button></div>
+        <div class="collection-tools"><input id="collectionSearch" type="search" placeholder="Search: Hamilton, compiler, UML, DevOps…" autocomplete="off" /><select id="collectionType"><option value="all">All types</option></select><span id="collectionCount"></span></div>
+        <div class="collection-grid" id="collectionGrid"></div>
+      </div>
+    </section>
+
+    <section class="modal" id="sourceModal" hidden aria-label="Primary source and coverage">
+      <div class="modal-shell full">
+        <div class="modal-head"><div><p class="eyebrow">Primary source + research wing</p><h2>Grady Booch · The History of Software Engineering · extended to 2026</h2></div><button class="close" data-close>×</button></div>
+        <div class="source-tabs"><button class="active" data-source-tab="coverage">Coverage audit</button><button data-source-tab="paper">Read the paper</button><button data-source-tab="research">Research beyond 2018</button><button data-source-tab="accuracy">Accuracy notes</button><button data-source-tab="references">References & Booch</button></div>
+        <div class="source-panel active" id="coveragePanel"><p class="source-intro">Every major section of the seven-page essay remains mapped to a physical gallery. The later galleries are explicitly labeled as a researched extension, so Booch’s 2018 claims and the museum’s 2019–2026 history are never silently blended.</p><div id="coverageGrid" class="coverage-grid"></div></div>
+        <div class="source-panel" id="paperPanel"><div class="paper-toolbar"><a href="./assets/paper/source.pdf" target="_blank">Open original PDF ↗</a><span>7 pages · IEEE Software, Sept/Oct 2018</span></div><div class="paper-grid" id="paperGrid"></div></div>
+        <div class="source-panel" id="researchPanel"><p class="source-intro">The research wing uses institutional histories, standards bodies, official project records and empirical research. Each research exhibit also links directly to the sources supporting its historical claims.</p><div id="researchGrid" class="research-grid"></div></div>
+        <div class="source-panel" id="accuracyPanel"><p class="source-intro">The museum is grounded in Booch’s essay, but a small number of dates, attributions and spellings are visibly corrected or expanded rather than silently repeated.</p><div id="accuracyGrid" class="accuracy-grid"></div></div><div class="source-panel" id="referencesPanel"><p class="source-intro">The essay closes with acknowledgments, ten references and a short author biography. They are preserved here so the museum covers the paper’s documentary apparatus as well as its narrative.</p><div id="referencesGrid" class="references-grid"></div></div>
+      </div>
+    </section>
+
+    <section class="modal" id="helpModal" hidden aria-label="Movement help">
+      <div class="modal-shell compact">
+        <div class="modal-head"><div><p class="eyebrow">Navigation</p><h2>Move like you are in a room</h2></div><button class="close" data-close>×</button></div>
+        <div class="help-grid">
+          <div><i class="mouse-icon big"></i><h3>Look around</h3><p>Hold the mouse button and drag left, right, up or down. On touch screens, drag anywhere that is not a button.</p></div>
+          <div><kbd>W A S D</kbd><h3>Walk</h3><p>W/S move forward and back. A/D strafe. Arrow keys work too. The mouse wheel also moves you forward/back.</p></div>
+          <div><span class="help-symbol">◎</span><h3>Inspect</h3><p>Move the center dot over a framed object or wall label. When its title appears, click to open the museum dossier.</p></div>
+          <div><span class="help-symbol">→</span><h3>Prefer a tour?</h3><p>Use Previous / Next Gallery at the bottom. The camera will move and turn through the building for you.</p></div>
+        </div>
+        <button id="resetView" class="secondary full-button">Reset me to the current gallery entrance</button>
+      </div>
+    </section>
+
+    <div class="loading" id="loading"><div class="loader-line"><span id="loadProgress"></span></div><p id="loadText">Constructing the museum…</p></div>
+    <div class="fatal" id="fatal" hidden><div><h2>The local 3D engine is not cached yet.</h2><p>From this folder run <code>python3 run_museum.py</code> once while online. It caches the pinned Three.js module and all historical wall media locally; later launches can be fully offline.</p></div></div>
+  </div>
+  <script type="module" src="./app.js?v=5.0.0"></script>
+</body>
+</html>
