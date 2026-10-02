@@ -10,11 +10,5 @@ nav_order: 3
     <h1 class="post-title">{{ page.title }}</h1>
   </header>
 
-  <iframe
-    src="{{ '/assets/pdf/cv.pdf' | relative_url }}"
-    title="Curriculum Vitae"
-    width="100%"
-    height="900"
-    style="border: 0;"
-  ></iframe>
+  <iframe src="{{ '/assets/pdf/cv.pdf' | relative_url }}" title="Curriculum Vitae" width="100%" height="900" style="border: 0;"></iframe>
 </div>
