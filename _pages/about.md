@@ -1,6 +1,6 @@
 ---
 layout: about
-title: Bio
+title: Home
 permalink: /
 subtitle: Software Engineer | Researcher
 
