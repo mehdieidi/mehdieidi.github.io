@@ -3,8 +3,8 @@ const ninja = document.querySelector('ninja-keys');
 
 // add the home and posts menu items
 ninja.data = [{
-    id: "nav-bio",
-    title: "Bio",
+    id: "nav-home",
+    title: "Home",
     section: "Navigation",
     handler: () => {
       window.location.href = "/";
@@ -16,13 +16,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "nav-blog",
-          title: "Blog",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/blog/";
-          },
         },{id: "nav-cv",
           title: "CV",
           description: "",
@@ -30,18 +23,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-before-taking-a-note-ask-39-so-what-39",
-        
-          title: "Before Taking a Note, Ask &#39;So What?!&#39;",
-        
-        description: "A skeptical person&#39;s perspective on note-taking, second brain, and why most notes are not worth writing.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/before-taking-a-note-ask-so-what/";
-          
-        },
-      },{
+        },{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
