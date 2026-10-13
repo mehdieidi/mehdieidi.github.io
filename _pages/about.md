@@ -2,7 +2,7 @@
 layout: about
 title: Home
 permalink: /
-subtitle: Software Engineer | Researcher
+subtitle: Software Engineering Researcher
 
 profile:
   align: right
@@ -34,3 +34,10 @@ I am a Master’s student in Software Engineering at [Sharif University of Techn
 As a member of the [Methodology Engineering Lab](https://www.sharif.ir/en/web/me_ce), I am currently working on my [thesis](https://www.sharif.ir/en/web/me_ce/w/mehdi-eidi) under the supervision of [Dr. Raman Ramsin](https://sharif.edu/~ramsin/). My research focuses on engineering an AI-assisted model-driven methodology for serverless software development.
 
 Alongside my academic work, I have also gained practical experience in the software industry, where I have been involved in the design and implementation of real-world software systems.
+
+<h2 class="h5 mt-4">Research Interests</h2>
+
+- Model-Driven Engineering
+- AI for Software Engineering
+- Software Process (Method) Engineering
+- Software Architecture
