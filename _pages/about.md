@@ -35,9 +35,13 @@ As a member of the [Methodology Engineering Lab](https://www.sharif.ir/en/web/me
 
 Alongside my academic work, I have also gained practical experience in the software industry, where I have been involved in the design and implementation of real-world software systems.
 
-<h2 class="h5 mt-4">Research Interests</h2>
+<section class="research-interests" markdown="1">
+
+<h2 class="h5">Research Interests</h2>
 
 - Model-Driven Engineering
 - AI for Software Engineering
 - Software Process (Method) Engineering
 - Software Architecture
+
+</section>
