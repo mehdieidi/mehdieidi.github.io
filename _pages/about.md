@@ -2,7 +2,7 @@
 layout: about
 title: Home
 permalink: /
-subtitle: Software Engineering Researcher
+subtitle: Researcher in Software Engineering
 
 profile:
   align: right
@@ -12,8 +12,7 @@ profile:
     <p style="font-size: 0.6rem; color: #b509ac">Methodology Engineering Lab, Room 612</p><br>
     <p style="font-size: 0.6rem; color: #b509ac">Department of Computer Science and Engineering</p><br>
     <p style="font-size: 0.6rem; color: #b509ac">Sharif University of Technology</p><br>
-    <p style="font-size: 0.6rem; color: #b509ac">Azadi Avenue</p><br>
-    <p style="font-size: 0.6rem; color: #b509ac">Tehran, Iran</p>
+    <img class="acm-member-badge" src="assets/img/acm_member.png" alt="ACM Member" width="96">
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page

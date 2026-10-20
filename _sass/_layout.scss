@@ -36,6 +36,14 @@ body.sticky-bottom-footer {
   img {
     width: 100%;
   }
+
+  .acm-member-badge {
+    display: block;
+    width: 96px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 1.25rem;
+  }
 }
 
 .about-content {
