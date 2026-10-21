@@ -9,9 +9,9 @@ profile:
   image: 47.png
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p style="font-size: 0.6rem; color: #b509ac">Methodology Engineering Lab, Room 612</p><br>
-    <p style="font-size: 0.6rem; color: #b509ac">Department of Computer Science and Engineering</p><br>
-    <p style="font-size: 0.6rem; color: #b509ac">Sharif University of Technology</p><br>
+    <p style="font-size: 0.6rem; color: #555555">Methodology Engineering Lab, Room 612</p><br>
+    <p style="font-size: 0.6rem; color: #555555">Department of Computer Science and Engineering</p><br>
+    <p style="font-size: 0.6rem; color: #555555">Sharif University of Technology</p><br>
     <img class="acm-member-badge" src="assets/img/acm_member.png" alt="ACM Member" width="96">
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
