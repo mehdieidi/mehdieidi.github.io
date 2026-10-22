@@ -53,21 +53,24 @@ body.sticky-bottom-footer {
   }
 
   .profile-logo--sharif {
-    width: 22%;
+    width: 18%;
     max-width: 58px;
     height: auto;
+    transform: translateY(1%);
   }
 
   .profile-logo--methodology-lab {
-    width: 36%;
-    max-width: 94px;
+    width: 64%;
+    max-width: 109px;
     height: auto;
+    transform: translateY(-1%);
   }
 
   .profile-logo--acm-member {
-    width: 34%;
+    width: 26%;
     max-width: 90px;
     height: auto;
+    transform: translateY(-8%);
   }
 }
 
