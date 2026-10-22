@@ -77,4 +77,16 @@ layout: default
       {% include newsletter.liquid center=true %}
     {% endif %}
   </article>
+
+  <dialog class="profile-logo-lightbox" aria-labelledby="profile-logo-lightbox-caption">
+    <button class="profile-logo-lightbox__close" type="button" aria-label="Close enlarged logo">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <figure class="profile-logo-lightbox__figure">
+      <img class="profile-logo-lightbox__image" alt="">
+      <figcaption class="profile-logo-lightbox__caption" id="profile-logo-lightbox-caption"></figcaption>
+    </figure>
+  </dialog>
 </div>
+
+<script defer src="{{ '/assets/js/profile-logo-lightbox.js' | relative_url | bust_file_cache }}"></script>
