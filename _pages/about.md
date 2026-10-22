@@ -12,7 +12,11 @@ profile:
     <p style="font-size: 0.6rem; color: #555555">Methodology Engineering Lab, Room 612</p><br>
     <p style="font-size: 0.6rem; color: #555555">Department of Computer Science and Engineering</p><br>
     <p style="font-size: 0.6rem; color: #555555">Sharif University of Technology</p><br>
-    <img class="acm-member-badge" src="assets/img/acm_member.png" alt="ACM Member" width="96"><img class="acm-member-badge" src="assets/img/me_lab.png" alt="ME Lab" width="96">
+    <div class="profile-logos">
+      <img class="profile-logo" src="assets/img/sharif.png" alt="Sharif University of Technology">
+      <img class="profile-logo" src="assets/img/me_lab.png" alt="Methodology Engineering Lab">
+      <img class="profile-logo" src="assets/img/acm_member.png" alt="ACM Member">
+    </div>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
