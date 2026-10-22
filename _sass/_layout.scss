@@ -40,19 +40,34 @@ body.sticky-bottom-footer {
   .profile-logos {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 0.75rem;
+    justify-content: center;
+    gap: 0.35rem;
     flex-wrap: wrap;
-    margin-top: 0.25rem;
+    margin-top: 0.65rem;
   }
 
-  .profile-logo {
+  .profile-logos .profile-logo {
     display: block;
-    width: auto;
-    max-width: 75px;
-    height: auto;
-    max-height: 56px;
+    flex: 0 0 auto;
     object-fit: contain;
+  }
+
+  .profile-logo--sharif {
+    width: 22%;
+    max-width: 58px;
+    height: auto;
+  }
+
+  .profile-logo--methodology-lab {
+    width: 36%;
+    max-width: 94px;
+    height: auto;
+  }
+
+  .profile-logo--acm-member {
+    width: 34%;
+    max-width: 90px;
+    height: auto;
   }
 }
 
