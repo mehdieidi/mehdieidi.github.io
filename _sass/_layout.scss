@@ -40,6 +40,7 @@ body.sticky-bottom-footer {
   .profile-logos {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 0.75rem;
     flex-wrap: wrap;
     margin-top: 0.25rem;
@@ -56,13 +57,23 @@ body.sticky-bottom-footer {
 }
 
 .about-content {
+  font-weight: 500;
+
   > p {
     text-align: justify;
   }
 
   .research-interests {
     margin: 3rem 0;
+
+    ul {
+      padding-left: 1rem;
+    }
   }
+}
+
+.about-subtitle {
+  margin-bottom: 1.5rem;
 }
 
 // TODO: redefine content layout.

@@ -13,9 +13,9 @@ profile:
     <p style="font-size: 0.6rem; color: #555555">Department of Computer Science and Engineering</p><br>
     <p style="font-size: 0.6rem; color: #555555">Sharif University of Technology</p><br>
     <div class="profile-logos">
-      <img class="profile-logo" src="assets/img/sharif.png" alt="Sharif University of Technology">
-      <img class="profile-logo" src="assets/img/me_lab.png" alt="Methodology Engineering Lab">
-      <img class="profile-logo" src="assets/img/acm_member.png" alt="ACM Member">
+      <img class="profile-logo profile-logo--sharif" src="assets/img/sharif.png" alt="Sharif University of Technology">
+      <img class="profile-logo profile-logo--methodology-lab" src="assets/img/me_lab.png" alt="Methodology Engineering Lab">
+      <img class="profile-logo profile-logo--acm-member" src="assets/img/acm_member.png" alt="ACM Member">
     </div>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
